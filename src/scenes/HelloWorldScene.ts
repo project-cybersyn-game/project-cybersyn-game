@@ -7,6 +7,7 @@ enum ImageNames
     Ground = 'ground',
     Dude = 'dude',
     Sign = 'sign',
+    TestTiles = 'testTiles'
 }
 
 export default class HelloWorldScene extends Phaser.Scene
@@ -33,11 +34,23 @@ export default class HelloWorldScene extends Phaser.Scene
                 frameWidth: 32, 
                 frameHeight: 48
             })
+        this.load.image(ImageNames.TestTiles, "https://labs.phaser.io/assets/tilemaps/tiles/ground_1x1.png")
     }
 
     create()
     {
-        this.add.image(400, 300, ImageNames.Ground).setScale(2)
+        
+        // Karte anhand der Tile-Indizes laden
+        const level = [
+            [ 0, 0, 0, 10, 6, 0, 0, 0, 0, 0, 0, 10, 6, 0, 0, 0, 0, 0, 0, 10, 6, 0, 0, 0 ],
+            [ 0, 0, 0, 12, 7, 2, 0, 0, 0, 0, 0, 12, 7, 2, 0, 0, 0, 0, 0, 12, 7, 2, 0, 0 ]
+        ]
+        const map = this.make.tilemap({ data: level, tileWidth: 32, tileHeight: 32})
+        const tiles = map.addTilesetImage(ImageNames.TestTiles)
+        const layer = map.createLayer(0, tiles, 0, 0)
+        
+        
+        //this.add.image(400, 300, ImageNames.Ground).setScale(2)
 
         //Objektgruppen erstellen
         const signs = this.physics.add.staticGroup()
@@ -48,7 +61,7 @@ export default class HelloWorldScene extends Phaser.Scene
 
         
         //Spielfigur erstellen
-        this.player = this.physics.add.sprite(100, 450, ImageNames.Dude).setScale(2).refreshBody()
+        this.player = this.physics.add.sprite(100, 450, ImageNames.Dude)
         this.player.setCollideWorldBounds(true)
         
         //Animationen für Spielfigur
