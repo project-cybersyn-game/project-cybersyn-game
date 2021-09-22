@@ -1,9 +1,7 @@
 {
 	"compilerOptions": {
-		"target": "es6",
-		"module": "es6",
+		"target": "es2021",
 		"strict": true,
-		"noImplicitAny": false,
 		"noEmit": true,
 		"allowJs": true,
 		"jsx": "preserve",
@@ -25,5 +23,5 @@
 			"Phaser"
 		]
 	  },
-	  "include": ["src/**/*"]
+	  "include": ["src/**/*.ts"]
 }
