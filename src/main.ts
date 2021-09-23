@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 
 import StandardScene from './scenes/HelloWorldScene'
+import SecondScene from './scenes/SecondScene'
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -13,7 +14,7 @@ const config: Phaser.Types.Core.GameConfig = {
     }
   },
   parent: 'game-canvas',
-  scene: [StandardScene]
+  scene: [StandardScene, SecondScene]
 }
 
 export default new Phaser.Game(config)
