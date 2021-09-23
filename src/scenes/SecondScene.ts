@@ -2,8 +2,7 @@ import GameScene from '../components/GameScene'
 
 enum ImageNames {
   Roof = 'roof',
-  Ground = 'ground',
-  Sign = 'sign',
+  Ground = 'ground-negative',
   Door = 'door',
 }
 
@@ -11,15 +10,14 @@ export default class HelloWorldScene extends GameScene {
   door!: Phaser.Types.Physics.Arcade.ImageWithDynamicBody
 
   constructor () {
-    super('hello-world')
+    super('second')
   }
 
   preload (): void {
     super.preload()
 
     this.load.image(ImageNames.Roof, 'images/rooftiles.png')
-    this.load.image(ImageNames.Ground, 'http://labs.phaser.io/assets/textures/soil.png')
-    this.load.image(ImageNames.Sign, 'http://labs.phaser.io/assets/sets/objects/sign1.png')
+    this.load.image(ImageNames.Ground, 'images/soil-negativ.png')
     this.load.image(ImageNames.Door, 'images/door.png')
   }
 
@@ -27,11 +25,9 @@ export default class HelloWorldScene extends GameScene {
     this.add.image(400, 300, ImageNames.Ground).setScale(2)
 
     // Objektgruppen erstellen
-    const signs = this.physics.add.staticGroup()
     const houses = this.physics.add.staticGroup()
 
     // statische Objekte erstellen
-    signs.create(300, 400, ImageNames.Sign)
 
     // Tür erstellen
     this.door = this.physics.add.image(250, 50, ImageNames.Door)
@@ -40,13 +36,12 @@ export default class HelloWorldScene extends GameScene {
     super.create()
 
     // Collider für Spielfigur und Objekte
-    this.physics.add.collider(this.player, signs)
     this.physics.add.collider(this.player, houses)
 
     // Tür betreten
     this.physics.add.overlap(this.player, this.door)
     this.door.on('enterzone', () => {
-      this.scene.switch('second')
+      this.scene.switch('hello-world')
       this.player.setY(this.player.y + 30)
     })
   }

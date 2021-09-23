@@ -7,6 +7,14 @@
 		"build": "parcel build src/index.html --out-dir dist",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.ts": "node_modules/.bin/eslint"
+	},
 	"author": "supertommy",
 	"license": "MIT",
 	"repository": {
@@ -15,16 +23,25 @@
 	},
 	"homepage": "https://github.com/ourcade/phaser3-parcel-template",
 	"devDependencies": {
-		"@babel/core": "^7.10.5",
-		"@babel/plugin-proposal-class-properties": "^7.10.4",
+		"@babel/core": "^7.15.5",
+		"@babel/plugin-proposal-class-properties": "^7.14.5",
+		"@typescript-eslint/eslint-plugin": "^4.31.2",
+		"@typescript-eslint/parser": "^4.31.2",
 		"babel-eslint": "^10.1.0",
-		"eslint": "^6.8.0",
-		"minimist": ">=1.2.2",
+		"eslint": "^7.32.0",
+		"eslint-config-standard": "^16.0.3",
+		"eslint-config-standard-with-typescript": "^21.0.1",
+		"eslint-plugin-import": "^2.24.2",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^5.1.0",
+		"minimist": ">=1.2.5",
 		"parcel-plugin-clean-easy": "^1.0.2",
-		"parcel-plugin-static-files-copy": "^2.4.3",
+		"parcel-plugin-static-files-copy": "^2.6.0",
 		"typescript": "^4.4.3"
 	},
 	"dependencies": {
+		"husky": "^7.0.2",
+		"lint-staged": "^11.1.2",
 		"phaser": "^3.55.2"
 	},
 	"parcelCleanPaths": [
