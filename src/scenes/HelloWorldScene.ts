@@ -24,7 +24,7 @@ export default class HelloWorldScene extends GameScene {
 		super('hello-world')
 	}
 
-	preload: void() {
+	preload(): void {
     super.preload()
 
     // Tilemap-Bilder laden
@@ -46,7 +46,7 @@ export default class HelloWorldScene extends GameScene {
 
   }
 
-  create: void() {
+  create(): void {
         
     // Spielfiguranimationen und CursorKeys erstellen
     super.create()
@@ -95,7 +95,7 @@ export default class HelloWorldScene extends GameScene {
       
   }
 
-  update (): void {
+  update(): void {
     super.update()
 
     const touching = this.door.body.touching
