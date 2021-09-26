@@ -102,7 +102,7 @@ export default class GameScene extends Phaser.Scene {
       repeat: -1
     })
 
-    //Pfeiltasten "erstellen"
+    // Pfeiltasten "erstellen"
     this.cursors = this.input.keyboard.createCursorKeys()
   }
 
