@@ -1,4 +1,4 @@
-import Phaser from 'phaser'
+import GameScene from '../components/GameScene'
 
 
 enum ImageNames
@@ -12,16 +12,15 @@ enum ImageNames
     TileB = 'tileb',
     TileC = 'tilec',
     TileD = 'tiled',
-    TileE = 'tilee'
+    TileE = 'tilee',
+    Door = 'door'
 }
 
-export default class HelloWorldScene extends Phaser.Scene
+export default class HelloWorldScene extends GameScene
 {
+    door!: Phaser.Types.Physics.Arcade.ImageWithDynamicBody
 	
-    //Klassenvariablen festlegen
-    cursors
-    player
-    movementState = { 'type': 'idle', 'direction': 'down' }
+    
     
     constructor()
 	{
@@ -30,6 +29,8 @@ export default class HelloWorldScene extends Phaser.Scene
 
 	preload()
     {
+        super.preload()
+
         // Tilemap-Bilder laden
         this.load.image(ImageNames.TileA1, 'tilesets/tilea1.png')
         this.load.image(ImageNames.TileA2, 'tilesets/tilea2.png')
@@ -44,19 +45,18 @@ export default class HelloWorldScene extends Phaser.Scene
         // Tilemap-JSON laden
         this.load.tilemapTiledJSON('map', 'tilemaps/TestTilemap.json')
 
-        // Spielfigur laden
-        this.load.spritesheet(
-            ImageNames.Dude, 
-            'character_sprites/char.png', 
-            {
-                frameWidth: 25, 
-                frameHeight: 25
-            })
+        // sonstige Bilder laden
+        this.load.image(ImageNames.Door, 'images/door.png')
+
+        
     }
 
     create()
     {
         
+        // Spielfiguranimationen und CursorKeys erstellen
+        super.create()
+
         // Tilemap erstellen
         const map = this.make.tilemap( {key: 'map'} )
 
@@ -70,12 +70,14 @@ export default class HelloWorldScene extends Phaser.Scene
         tileset.push(map.addTilesetImage( 'tilec', ImageNames.TileC ))
         tileset.push(map.addTilesetImage( 'tiled', ImageNames.TileD ))
         tileset.push(map.addTilesetImage( 'tilee', ImageNames.TileE ))
+
         
         
 
-        // Layer und Player in der richtigen Reihenfolge erstellen
+        // Layer, Objekte und Player in der richtigen Reihenfolge erstellen
         const groundLayer = map.createLayer( '1_Ground', tileset )
         const groundOverlayLayer = map.createLayer( '2_Ground_Overlay', tileset )
+        this.door = this.physics.add.image(250, 50, ImageNames.Door)
         this.player = this.physics.add.sprite(100, 450, ImageNames.Dude).setScale(1.5).refreshBody()
         const objectLayer = map.createLayer( '3_Objects', tileset)
         const objectOverlayLayer = map.createLayer( '4_Objects_Overlay', tileset)
@@ -90,124 +92,28 @@ export default class HelloWorldScene extends Phaser.Scene
         this.player.setCollideWorldBounds(true)
         this.physics.add.collider(this.player, objectLayer)
         
-        
-        // Animationen für Spielfigur
-        // walk animations
-        this.anims.create({
-            key: 'walk_left',
-            frames: this.anims.generateFrameNumbers(ImageNames.Dude, {
-                start: 40, 
-                end: 47
-            }),
-            frameRate: 10,
-            repeat: -1
+        // Tür betreten
+        this.physics.add.overlap(this.player, this.door)
+        this.door.on('enterzone', () => {
+            this.scene.switch('second')
+            this.player.setY(this.player.y + 30)
         })
-        this.anims.create({
-            key: 'walk_right',
-            frames: this.anims.generateFrameNumbers(ImageNames.Dude, {
-                start: 32, 
-                end: 39
-            }),
-            frameRate: 10,
-            repeat: -1
-        })
-        this.anims.create({
-            key: 'walk_up',
-            frames: this.anims.generateFrameNumbers(ImageNames.Dude, {
-                start: 24, 
-                end: 31
-            }),
-            frameRate: 10,
-            repeat: -1
-        })
-        this.anims.create({
-            key: 'walk_down',
-            frames: this.anims.generateFrameNumbers(ImageNames.Dude, {
-                start: 16, 
-                end: 23
-            }),
-            frameRate: 10,
-            repeat: -1
-        })
-        // idle animations
-        this.anims.create({
-            key: 'idle_left',
-            frames: this.anims.generateFrameNumbers(ImageNames.Dude, {
-                start: 14, 
-                end: 12
-            }),
-            frameRate: 5,
-            repeat: -1
-        })
-        this.anims.create({
-            key: 'idle_right',
-            frames: this.anims.generateFrameNumbers(ImageNames.Dude, {
-                start: 8, 
-                end: 11
-            }),
-            frameRate: 5,
-            repeat: -1
-        })
-        this.anims.create({
-            key: 'idle_up',
-            frames: this.anims.generateFrameNumbers(ImageNames.Dude, {
-                start: 4, 
-                end: 7
-            }),
-            frameRate: 5,
-            repeat: -1
-        })
-        this.anims.create({
-            key: 'idle_down',
-            frames: this.anims.generateFrameNumbers(ImageNames.Dude, {
-                start: 0, 
-                end: 3
-            }),
-            frameRate: 5,
-            repeat: -1
-        })
-
-        
-        //Pfeiltasten "erstellen"
-        this.cursors = this.input.keyboard.createCursorKeys()
-
         
     }
 
     update() 
     {
         
-        //Aktionen bei Pfeiltastendruck festlegen
-        // up/down
-        if (this.cursors.up.isDown) {
-            this.player.setVelocityY(-160)
-            this.movementState.type = 'walk'
-            this.movementState.direction = 'up'
-        } else if (this.cursors.down.isDown) {
-            this.player.setVelocityY(160)
-            this.movementState.type = 'walk'
-            this.movementState.direction = 'down'
-        } else {
-            this.player.setVelocityY(0)
+        super.update()
 
-            this.movementState.type = 'idle'
+        const touching = this.door.body.touching
+        const wasTouching = this.door.body.wasTouching
+
+        if (touching.none && !wasTouching.none) {
+          this.door.emit('leavezone')
+        } else if (!touching.none && wasTouching.none) {
+          this.door.emit('enterzone')
         }
-        // left/right
-        if (this.cursors.left.isDown) {
-            this.player.setVelocityX(-160)
-            this.movementState.type = 'walk'
-            this.movementState.direction = 'left'
-        }
-        else if (this.cursors.right.isDown) {
-            this.player.setVelocityX(160)
-            this.movementState.type = 'walk'
-            this.movementState.direction = 'right'
-        } else {
-            this.player.setVelocityX(0)
-        }
-        
-        
-        this.player.anims.play( this.movementState.type + '_' + this.movementState.direction, true )
         
 
     }
