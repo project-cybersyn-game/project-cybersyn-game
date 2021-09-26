@@ -1,6 +1,7 @@
 import GameScene from '../components/GameScene'
 
 enum ImageNames {
+  Dude = 'dude',
   Roof = 'roof',
   Ground = 'ground-negative',
   Door = 'door',
@@ -34,6 +35,7 @@ export default class HelloWorldScene extends GameScene {
 
     // Spielfigur und deren Animationen erstellen
     super.create()
+    this.player = this.physics.add.sprite(100, 450, ImageNames.Dude).setScale(1.5).refreshBody()
 
     // Collider für Spielfigur und Objekte
     this.physics.add.collider(this.player, houses)
