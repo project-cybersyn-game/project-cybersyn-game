@@ -1,8 +1,6 @@
 import GameScene from '../components/GameScene'
 
-
-enum ImageNames
-{
+enum ImageNames {
   Dude = 'dude',
   TileA1 = 'tilea1',
   TileA2 = 'tilea2',
@@ -18,13 +16,12 @@ enum ImageNames
 
 export default class HelloWorldScene extends GameScene {
   door!: Phaser.Types.Physics.Arcade.ImageWithDynamicBody
-	
-    
-  constructor() {
-		super('hello-world')
-	}
 
-	preload(): void {
+  constructor () {
+    super('hello-world')
+  }
+
+  preload (): void {
     super.preload()
 
     // Tilemap-Bilder laden
@@ -43,41 +40,35 @@ export default class HelloWorldScene extends GameScene {
 
     // sonstige Bilder laden
     this.load.image(ImageNames.Door, 'images/door.png')
-
   }
 
-  create(): void {
-        
+  create (): void {
     // Spielfiguranimationen und CursorKeys erstellen
     super.create()
 
     // Tilemap erstellen
-    const map = this.make.tilemap( {key: 'map'} )
+    const map = this.make.tilemap({ key: 'map' })
 
     // Tileset-Bilder einem Array hinzufügen
-    var tileset = [map.addTilesetImage( 'tilea1', ImageNames.TileA1 )]
-    tileset.push(map.addTilesetImage( 'tilea2', ImageNames.TileA2 ))
-    tileset.push(map.addTilesetImage( 'tilea3', ImageNames.TileA3 ))
-    tileset.push(map.addTilesetImage( 'tilea4', ImageNames.TileA4 ))
-    tileset.push(map.addTilesetImage( 'tilea5', ImageNames.TileA5 ))
-    tileset.push(map.addTilesetImage( 'tileb', ImageNames.TileB ))
-    tileset.push(map.addTilesetImage( 'tilec', ImageNames.TileC ))
-    tileset.push(map.addTilesetImage( 'tiled', ImageNames.TileD ))
-    tileset.push(map.addTilesetImage( 'tilee', ImageNames.TileE ))
-
-        
-        
+    var tileset = [map.addTilesetImage('tilea1', ImageNames.TileA1)]
+    tileset.push(map.addTilesetImage('tilea2', ImageNames.TileA2))
+    tileset.push(map.addTilesetImage('tilea3', ImageNames.TileA3))
+    tileset.push(map.addTilesetImage('tilea4', ImageNames.TileA4))
+    tileset.push(map.addTilesetImage('tilea5', ImageNames.TileA5))
+    tileset.push(map.addTilesetImage('tileb', ImageNames.TileB))
+    tileset.push(map.addTilesetImage('tilec', ImageNames.TileC))
+    tileset.push(map.addTilesetImage('tiled', ImageNames.TileD))
+    tileset.push(map.addTilesetImage('tilee', ImageNames.TileE))
 
     // Layer, Objekte und Player in der richtigen Reihenfolge erstellen
-    const groundLayer = map.createLayer( '1_Ground', tileset )
-    const groundOverlayLayer = map.createLayer( '2_Ground_Overlay', tileset )
+    const groundLayer = map.createLayer('1_Ground', tileset)
+    const groundOverlayLayer = map.createLayer('2_Ground_Overlay', tileset)
     this.door = this.physics.add.image(250, 50, ImageNames.Door)
     this.player = this.physics.add.sprite(100, 450, ImageNames.Dude).setScale(1.5).refreshBody()
-    const objectLayer = map.createLayer( '3_Objects', tileset)
-    const objectOverlayLayer = map.createLayer( '4_Objects_Overlay', tileset)
-    const objectOverlayOverlayLayer = map.createLayer( '5_Objects_Overlay_Overlay', tileset)
+    const objectLayer = map.createLayer('3_Objects', tileset)
+    const objectOverlayLayer = map.createLayer('4_Objects_Overlay', tileset)
+    const objectOverlayOverlayLayer = map.createLayer('5_Objects_Overlay_Overlay', tileset)
 
-        
     // Kollisionseigenschaft spezieller Tiles entsprechender Ebenen setzen
     // Kollision ist hierbei abhängig von der in der JSON festgelegten "collide"-Variable einzelner Tiles
     objectLayer.setCollisionByProperty({ collides: true })
@@ -85,17 +76,16 @@ export default class HelloWorldScene extends GameScene {
     // Playerkollision setzen
     this.player.setCollideWorldBounds(true)
     this.physics.add.collider(this.player, objectLayer)
-    
+
     // Tür betreten
     this.physics.add.overlap(this.player, this.door)
     this.door.on('enterzone', () => {
       this.scene.switch('second')
       this.player.setY(this.player.y + 30)
     })
-      
   }
 
-  update(): void {
+  update (): void {
     super.update()
 
     const touching = this.door.body.touching
