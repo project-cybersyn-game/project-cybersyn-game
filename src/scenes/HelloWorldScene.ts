@@ -1,4 +1,6 @@
 import GameScene from '../components/GameScene'
+import { GridEngineConfig } from 'grid-engine'
+import { createCharacterSprite, basicMovement } from '../helpers/Characters'
 
 enum ImageNames {
   Dude = 'dude',
@@ -47,10 +49,10 @@ export default class HelloWorldScene extends GameScene {
     super.create()
 
     // Tilemap erstellen
-    const map = this.make.tilemap({ key: 'map' })
+    const map: Phaser.Tilemaps.Tilemap = this.make.tilemap({ key: 'map' })
 
     // Tileset-Bilder einem Array hinzufügen
-    var tileset = [map.addTilesetImage('tilea1', ImageNames.TileA1)]
+    const tileset = [map.addTilesetImage('tilea1', ImageNames.TileA1)]
     tileset.push(map.addTilesetImage('tilea2', ImageNames.TileA2))
     tileset.push(map.addTilesetImage('tilea3', ImageNames.TileA3))
     tileset.push(map.addTilesetImage('tilea4', ImageNames.TileA4))
@@ -64,18 +66,32 @@ export default class HelloWorldScene extends GameScene {
     const groundLayer = map.createLayer('1_Ground', tileset)
     const groundOverlayLayer = map.createLayer('2_Ground_Overlay', tileset)
     this.door = this.physics.add.image(250, 50, ImageNames.Door)
-    this.player = this.physics.add.sprite(100, 450, ImageNames.Dude).setScale(1.5).refreshBody()
-    const objectLayer = map.createLayer('3_Objects', tileset)
+    // this.player = this.physics.add.sprite(100, 450, ImageNames.Dude).setScale(1.5).refreshBody()
+    // const objectLayer = map.createLayer('3_Objects', tileset)
     const objectOverlayLayer = map.createLayer('4_Objects_Overlay', tileset)
     const objectOverlayOverlayLayer = map.createLayer('5_Objects_Overlay_Overlay', tileset)
 
     // Kollisionseigenschaft spezieller Tiles entsprechender Ebenen setzen
     // Kollision ist hierbei abhängig von der in der JSON festgelegten "collide"-Variable einzelner Tiles
-    objectLayer.setCollisionByProperty({ collides: true })
+    // objectLayer.setCollisionByProperty({ collides: true })
 
     // Playerkollision setzen
-    this.player.setCollideWorldBounds(true)
-    this.physics.add.collider(this.player, objectLayer)
+    // this.player.setCollideWorldBounds(true)
+    // this.physics.add.collider(this.player, objectLayer)
+
+    const playerSprite = createCharacterSprite(this, 50, 300, ImageNames.Dude, 1.5)
+
+    const gridEngineConfig: GridEngineConfig = {
+      characters: [
+        {
+          id: 'player',
+          sprite: playerSprite,
+          startPosition: { x: 50, y: 300 }
+        }
+      ]
+    }
+
+    this.gridEngine.create(map, gridEngineConfig)
 
     // Tür betreten
     this.physics.add.overlap(this.player, this.door)
@@ -96,5 +112,7 @@ export default class HelloWorldScene extends GameScene {
     } else if (!touching.none && wasTouching.none) {
       this.door.emit('enterzone')
     }
+
+    basicMovement(this, 'player')
   }
 }

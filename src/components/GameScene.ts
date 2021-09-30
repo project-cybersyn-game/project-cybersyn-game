@@ -1,4 +1,6 @@
 import Phaser from 'phaser'
+import { GridEngine } from 'grid-engine'
+
 
 enum ImageNames {
   Dude = 'dude',
@@ -9,6 +11,7 @@ export default class GameScene extends Phaser.Scene {
   cursors!: Phaser.Types.Input.Keyboard.CursorKeys
   player!: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody
   movementState = { type: 'idle', direction: 'down' }
+  public gridEngine!: GridEngine
 
   preload (): void {
     this.load.spritesheet(
@@ -22,10 +25,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create (): void {
-    // Spielfigur erstellen
-    // this.player = this.physics.add.sprite(100, 450, ImageNames.Dude).setScale(2).refreshBody()
-    // this.player.setCollideWorldBounds(true)
-
     // Animationen für Spielfigur
     // walk animations
     this.anims.create({
@@ -103,13 +102,13 @@ export default class GameScene extends Phaser.Scene {
     })
 
     // Pfeiltasten "erstellen"
-    this.cursors = this.input.keyboard.createCursorKeys()
+    // this.cursors = this.input.keyboard.createCursorKeys()
   }
 
   update (): void {
     // Aktionen bei Pfeiltastendruck festlegen
     // up/down
-    if (this.cursors.up.isDown) {
+    /* if (this.cursors.up.isDown) {
       this.player.setVelocityY(-160)
       this.movementState.type = 'walk'
       this.movementState.direction = 'up'
@@ -132,9 +131,9 @@ export default class GameScene extends Phaser.Scene {
       this.movementState.direction = 'right'
     } else {
       this.player.setVelocityX(0)
-    }
+    } */
 
     // Animationen abhängig von movement type und direction abspielen
-    this.player.anims.play(this.movementState.type + '_' + this.movementState.direction, true)
+    // this.player.anims.play(this.movementState.type + '_' + this.movementState.direction, true)
   }
 }
