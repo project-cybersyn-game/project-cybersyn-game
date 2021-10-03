@@ -1,3 +1,4 @@
+import { GridEngine } from 'grid-engine'
 import { createCharacterSprite } from '~/helpers/Characters'
 import GameScene from '../components/GameScene'
 
@@ -62,12 +63,15 @@ export default class HelloWorldScene extends GameScene {
     tileset.push(map.addTilesetImage('tilee', ImageNames.TileE))
 
     // Layer, Objekte und Player in der richtigen Reihenfolge erstellen
-    const groundLayer = map.createLayer('1_Ground', tileset)
-    const groundOverlayLayer = map.createLayer('2_Ground_Overlay', tileset)
+    map.createLayer('1_Ground', tileset)
+    map.createLayer('2_Ground_Overlay', tileset)
     this.door = this.physics.add.image(250, 50, ImageNames.Door)
-    const objectLayer = map.createLayer('3_Objects', tileset)
-    const objectOverlayLayer = map.createLayer('4_Objects_Overlay', tileset)
-    const objectOverlayOverlayLayer = map.createLayer('5_Objects_Overlay_Overlay', tileset)
+    map.createLayer('3_Objects', tileset)
+    map.createLayer('5_Objects_Overlay_hs', tileset)
+    map.createLayer('4_Objects_Overlay', tileset)
+    map.createLayer('6_Objects_Overlay_Overlay', tileset)
+
+    console.log(map)
 
     // Hier kommt die bescheuerte Grid-Engine zum Einsatz. Sie hasst mich zutiefst. Bitte funktionier dieses Mal.
     // Na geht doch! >:)

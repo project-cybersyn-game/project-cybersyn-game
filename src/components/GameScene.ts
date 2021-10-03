@@ -8,9 +8,8 @@ enum ImageNames {
 export default class GameScene extends Phaser.Scene {
   // Klassenvariablen festlegen
   cursors!: Phaser.Types.Input.Keyboard.CursorKeys
-  movementState = { type: 'idle', direction: 'down' }
   gridEngine: any
-  playerSprite!: Phaser.GameObjects.Sprite
+  playerSprite!: Phaser.Physics.Arcade.Sprite
 
   preload (): void {
     this.load.spritesheet(

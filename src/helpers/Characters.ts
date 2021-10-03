@@ -1,5 +1,6 @@
 import GameScene from '../components/GameScene'
 import { Direction } from 'grid-engine'
+import Phaser from 'phaser'
 
 export function createCharacterSprite (
   scene: GameScene,
@@ -7,8 +8,8 @@ export function createCharacterSprite (
   y: number,
   texture: string,
   scale: number
-): Phaser.GameObjects.Sprite {
-  const sprite = scene.add.sprite(x, y, texture)
+): Phaser.Physics.Arcade.Sprite {
+  const sprite: Phaser.Physics.Arcade.Sprite = scene.physics.add.sprite(x, y, texture)
   sprite.scale = scale
 
   return sprite
@@ -18,36 +19,30 @@ export function basicMovement (
   scene: GameScene,
   id: string = 'player',
   gridEngine: any,
-  playerSprite: any
+  playerSprite: Phaser.Physics.Arcade.Sprite
 ): void {
   const cursors = scene.input.keyboard.createCursorKeys()
 
+  console.log(gridEngine.isMoving(id))
   // Aktionen bei Pfeiltastendruck festlegen
-  // up/down
-  if (cursors.up.isDown) {
-    gridEngine.move(id, Direction.UP)
-    scene.movementState.type = 'walk'
-    scene.movementState.direction = 'up'
-  } else if (cursors.down.isDown) {
-    gridEngine.move(id, Direction.DOWN)
-    scene.movementState.type = 'walk'
-    scene.movementState.direction = 'down'
-  } else {
-    scene.movementState.type = 'idle'
-  }
-  // left/right
-  if (cursors.left.isDown) {
-    gridEngine.move(id, Direction.LEFT)
-    scene.movementState.type = 'walk'
-    scene.movementState.direction = 'left'
-  } else if (cursors.right.isDown) {
-    gridEngine.move(id, Direction.RIGHT)
-    scene.movementState.type = 'walk'
-    scene.movementState.direction = 'right'
+  if (gridEngine.isMoving(id) === false) {
+    if (cursors.up.isDown) {
+      gridEngine.move(id, Direction.UP)
+    } else if (cursors.down.isDown) {
+      gridEngine.move(id, Direction.DOWN)
+    } else if (cursors.left.isDown) {
+      gridEngine.move(id, Direction.LEFT)
+    } else if (cursors.right.isDown) {
+      gridEngine.move(id, Direction.RIGHT)
+    }
   }
 
-  // Animationen abhängig von movement type und direction abspielen
-  playerSprite.anims.play(scene.movementState.type + '_' + scene.movementState.direction, true)
+  // Animationen abhängig von Bewegung und Blickrichtung abspielen
+  if (gridEngine.isMoving(id) === false) {
+    playerSprite.anims.play('idle_' + String(gridEngine.getFacingDirection(id)), true)
+  } else {
+    playerSprite.anims.play('walk_' + String(gridEngine.getFacingDirection(id)), true)
+  }
 }
 
 export function createAnims (
