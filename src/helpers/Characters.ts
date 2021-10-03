@@ -26,6 +26,19 @@ export function basicMovement (
   console.log(gridEngine.isMoving(id))
   // Aktionen bei Pfeiltastendruck festlegen
   if (gridEngine.isMoving(id) === false) {
+    // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
+    if (
+      gridEngine.getPosition(id).y !== ((gridEngine.getSprite(id).getBottomCenter().y / 32) - 1) ||
+      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+      gridEngine.getPosition(id).x !== (((gridEngine.getSprite(id).getBottomCenter().x + 15.25) / 32) - 1)
+    ) {
+      console.log('bad shit happening')
+      gridEngine.setPosition(id, gridEngine.getPosition(id))
+    }
+    console.log(gridEngine.getPosition(id))
+    console.log(gridEngine.getSprite(id).getBottomCenter())
+
+    // Movement itself
     if (cursors.up.isDown) {
       gridEngine.move(id, Direction.UP)
     } else if (cursors.down.isDown) {

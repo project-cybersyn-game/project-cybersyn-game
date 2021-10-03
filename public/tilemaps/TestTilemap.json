@@ -60,22 +60,6 @@
          "id":12,
          "name":"5_Objects_Overlay_hs",
          "opacity":1,
-         "properties":[
-                {
-                 "name":"ge_alwaysTop",
-                 "type":"bool",
-                 "value":false
-                }, 
-                {
-                 "name":"ge_charLayer",
-                 "type":"string",
-                 "value":"ground"
-                }, 
-                {
-                 "name":"ge_heightShift",
-                 "type":"int",
-                 "value":1
-                }],
          "type":"tilelayer",
          "visible":true,
          "width":100,

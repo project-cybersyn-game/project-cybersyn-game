@@ -66,12 +66,12 @@ export default class HelloWorldScene extends GameScene {
     map.createLayer('1_Ground', tileset)
     map.createLayer('2_Ground_Overlay', tileset)
     this.door = this.physics.add.image(250, 50, ImageNames.Door)
-    map.createLayer('3_Objects', tileset)
     map.createLayer('5_Objects_Overlay_hs', tileset)
+    map.createLayer('3_Objects', tileset)
     map.createLayer('4_Objects_Overlay', tileset)
     map.createLayer('6_Objects_Overlay_Overlay', tileset)
 
-    console.log(map)
+    console.log(map.getLayer('5_Objects_Overlay_hs'))
 
     // Hier kommt die bescheuerte Grid-Engine zum Einsatz. Sie hasst mich zutiefst. Bitte funktionier dieses Mal.
     // Na geht doch! >:)
