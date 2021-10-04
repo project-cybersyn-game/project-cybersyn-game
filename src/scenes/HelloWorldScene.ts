@@ -1,5 +1,5 @@
-import { GridEngine } from 'grid-engine'
 import { createCharacterSprite } from '~/helpers/Characters'
+import { createMap } from '~/helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 
 enum ImageNames {
@@ -49,29 +49,25 @@ export default class HelloWorldScene extends GameScene {
     super.create()
 
     // Tilemap erstellen
-    const map: Phaser.Tilemaps.Tilemap = this.make.tilemap({ key: 'map' })
+    const map = createMap(
+      this,
+      'map',
+      [
+        { tilesetName: 'tilea1', image: (ImageNames.TileA1) },
+        { tilesetName: 'tilea2', image: (ImageNames.TileA2) },
+        { tilesetName: 'tilea3', image: (ImageNames.TileA3) },
+        { tilesetName: 'tilea4', image: (ImageNames.TileA4) },
+        { tilesetName: 'tilea5', image: (ImageNames.TileA5) },
+        { tilesetName: 'tileb', image: (ImageNames.TileB) },
+        { tilesetName: 'tilec', image: (ImageNames.TileC) },
+        { tilesetName: 'tiled', image: (ImageNames.TileD) },
+        { tilesetName: 'tilee', image: (ImageNames.TileE) }
+      ],
+      ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay', '5_Objects_Overlay_hs', '6_Objects_Overlay_Overlay']
+    ).tilemap
 
-    // Tileset-Bilder einem Array hinzufügen
-    const tileset = [map.addTilesetImage('tilea1', ImageNames.TileA1)]
-    tileset.push(map.addTilesetImage('tilea2', ImageNames.TileA2))
-    tileset.push(map.addTilesetImage('tilea3', ImageNames.TileA3))
-    tileset.push(map.addTilesetImage('tilea4', ImageNames.TileA4))
-    tileset.push(map.addTilesetImage('tilea5', ImageNames.TileA5))
-    tileset.push(map.addTilesetImage('tileb', ImageNames.TileB))
-    tileset.push(map.addTilesetImage('tilec', ImageNames.TileC))
-    tileset.push(map.addTilesetImage('tiled', ImageNames.TileD))
-    tileset.push(map.addTilesetImage('tilee', ImageNames.TileE))
-
-    // Layer, Objekte und Player in der richtigen Reihenfolge erstellen
-    map.createLayer('1_Ground', tileset)
-    map.createLayer('2_Ground_Overlay', tileset)
+    // Objekte erstellen
     this.door = this.physics.add.image(250, 50, ImageNames.Door)
-    map.createLayer('5_Objects_Overlay_hs', tileset)
-    map.createLayer('3_Objects', tileset)
-    map.createLayer('4_Objects_Overlay', tileset)
-    map.createLayer('6_Objects_Overlay_Overlay', tileset)
-
-    console.log(map.getLayer('5_Objects_Overlay_hs'))
 
     // Hier kommt die bescheuerte Grid-Engine zum Einsatz. Sie hasst mich zutiefst. Bitte funktionier dieses Mal.
     // Na geht doch! >:)

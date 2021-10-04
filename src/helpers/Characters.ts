@@ -2,6 +2,7 @@ import GameScene from '../components/GameScene'
 import { Direction } from 'grid-engine'
 import Phaser from 'phaser'
 
+/** this functions creates a character sprite at the given coordinates on the map and scales the sprite. */
 export function createCharacterSprite (
   scene: GameScene,
   x: number,
@@ -15,6 +16,9 @@ export function createCharacterSprite (
   return sprite
 }
 
+/** This function is used for grid-based movement of a character sprite in four directions.
+ *  It also prevents positioning errors that come with the GridEngine plugin and plays movement animations.
+ */
 export function basicMovement (
   scene: GameScene,
   id: string = 'player',
@@ -23,21 +27,26 @@ export function basicMovement (
 ): void {
   const cursors = scene.input.keyboard.createCursorKeys()
 
-  console.log(gridEngine.isMoving(id))
-  // Aktionen bei Pfeiltastendruck festlegen
-  if (gridEngine.isMoving(id) === false) {
-    // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
-    if (
+  // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
+  if (
+    gridEngine.isMoving(id) === false &&
+    (
       gridEngine.getPosition(id).y !== ((gridEngine.getSprite(id).getBottomCenter().y / 32) - 1) ||
       // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
       gridEngine.getPosition(id).x !== (((gridEngine.getSprite(id).getBottomCenter().x + 15.25) / 32) - 1)
-    ) {
-      console.log('bad shit happening')
-      gridEngine.setPosition(id, gridEngine.getPosition(id))
-    }
-    console.log(gridEngine.getPosition(id))
-    console.log(gridEngine.getSprite(id).getBottomCenter())
+    )
+  ) {
+    // Position neu setzen
+    const x = (((Math.round(gridEngine.getSprite(id).getBottomCenter().x) + 15) / 32) - 1)
+    const y = ((Math.round(gridEngine.getSprite(id).getBottomCenter().y) / 32) - 1)
+    gridEngine.setPosition(id, { x: x, y: y })
+  }
 
+  // I know that it seems unnecessary to have multiple if-statements that do the same.
+  // It just works better like this. Don't change it please. :)
+
+  // actual movement
+  if (gridEngine.isMoving(id) === false) {
     // Movement itself
     if (cursors.up.isDown) {
       gridEngine.move(id, Direction.UP)
@@ -50,7 +59,7 @@ export function basicMovement (
     }
   }
 
-  // Animationen abhängig von Bewegung und Blickrichtung abspielen
+  // movement animations according to movement and direction
   if (gridEngine.isMoving(id) === false) {
     playerSprite.anims.play('idle_' + String(gridEngine.getFacingDirection(id)), true)
   } else {
@@ -58,6 +67,7 @@ export function basicMovement (
   }
 }
 
+/** This functions creates movement animations. */
 export function createAnims (
   scene: GameScene,
   imageName: string
