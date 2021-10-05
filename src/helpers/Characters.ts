@@ -25,8 +25,6 @@ export function basicMovement (
   gridEngine: any,
   playerSprite: Phaser.Physics.Arcade.Sprite
 ): void {
-  const cursors = scene.input.keyboard.createCursorKeys()
-
   // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
   if (
     gridEngine.isMoving(id) === false &&
@@ -48,13 +46,13 @@ export function basicMovement (
   // actual movement
   if (gridEngine.isMoving(id) === false) {
     // Movement itself
-    if (cursors.up.isDown) {
+    if (scene.cursors.up.isDown) {
       gridEngine.move(id, Direction.UP)
-    } else if (cursors.down.isDown) {
+    } else if (scene.cursors.down.isDown) {
       gridEngine.move(id, Direction.DOWN)
-    } else if (cursors.left.isDown) {
+    } else if (scene.cursors.left.isDown) {
       gridEngine.move(id, Direction.LEFT)
-    } else if (cursors.right.isDown) {
+    } else if (scene.cursors.right.isDown) {
       gridEngine.move(id, Direction.RIGHT)
     }
   }

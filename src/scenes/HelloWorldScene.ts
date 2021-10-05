@@ -1,4 +1,5 @@
 import { createCharacterSprite } from '~/helpers/Characters'
+import { createDoor } from '~/helpers/Interactions'
 import { createMap } from '~/helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 
@@ -82,24 +83,11 @@ export default class HelloWorldScene extends GameScene {
     }
     this.gridEngine.create(map, gridEngineConfig)
 
-    // Tür betreten
-    this.physics.add.overlap(this.playerSprite, this.door)
-    this.door.on('enterzone', () => {
-      this.scene.switch('second')
-      this.playerSprite.setY(this.playerSprite.y + 30)
-    })
+    // creating all doors
+    createDoor(this, 19, 17, 'second')
   }
 
   update (): void {
     super.update()
-
-    const touching = this.door.body.touching
-    const wasTouching = this.door.body.wasTouching
-
-    if (touching.none && !wasTouching.none) {
-      this.door.emit('leavezone')
-    } else if (!touching.none && wasTouching.none) {
-      this.door.emit('enterzone')
-    }
   }
 }
