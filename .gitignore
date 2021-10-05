@@ -3,3 +3,7 @@
 /node_modules
 /package-lock.json
 /.DS_Store
+.vscode/settings.json
+.parcel-cache/687f8a990313aa2f.txt
+.parcel-cache/data.mdb
+.parcel-cache/lock.mdb

@@ -1,3 +1,6 @@
+import { createCharacterSprite } from '~/helpers/Characters'
+import { createDoor } from '~/helpers/Interactions'
+import { createMap } from '~/helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 
 enum ImageNames {
@@ -47,54 +50,44 @@ export default class HelloWorldScene extends GameScene {
     super.create()
 
     // Tilemap erstellen
-    const map = this.make.tilemap({ key: 'map' })
+    const map = createMap(
+      this,
+      'map',
+      [
+        { tilesetName: 'tilea1', image: (ImageNames.TileA1) },
+        { tilesetName: 'tilea2', image: (ImageNames.TileA2) },
+        { tilesetName: 'tilea3', image: (ImageNames.TileA3) },
+        { tilesetName: 'tilea4', image: (ImageNames.TileA4) },
+        { tilesetName: 'tilea5', image: (ImageNames.TileA5) },
+        { tilesetName: 'tileb', image: (ImageNames.TileB) },
+        { tilesetName: 'tilec', image: (ImageNames.TileC) },
+        { tilesetName: 'tiled', image: (ImageNames.TileD) },
+        { tilesetName: 'tilee', image: (ImageNames.TileE) }
+      ],
+      ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay', '5_Objects_Overlay_hs', '6_Objects_Overlay_Overlay']
+    ).tilemap
 
-    // Tileset-Bilder einem Array hinzufügen
-    var tileset = [map.addTilesetImage('tilea1', ImageNames.TileA1)]
-    tileset.push(map.addTilesetImage('tilea2', ImageNames.TileA2))
-    tileset.push(map.addTilesetImage('tilea3', ImageNames.TileA3))
-    tileset.push(map.addTilesetImage('tilea4', ImageNames.TileA4))
-    tileset.push(map.addTilesetImage('tilea5', ImageNames.TileA5))
-    tileset.push(map.addTilesetImage('tileb', ImageNames.TileB))
-    tileset.push(map.addTilesetImage('tilec', ImageNames.TileC))
-    tileset.push(map.addTilesetImage('tiled', ImageNames.TileD))
-    tileset.push(map.addTilesetImage('tilee', ImageNames.TileE))
-
-    // Layer, Objekte und Player in der richtigen Reihenfolge erstellen
-    const groundLayer = map.createLayer('1_Ground', tileset)
-    const groundOverlayLayer = map.createLayer('2_Ground_Overlay', tileset)
+    // Objekte erstellen
     this.door = this.physics.add.image(250, 50, ImageNames.Door)
-    this.player = this.physics.add.sprite(100, 450, ImageNames.Dude).setScale(1.5).refreshBody()
-    const objectLayer = map.createLayer('3_Objects', tileset)
-    const objectOverlayLayer = map.createLayer('4_Objects_Overlay', tileset)
-    const objectOverlayOverlayLayer = map.createLayer('5_Objects_Overlay_Overlay', tileset)
 
-    // Kollisionseigenschaft spezieller Tiles entsprechender Ebenen setzen
-    // Kollision ist hierbei abhängig von der in der JSON festgelegten "collide"-Variable einzelner Tiles
-    objectLayer.setCollisionByProperty({ collides: true })
+    // Hier kommt die bescheuerte Grid-Engine zum Einsatz. Sie hasst mich zutiefst. Bitte funktionier dieses Mal.
+    // Na geht doch! >:)
+    this.playerSprite = createCharacterSprite(this, 0, 0, ImageNames.Dude, 1.5)
+    const gridEngineConfig = {
+      characters: [
+        {
+          id: 'player',
+          sprite: this.playerSprite
+        }
+      ]
+    }
+    this.gridEngine.create(map, gridEngineConfig)
 
-    // Playerkollision setzen
-    this.player.setCollideWorldBounds(true)
-    this.physics.add.collider(this.player, objectLayer)
-
-    // Tür betreten
-    this.physics.add.overlap(this.player, this.door)
-    this.door.on('enterzone', () => {
-      this.scene.switch('second')
-      this.player.setY(this.player.y + 30)
-    })
+    // creating all doors
+    createDoor(this, 19, 17, 'second')
   }
 
   update (): void {
     super.update()
-
-    const touching = this.door.body.touching
-    const wasTouching = this.door.body.wasTouching
-
-    if (touching.none && !wasTouching.none) {
-      this.door.emit('leavezone')
-    } else if (!touching.none && wasTouching.none) {
-      this.door.emit('enterzone')
-    }
   }
 }

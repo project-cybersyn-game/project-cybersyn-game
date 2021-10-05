@@ -40,9 +40,10 @@
 		"typescript": "^4.4.3"
 	},
 	"dependencies": {
+		"grid-engine": "^2.10.0",
 		"husky": "^7.0.2",
 		"lint-staged": "^11.1.2",
-		"phaser": "^3.55.2"
+		"phaser": "~3.55.2"
 	},
 	"parcelCleanPaths": [
 		"dist"
