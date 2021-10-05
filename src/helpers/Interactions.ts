@@ -22,8 +22,6 @@ export function updateDoors (
   scene: GameScene
 ): void {
   scene.doors.forEach(door => {
-    console.debug(scene.gridEngine.getFacingPosition('player').equals({ x: door.x, y: door.y }) === true &&
-    scene.interactionKey.isDown)
     if (
       scene.gridEngine.getFacingPosition('player').equals({ x: door.x, y: door.y }) === true &&
       scene.interactionKey.isDown
