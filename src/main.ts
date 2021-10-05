@@ -1,6 +1,5 @@
 import Phaser from 'phaser'
 import { GridEngine } from 'grid-engine'
-
 import StandardScene from './scenes/HelloWorldScene'
 import SecondScene from './scenes/SecondScene'
 
