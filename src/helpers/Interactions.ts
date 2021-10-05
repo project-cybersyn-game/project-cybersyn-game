@@ -39,7 +39,7 @@ export function npcInteraction (
       scene.gridEngine.getFacingPosition('player').equals(scene.gridEngine.getPosition(npc.name)) === true &&
       scene.interactionKey.isDown
     ) {
-      npc.action(scene)
+      npc.action(scene, npc.name)
     }
   })
 }

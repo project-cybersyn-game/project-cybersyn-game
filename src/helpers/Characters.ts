@@ -5,7 +5,7 @@ import Phaser from 'phaser'
 /** Interface to identify NPCs and to store the action to perform when the player interarcts with them. */
 export interface NPC {
   readonly name: string
-  readonly action: (scene: GameScene) => void
+  readonly action: (scene: GameScene, npcName: string) => void
 }
 
 /** this functions creates a character sprite at the given coordinates on the map and scales the sprite. */
@@ -163,7 +163,7 @@ export function addNpc (
   texture: string,
   scale: number,
   walkingAnimationMapping?: number | WalkingAnimationMapping,
-  action?: (scene: GameScene) => void
+  action?: (scene: GameScene, npcName: string) => void
 ): void {
   const npcSprite = createCharacterSprite(scene, 0, 0, texture, scale)
 

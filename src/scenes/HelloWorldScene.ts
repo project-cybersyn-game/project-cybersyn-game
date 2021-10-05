@@ -91,6 +91,11 @@ export default class HelloWorldScene extends GameScene {
 
     // adding all NPCs
     addNpc(this, 10, 10, ImageNames.NPCs, 1.2, 1)
+    addNpc(this, 10, 15, ImageNames.NPCs, 1.2, 2,
+      () => {
+        this.gridEngine.moveRandomly('NPC1', 3, 5)
+      }
+    )
   }
 
   update (): void {
