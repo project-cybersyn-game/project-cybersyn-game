@@ -31,6 +31,7 @@ export function updateDoors (
   })
 }
 
+/** This function is for interacting with NPCs and then executing the action set in the associated NPC object. */
 export function npcInteraction (
   scene: GameScene
 ): void {
