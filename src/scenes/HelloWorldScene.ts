@@ -1,4 +1,4 @@
-import { createCharacterSprite } from '~/helpers/Characters'
+import { addNpc, createCharacterSprite } from '~/helpers/Characters'
 import { createDoor } from '~/helpers/Interactions'
 import { createMap } from '~/helpers/Tilemaps'
 import GameScene from '../components/GameScene'
@@ -14,12 +14,11 @@ enum ImageNames {
   TileC = 'tilec',
   TileD = 'tiled',
   TileE = 'tilee',
-  Door = 'door'
+  Door = 'door',
+  NPCs = 'npcs'
 }
 
 export default class HelloWorldScene extends GameScene {
-  door!: Phaser.Types.Physics.Arcade.ImageWithDynamicBody
-
   constructor () {
     super('hello-world')
   }
@@ -42,7 +41,14 @@ export default class HelloWorldScene extends GameScene {
     this.load.tilemapTiledJSON('map', 'tilemaps/TestTilemap.json')
 
     // sonstige Bilder laden
-    this.load.image(ImageNames.Door, 'images/door.png')
+    this.load.spritesheet(
+      ImageNames.NPCs,
+      'character_sprites/characters.png',
+      {
+        frameWidth: 26,
+        frameHeight: 36
+      }
+    )
   }
 
   create (): void {
@@ -67,9 +73,6 @@ export default class HelloWorldScene extends GameScene {
       ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay', '5_Objects_Overlay_hs', '6_Objects_Overlay_Overlay']
     ).tilemap
 
-    // Objekte erstellen
-    this.door = this.physics.add.image(250, 50, ImageNames.Door)
-
     // Hier kommt die bescheuerte Grid-Engine zum Einsatz. Sie hasst mich zutiefst. Bitte funktionier dieses Mal.
     // Na geht doch! >:)
     this.playerSprite = createCharacterSprite(this, 0, 0, ImageNames.Dude, 1.5)
@@ -83,8 +86,11 @@ export default class HelloWorldScene extends GameScene {
     }
     this.gridEngine.create(map, gridEngineConfig)
 
-    // creating all doors
+    // creating all doors / doorpositions
     createDoor(this, 19, 17, 'second')
+
+    // adding all NPCs
+    addNpc(this, 10, 10, ImageNames.NPCs, 1.2, 1)
   }
 
   update (): void {

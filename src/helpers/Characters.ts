@@ -1,6 +1,12 @@
 import GameScene from '../components/GameScene'
-import { Direction } from 'grid-engine'
+import { Direction, WalkingAnimationMapping } from 'grid-engine'
 import Phaser from 'phaser'
+
+/** Interface to identify NPCs and to store the action to perform when the player interarcts with them. */
+export interface NPC {
+  readonly name: string
+  readonly action: (scene: GameScene) => void
+}
 
 /** this functions creates a character sprite at the given coordinates on the map and scales the sprite. */
 export function createCharacterSprite (
@@ -145,4 +151,65 @@ export function createAnims (
     frameRate: 5,
     repeat: -1
   })
+}
+
+/** This function is used to create an NPC using a spritesheet.
+ *  For addional information on walkingAnimationMapping check https://annoraaq.github.io/grid-engine/api/config.html
+ */
+export function addNpc (
+  scene: GameScene,
+  xPos: integer,
+  yPos: integer,
+  texture: string,
+  scale: number,
+  walkingAnimationMapping?: number | WalkingAnimationMapping,
+  action?: (scene: GameScene) => void
+): void {
+  const npcSprite = createCharacterSprite(scene, 0, 0, texture, scale)
+
+  if (typeof walkingAnimationMapping === 'undefined') {
+    walkingAnimationMapping = {
+      up: {
+        leftFoot: 36,
+        standing: 37,
+        rightFoot: 38
+      },
+      right: {
+        leftFoot: 24,
+        standing: 25,
+        rightFoot: 26
+      },
+      down: {
+        leftFoot: 0,
+        standing: 1,
+        rightFoot: 2
+      },
+      left: {
+        leftFoot: 12,
+        standing: 13,
+        rightFoot: 14
+      }
+    }
+  }
+
+  scene.gridEngine.addCharacter(
+    {
+      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+      id: ('NPC' + scene.npcs.length),
+      sprite: npcSprite,
+      startPosition: { x: xPos, y: yPos },
+      walkingAnimationMapping: walkingAnimationMapping,
+      facingDirection: 'down'
+    }
+  )
+
+  if (typeof action === 'undefined') {
+    action = (scene: GameScene): void => {
+      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+      console.debug('NPC' + scene.npcs.length + ' has no assigned action.')
+    }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+  scene.npcs.push({ name: ''.concat('NPC' + scene.npcs.length), action: action })
 }
