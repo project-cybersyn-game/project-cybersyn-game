@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
-import { basicMovement, createAnims, NPC } from '~/helpers/Characters'
-import { Door, npcInteraction, updateDoors } from '~/helpers/Interactions'
+import { basicMovement, createAnims, NPC } from '../helpers/Characters'
+import { Door, npcInteraction, updateDoors } from '../helpers/Interactions'
 
 enum ImageNames {
   Dude = 'dude',

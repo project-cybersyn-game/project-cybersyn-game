@@ -13,7 +13,7 @@ jobs:
       - name: Install and Build 🔧 # This is built using npm and outputs the result to the 'build' folder.
         run: |
           npm install
-          npm install -g parcel-bundler
+          npm install -g parcel
           npm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5

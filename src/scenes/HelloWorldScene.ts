@@ -1,6 +1,6 @@
-import { addNpc, createCharacterSprite } from '~/helpers/Characters'
-import { createDoor } from '~/helpers/Interactions'
-import { createMap } from '~/helpers/Tilemaps'
+import { addNpc, createCharacterSprite } from '../helpers/Characters'
+import { createDoor } from '../helpers/Interactions'
+import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 
 enum ImageNames {
