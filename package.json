@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "A template project for Phaser 3 using Parceljs",
 	"scripts": {
-		"start": "parcel src/index.html -p 8000",
+		"start": "parcel src/index.html -p 8000 --public-url ./",
 		"build": "parcel build src/index.html --dist-dir dist",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
