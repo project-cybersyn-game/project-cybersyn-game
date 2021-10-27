@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
-import { basicMovement, createAnims, NPC } from '../helpers/Characters'
-import { Door, npcInteraction, updateDoors } from '../helpers/Interactions'
+import { basicMovement, createAnims } from '../helpers/Characters'
+import { Door, updateDoors } from '../helpers/Doors'
+import { NpcsAndObjects } from '../helpers/NpcsAndObjects'
 
 enum ImageNames {
   Dude = 'dude',
@@ -13,7 +14,7 @@ export default class GameScene extends Phaser.Scene {
   gridEngine: any
   playerSprite!: Phaser.Physics.Arcade.Sprite
   doors: Door[] = []
-  npcs: NPC[] = []
+  npcsAndObjectsArray: NpcsAndObjects[] = []
 
   preload (): void {
     this.load.spritesheet(
@@ -35,6 +36,7 @@ export default class GameScene extends Phaser.Scene {
   update (): void {
     basicMovement(this, 'player', this.gridEngine, this.playerSprite)
     updateDoors(this)
-    npcInteraction(this)
+    // npcInteraction(this)
+    NpcsAndObjects.interaction(this)
   }
 }
