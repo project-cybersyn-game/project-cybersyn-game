@@ -1,5 +1,7 @@
-import { addNpc, createCharacterSprite } from '../helpers/Characters'
-import { createDoor } from '../helpers/Interactions'
+/* eslint-disable no-new */
+// import { addNpc } from '../helpers/Characters'
+import { createCharacterSprite, Npcs, Objects } from '../helpers/Objects'
+import { createDoor } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 
@@ -36,6 +38,8 @@ export default class HelloWorldScene extends GameScene {
     this.load.image(ImageNames.TileC, 'tilesets/tilec.png')
     this.load.image(ImageNames.TileD, 'tilesets/tiled.png')
     this.load.image(ImageNames.TileE, 'tilesets/tilee.png')
+
+    this.load.image(ImageNames.Door, 'images/door.png')
 
     // Tilemap-JSON laden
     this.load.tilemapTiledJSON('map', 'tilemaps/TestTilemap.json')
@@ -89,13 +93,16 @@ export default class HelloWorldScene extends GameScene {
     // creating all doors / doorpositions
     createDoor(this, 19, 17, 'second')
 
-    // adding all NPCs
-    addNpc(this, 10, 10, ImageNames.NPCs, 1.2, 1)
-    addNpc(this, 10, 15, ImageNames.NPCs, 1.2, 2,
-      () => {
-        this.gridEngine.moveRandomly('NPC1', 3, 5)
-      }
-    )
+    // adding NPCs and pushable objects
+    new Npcs(this, 10, 15, ImageNames.NPCs, 1.2, undefined)
+    new Npcs(this, 10, 10, ImageNames.NPCs, 1.2,
+      (
+        scene: GameScene,
+        name: String
+      ) => {
+        scene.gridEngine.moveRandomly(name, 3, 5)
+      }, 3)
+    new Objects(this, 5, 10, ImageNames.Door, 0.5)
   }
 
   update (): void {
