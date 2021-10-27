@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 import { basicMovement, createAnims } from '../helpers/Characters'
 import { Door, updateDoors } from '../helpers/Doors'
-import { NpcsAndObjects } from '../helpers/Objects'
+import { NpcsAndObjects } from '../helpers/NpcsAndObjects'
 
 enum ImageNames {
   Dude = 'dude',
