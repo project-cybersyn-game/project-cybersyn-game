@@ -1,4 +1,4 @@
-29211
+29227
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uri-js\LICENSE132798114259940311 0
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\ajax\ajax.js132798114276675792 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\util\isDate.js132798114306779916 0
@@ -48,7 +48,7 @@
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uri-js\dist\esnext\schemes\urn-uuid.js.map132798114288745781 0
 108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\features\reflect\own-keys.js132798114326206699 0
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\terser\lib\compress\drop-side-effect-free.js132798114287845790 0
-86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\components\GameScene.ts132798236311744713 0
+86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\components\GameScene.ts132798361095696664 0
 88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\follow-redirects132798114273395807 1
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\ajv\lib\dotjs\index.js132798114291145799 0
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\css-what\readme.md132798114276405782 0
@@ -74,7 +74,7 @@
 88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash.camelcase132798114265170346 1
 120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\tilemaps\typedefs\FilteringOptions.js132798114315606734 0
 72C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\jsconfig.json132763853961463749 0
-74C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.html132798236379370162 0
+74C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.html132799215944961963 0
 81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uniq\test132798114271575794 1
 108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\caniuse-lite\data\browserVersions.js132798114294926679 0
 82C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\micromatch132798114267640321 1
@@ -160,7 +160,7 @@
 104C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\transformer-posthtml\src132798114270350335 1
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\acorn-walk\README.md132798114265690316 0
 134C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\util\canReportError.js132798114297876692 0
-63C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist132798339404194878 1
+63C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist132799339412569113 1
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\tough-cookie\node_modules132798114233733749 1
 130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint-utils\node_modules\eslint-visitor-keys\lib\index.js132798114267060315 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\operators\toArray.js.map132798114332746676 0
@@ -176,6 +176,15 @@
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\json-schema-traverse\spec\fixtures132798114275075795 1
 87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\sprintf-js\test132798114282475782 1
 69C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\.gitignore132773161410659264 0
+105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2020\IsPropertyKey.js132798114310916691 0
+130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\observable\bindCallbackInternals.js132798114296536706 0
+131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\src\internal\operators\pairwise.ts132798114347746691 0
+91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\fastest-levenshtein132798114275835822 1
+85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\pn\process.js132798114285635802 0
+93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\node-forge\lib\xhr.js132798114294496683 0
+87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\has\LICENSE-MIT132798114261760319 0
+136C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\gameobjects\particles\ParticleManagerWebGLRenderer.js132798114328736675 0
+86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\scenes\MainMenuScene.ts132799339407909012 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\array-includes\test\implementation.js132798114275835822 0
 68C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\.parcelrc132797524343994741 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\nullthrows\package.json132798114260200316 0
@@ -214,7 +223,7 @@
 81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\jsesc\man132798114273165808 1
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\type-fest\index.d.ts132798114283355791 0
 108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\lib\rules\no-useless-catch.js132798114305379929 0
-71C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules132798114357503197 1
+71C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules132799241452364144 1
 111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\display\color\Interpolate.js132798114324646689 0
 111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\msgpackr-extract\prebuilds\darwin-arm64132798114294186684 1
 139C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\typescript\loc\lcl\ESN\Targets\TypeScriptProjectProperties.xaml.lcl132798114320446692 0
@@ -222,7 +231,7 @@
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\url\node_modules\punycode132798114266290300 1
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\cssstyle\lib\parsers.js132798114280875804 0
 121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules\node_modules\postcss\package.json132798114288405792 0
-76C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\package-lock.json132798114357224185 0
+76C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\package-lock.json132799257458236168 0
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\styles\components\game-canvas.css132771373636421222 0
 105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\utils\array\Replace.js132798114336046714 0
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\typescript\loc\lcl\ESN132798114320856679 1
@@ -233,7 +242,7 @@
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\es\string\virtual\fontsize.js132798114318176676 0
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\function-bind\test132798114278135797 1
 131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\stream-browserify\node_modules\readable-stream\lib\internal132798114274935811 1
-71C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\package.json132797524344004714 0
+71C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\package.json132799241461604011 0
 68C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\README.md132797524343994741 0
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\combined-stream\yarn.lock132798114265680321 0
 89C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\typescript\lib\it132798114289335783 1
@@ -249,6 +258,29 @@
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\sound\typedefs\index.js132798114323916706 0
 140C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\observable\BoundNodeCallbackObservable.d.ts132798114340716699 0
 120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\last.d.ts.map132798114325906698 0
+91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\yaml\browser\seq.js132798114289755801 0
+124C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\log-update\node_modules\color-convert\conversions.js132798114264610313 0
+125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\add\operator\windowWhen.d.ts132798114352416681 0
+118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\util\isScheduler.js.map132798114325776705 0
+131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\operators\mergeAll.js.map132798114331206703 0
+78C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\format132798114274425787 1
+85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\pn\cluster.js132798114275735816 0
+86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\nwsapi\LICENSE132798114259720309 0
+131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\operators\window.js132798114323426702 0
+122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\reporter-dev-server\lib\templates\404.html132798114267700327 0
+100C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\timers-browserify\LICENSE.md132798114266060330 0
+87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\xxhash-wasm\umd132798114274565805 1
+99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash\_cloneArrayBuffer.js132798114297826693 0
+111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\tsconfig-paths\lib\tsconfig-loader.d.ts132798114285885810 0
+117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\caniuse-lite\data\features\referrer-policy.js132798114314806729 0
+100C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\lib\shared\logging.js132798114298916690 0
+88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\helpers\NpcsAndObjects.ts132798361017540000 0
+131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\scope-manager\dist\lib\es2018.promise.js132798114290705808 0
+143C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint-plugin-node\node_modules\eslint-plugin-es\lib\rules\no-symbol.js132798114296256707 0
+111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\utility-types\dist\utility-types.js.map132798114278225804 0
+129C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uncss\node_modules\postcss-selector-parser\dist\parser.js132798114288615782 0
+120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\runtime-js\lib\helpers\node\js-loader.js132798114285915795 0
+121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\wrap-ansi\node_modules\color-convert\package.json132798114260320311 0
 99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\css-tree\lib\lexer\Lexer.js132798114294726689 0
 110C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-minify-selectors\dist\index.js132798114265940318 0
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\process-nextick-args\license.md132798114263600315 0
@@ -299,8 +331,6 @@
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@nodelib\fs.stat\out132798114281905957 1
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\modules\es.typed-array.includes.js132798114311066674 0
 105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-value-parser\lib\parse.js132798114264460303 0
-87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\browserify-zlib132798114278215785 1
-81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\helpers\Objects.ts132798337281474855 0
 81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\colorette132798114273495792 1
 99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\to-fast-properties\index.js132798114262010327 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\physics\arcade\events\PAUSE_EVENT.js132798114328881030 0
@@ -313,7 +343,7 @@
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\modules\esnext.map.merge.js132798114313926690 0
 83C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\url\test.js132798114273535807 0
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\slice-ansi\node_modules\ansi-styles132798114267740308 1
-84C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\helpers\Characters.ts132798235429963690 0
+84C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\helpers\Characters.ts132798358845586027 0
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\transformer-image\lib\loadSharp.js132798114267180311 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\refs\data.json132798114297836683 0
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\tweens\typedefs\GetEndCallback.js132798114318006684 0
@@ -356,7 +386,7 @@
 131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\operators\sampleTime.d.ts132798114349286688 0
 82C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\extsprintf132798114275235828 1
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\utils\array\EachInRange.js132798114313826699 0
-73C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\index.html132775998869380149 0
+73C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\index.html132799237485000517 0
 74C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\static\tilesets132797524344494777 1
 135C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\observable\using.js.map132798114338256679 0
 105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-selector-parser\dist\util132798114292361332 1
@@ -513,7 +543,7 @@
 82C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\path-parse132798114265180346 1
 115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\config.js132798114300206677 0
 132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\dist\vocabularies\jtd\elements.js.map132798114300026681 0
-70C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\helpers132798235844667813 1
+70C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\helpers132798361017542659 1
 93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint-plugin-promise132798114287155777 1
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\src\internal\util\createErrorClass.ts132798114335796697 0
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\error-ex\README.md132798114265800307 0
@@ -536,7 +566,7 @@
 98C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash\fp\padCharsStart.js132798114316946680 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\loader\events\ADD_EVENT.js132798114286035800 0
 139C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\vocabularies\validation\limitContains.ts132798114307496683 0
-70C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\main.ts132779493474016783 0
+70C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\main.ts132799266624617690 0
 101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\v8-compile-cache\CHANGELOG.md132798114266510564 0
 115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\tsutils\node_modules\tslib\modules\index.js132798114271285840 0
 146C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\typescript\loc\lcl\CHT\TypeScriptDebugEngine\TypeScriptDebugEngine.dll.lcl132798114319656690 0
@@ -544,7 +574,7 @@
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\jsdom\lib\jsdom\living\generated\ShadowRoot.js132798114302766674 0
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\randomfill\.zuul.yml132798114263840308 0
 99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\timers-browserify\README.md132798114269550320 0
-69C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\scenes132797524344014680 1
+69C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\scenes132799046925029957 1
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\typescript\lib\lib.es2017.full.d.ts132798114295106677 0
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uri-js\dist\esnext\schemes\urn.d.ts132798114291495820 0
 91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\assert-plus\AUTHORS132798114265650319 0
@@ -576,7 +606,7 @@
 137C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm2015\internal\operators\auditTime.js132798114294626695 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\src\internal\operators\concat.ts132798114335526705 0
 136C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\tilemaps\components\SetCollisionFromCollisionGroup.js132798114337536698 0
-72C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\style.css132771375230608666 0
+72C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\style.css132799273187996576 0
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\lib\rules\unicode-bom.js132798114308976722 0
 115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\tilemaps\components\GetTileAt.js132798114319146703 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\src\scheduler\queue.ts132798114348416688 0
@@ -589,7 +619,7 @@
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\dist\compile132798114310436683 1
 87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\qs\package.json132798114259690327 0
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@babel\core\lib\parser\index.js132798114289845780 0
-90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\.package-lock.json132798114357503197 0
+90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\.package-lock.json132799257458436487 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@babel\types\lib\validators\isType.js132798114296306692 0
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\types.js.map132798114332856687 0
 130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\ignoreElements.d.ts.map132798114324680462 0
@@ -599,7 +629,7 @@
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@swc\helpers\src\_skip_first_generator_next.js132798114297086700 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\node_modules\semver\functions\coerce.js132798114274965785 0
 80C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\asynckit132798114276215797 1
-88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\scenes\HelloWorldScene.ts132798339399740638 0
+88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\scenes\HelloWorldScene.ts132798361136441312 0
 122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\operator\partition.js.map132798114333786679 0
 122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\dist\compile\jtd\parse.d.ts132798114308686698 0
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\src\internal\operators\dematerialize.ts132798114335986796 0
@@ -628,7 +658,7 @@
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\jsdom\lib\jsdom\living\generated\SVGTests.js132798114303576690 0
 154C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\experimental-utils\dist\ast-utils\eslint-utils\scopeAnalysis.js132798114290105830 0
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\verror\node_modules\core-util-is\lib\util.js132798114272755792 0
-79C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\helpers\Doors.ts132798236817375852 0
+79C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\src\helpers\Doors.ts132798357601365011 0
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\svgo\dist\svgo.browser.js132798114294936681 0
 79C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\asn1.js132798114283745792 1
 89C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\tr46\node_modules132798114233733749 1
@@ -700,7 +730,7 @@
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\renderer\webgl\RenderTarget.js132798114335926700 0
 91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-symbol\.eslintrc132798114263730309 0
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\typescript\loc132798114319236690 1
-78C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@types132798114233563740 1
+78C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@types132799241146634041 1
 75C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\ajv132798114296256707 1
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint132798114233643739 1
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\visitor-keys\README.md132798114281115818 0
@@ -1096,6 +1126,7 @@
 127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-scope\node_modules\postcss\lib\parse.js132798114287045789 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\highlight.js\lib\languages\inform7.js132798114300086676 0
 88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\https-browserify132798114265430317 1
+87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\browserify-zlib132798114278215785 1
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\operators132798114336879608 1
 102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\core\src\buildCache.js132798114288675785 0
 111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\node_modules\ignore\package.json132798114265660335 0
@@ -1288,6 +1319,8 @@
 110C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\features\number\parse-float.js132798114326466683 0
 82C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\randomfill132798114274485781 1
 125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\jsdom\lib\jsdom\living\nodes\HTMLDListElement-impl.js132798114306696681 0
+92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\packager-svg132798114266700305 1
+117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\dist\webfont-loader.js132799241460664009 0
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\console-browserify132798114277385800 1
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\types.js.map132798114338196672 0
 120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\caniuse-lite\data\features\picture-in-picture.js132798114314086698 0
@@ -1548,8 +1581,8 @@
 80C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\inflight132798114265160331 1
 132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\caniuse-lite\data\features\keyboardevent-getmodifierstate.js132798114309916677 0
 98C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\grid-engine\dist\main.d.ts132798114290455807 0
-125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetRectangleToRectangle.js132798114318856675 0
 93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-normalize-url132798114265920316 1
+125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetRectangleToRectangle.js132798114318856675 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\util\isScheduler.d.ts132798114337279583 0
 104C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\tsutils\typeguard\next\node.d.ts132798114294296697 0
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\operators\raceWith.js132798114313106724 0
@@ -1741,6 +1774,7 @@
 104C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-normalize-display-values132798114272185792 1
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\tsutils\typeguard\3.2\type.d.ts132798114294706701 0
 89C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\terser\lib\cli.js132798114285365815 0
+107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\.eslintrc.js132799241460644033 0
 110C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-unique-selectors\dist\index.js132798114262300318 0
 102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\w3c-xmlserializer\package.json132798114259710317 0
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\whatwg-url\LICENSE.txt132798114278905847 0
@@ -1928,10 +1962,6 @@
 120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\physics\arcade\events\RESUME_EVENT.js132798114336216677 0
 88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\fast-levenshtein132798114265200317 1
 93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\object.assign\auto.js132798114271705787 0
-105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2020\IsPropertyKey.js132798114310916691 0
-130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\observable\bindCallbackInternals.js132798114296536706 0
-131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\src\internal\operators\pairwise.ts132798114347746691 0
-91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\fastest-levenshtein132798114275835822 1
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-extract-imports\lib132798114263830317 1
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\internals\html.js132798114320380393 0
 126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\runtime\validation_error.ts132798114310526678 0
@@ -1951,12 +1981,6 @@
 77C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\fastq132798114278635808 1
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\escodegen\node_modules\prelude-ls\CHANGELOG.md132798114266200319 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\symbol\iterator.js.map132798114325826675 0
-125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\operators\windowToggle.js.map132798114333786679 0
-91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\require-from-string132798114265620303 1
-127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\publishBehavior.d.ts132798114338266674 0
-132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\operators\shareReplay.d.ts132798114349666687 0
-96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\posthtml-parser\.huskyrc132798114263930298 0
-126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetRectangleIntersection.js132798114318836694 0
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\domain-browser\HISTORY.md132798114264490319 0
 77C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\fault132798114265220344 1
 130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal-compatibility\index.d.ts132798114344596734 0
@@ -2037,13 +2061,6 @@
 93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\get-intrinsic\.github132798114277175838 1
 89C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\create132798114322216693 1
 85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\forever-agent132798114265090318 1
-91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\yaml\browser\seq.js132798114289755801 0
-124C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\log-update\node_modules\color-convert\conversions.js132798114264610313 0
-125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\add\operator\windowWhen.d.ts132798114352416681 0
-118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\util\isScheduler.js.map132798114325776705 0
-131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\operators\mergeAll.js.map132798114331206703 0
-78C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\format132798114274425787 1
-85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\pn\cluster.js132798114275735816 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\util\arrRemove.js132798114293531324 0
 122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\caniuse-lite\data\features\css-element-function.js132798114298946680 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\resolve\test\node_path\x\aaa\index.js132798114289805797 0
@@ -2359,13 +2376,6 @@
 85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\normalize-url132798114269320302 1
 126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\gameobjects\shape\ellipse\EllipseFactory.js132798114314146688 0
 115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\min.d.ts132798114337686685 0
-100C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@babel\core\lib\config\files132798114282085832 1
-130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\src\internal\operators\endWith.ts132798114342980870 0
-122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\node_modules\semver\functions\prerelease.js132798114289495795 0
-115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\physics\matter-js\lib\constraint132798114327046711 1
-107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uri-js\dist\esnext\regexps-iri.d.ts132798114290680271 0
-108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2019\IsDataDescriptor.js132798114309536706 0
-128C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\supports-hyperlinks\node_modules\supports-color\index.js132798114264060344 0
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\modules\esnext.string.replace-all.js132798114315126687 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\plugins\camera3d\webpack.config.js132798114343986687 0
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-date-object132798114277325799 1
@@ -2584,9 +2594,9 @@
 102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\pbkdf2\lib\default-encoding.js132798114266570327 0
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\internals\path.js132798114326566696 0
 88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\url\node_modules132798114233703749 1
+121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetTriangleToCircle.js132798114319306688 0
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\lib\rules\no-return-await.js132798114304096685 0
 78C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash132798114322236684 1
-121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetTriangleToCircle.js132798114319306688 0
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\ajax132798114325056724 1
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\index.js132798114322796702 0
 98C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\modules\web.url.js132798114333556696 0
@@ -2919,6 +2929,9 @@
 101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\stringify-object\package.json132798114260860321 0
 87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\execa\readme.md132798114278665790 0
 87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\yallist\LICENSE132798114259860323 0
+117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\features\typed-array\float32-array.js132798114317926681 0
+94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader132799241460734034 1
+131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\AsyncSubject.js.map132798114324906687 0
 82C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\picocolors132798114273005873 1
 98C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\assert\build\internal\util132798114276695786 1
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\colord\plugins\xyz.d.ts132798114290595975 0
@@ -3149,6 +3162,11 @@
 133C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint-plugin-node\node_modules\eslint-plugin-es\lib\utils.js132798114296656686 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\math\easing\cubic\index.js132798114323286683 0
 84C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uuid\AUTHORS132798114259680309 0
+125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\operators\windowToggle.js.map132798114333786679 0
+91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\require-from-string132798114265620303 1
+127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\publishBehavior.d.ts132798114338266674 0
+132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\operators\shareReplay.d.ts132798114349666687 0
+96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\posthtml-parser\.huskyrc132798114263930298 0
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash\fp\T.js132798114319496834 0
 120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\input\events\GAMEOBJECT_OVER_EVENT.js132798114316766682 0
 137C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\dist\vocabularies\applicator\contains.d.ts132798114304416686 0
@@ -3590,14 +3608,14 @@
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\operator\throttle.js132798114321986696 0
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\tsutils\package.json132798114288395804 0
 91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\yaml\parse-cst.d.ts132798114292991305 0
+103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uri-js\dist\esnext\index.js.map132798114285695786 0
+124C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\add\operator\observeOn.d.ts132798114347316673 0
 89C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\yaml\parse-cst.js132798114286075806 0
 108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\Scheduler.js132798114314636671 0
 131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\eslint-plugin\docs\rules\no-namespace.md132798114308506693 0
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2021\ToBigUint64.js132798114320216684 0
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\actions\RandomCircle.js132798114335266678 0
 87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\vendors\license132798114259810318 0
-103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uri-js\dist\esnext\index.js.map132798114285695786 0
-124C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\add\operator\observeOn.d.ts132798114347316673 0
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\yaml\README.md132798114292541330 0
 121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\mergeScan.d.ts132798114337646699 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\observable\timer.d.ts132798114351606680 0
@@ -3812,19 +3830,6 @@
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\xxhash-wasm\types.d.ts132798114277565823 0
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\features\symbol\species.js132798114328896708 0
 123C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\testing\TestScheduler.js.map132798114331726677 0
-86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\nwsapi\LICENSE132798114259720309 0
-131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\operators\window.js132798114323426702 0
-122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\reporter-dev-server\lib\templates\404.html132798114267700327 0
-100C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\timers-browserify\LICENSE.md132798114266060330 0
-87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\xxhash-wasm\umd132798114274565805 1
-99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash\_cloneArrayBuffer.js132798114297826693 0
-111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\tsconfig-paths\lib\tsconfig-loader.d.ts132798114285885810 0
-131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\scope-manager\dist\lib\es2018.promise.js132798114290705808 0
-143C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint-plugin-node\node_modules\eslint-plugin-es\lib\rules\no-symbol.js132798114296256707 0
-111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\utility-types\dist\utility-types.js.map132798114278225804 0
-129C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uncss\node_modules\postcss-selector-parser\dist\parser.js132798114288615782 0
-120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\runtime-js\lib\helpers\node\js-loader.js132798114285915795 0
-121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\wrap-ansi\node_modules\color-convert\package.json132798114260320311 0
 122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\concat.d.ts.map132798114321586683 0
 98C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\math\FloorTo.js132798114315976813 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\stable\array\last-index-of.js132798114324546693 0
@@ -3908,7 +3913,6 @@
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\util\isScheduler.d.ts132798114345346687 0
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\astring\dist\astring.mjs132798114281075790 0
 132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\scheduler\AnimationFrameScheduler.js132798114289565784 0
-120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\container.js132798114269640316 0
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\crypto-browserify\test132798114284475835 1
 101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\xmlchars\xmlns\1.0\ed3.js.map132798114277465798 0
 88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\js-yaml\index.js132798114282365791 0
@@ -4647,6 +4651,13 @@
 128C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm2015\webSocket\index.js.map132798114329206694 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\unbox-primitive\.github132798114277635819 1
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash\isNumber.js132798114314326690 0
+100C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@babel\core\lib\config\files132798114282085832 1
+130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\src\internal\operators\endWith.ts132798114342980870 0
+122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\node_modules\semver\functions\prerelease.js132798114289495795 0
+115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\physics\matter-js\lib\constraint132798114327046711 1
+107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\uri-js\dist\esnext\regexps-iri.d.ts132798114290680271 0
+108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2019\IsDataDescriptor.js132798114309536706 0
+128C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\supports-hyperlinks\node_modules\supports-color\index.js132798114264060344 0
 145C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\typescript-estree\node_modules\semver\functions\cmp.js132798114272925810 0
 124C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\src\internal\observable\dom\WebSocketSubject.ts132798114340880900 0
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\typescript\lib\lib.es2017.intl.d.ts132798114295180020 0
@@ -5326,8 +5337,6 @@
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\bcrypt-pbkdf\README.md132798114261510318 0
 93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\get-intrinsic\LICENSE132798114265890316 0
 101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\unbox-primitive\.eslintignore132798114261740317 0
-106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\node_modules\which\which.js132798114272065785 0
-101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\line\Width.js132798114344066687 0
 122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\repeatWhen.d.ts132798114338876681 0
 129C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\core\test\fixtures\duplicate-targets\package.json132798114300016684 0
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\unbox-primitive\.eslintrc132798114263740305 0
@@ -5409,7 +5418,7 @@
 88C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\p-limit\index.js132798114262590303 0
 121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\jsdom\lib\jsdom\living\named-properties-window.js132798114305236679 0
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\timsort\.npmignore132798114261780312 0
-82C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.af814d91.css132798236379240108 0
+82C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.af814d91.css132799215944271953 0
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\babel-eslint\node_modules\eslint-visitor-keys132798114275745809 1
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\observable\timer.js132798114316866683 0
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\typescript\loc\lcl\PLK132798114322296678 1
@@ -5639,6 +5648,7 @@
 123C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\src\operators\concatAll.ts132798114341746687 0
 98C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\core\lib\worker.js132798114299316698 0
 122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\scope-manager\dist\lib\lib.d.ts132798114309856682 0
+116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\src\webfont-loader.ts132799241460754022 0
 130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\typescript\loc\lcl\CSY\Targets\ProjectItemsSchema.xaml.lcl132798114319846681 0
 99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@babel\helper-function-name132798114266140319 1
 120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\throttle.d.ts132798114340326686 0
@@ -6588,8 +6598,6 @@
 130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint-plugin-node\node_modules\eslint-plugin-es\README.md132798114296766692 0
 125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\observable\fromEventPattern.js132798114304186685 0
 83C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\terser\dist132798114292901311 1
-112C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\resolve\test\pathfilter\deep_ref\main.js132798114293001307 0
-141C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\refs\json-schema-2020-12\meta\content.json132798114297506687 0
 127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\package-manager\test\NodePackageManager.test.js132798114287105785 0
 110C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\transformer-babel\src\types.js132798114282885789 0
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\regexpp\package.json132798114269310304 0
@@ -6607,9 +6615,6 @@
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\terser\tools\domprops.js132798114287465800 0
 99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\relateurl\lib\parse\host.js132798114274445821 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\terser\tools\props.html132798114272695794 0
-102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\es\symbol\match-all.js132798114325146680 0
-106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2020\NumberToBigInt.js132798114314706676 0
-125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\source-map\dist\source-map.js132798114285965807 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\ajax\errors.js.map132798114323426702 0
 112C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\sound\typedefs\SoundConfig.js132798114338866685 0
 122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2020\IsCompatiblePropertyDescriptor.js132798114308936683 0
@@ -6908,6 +6913,8 @@
 121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules\node_modules\picocolors\README.md132798114269700306 0
 128C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\dist\vocabularies\jtd\elements.js132798114288375789 0
 129C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\refs\json-schema-draft-06.json132798114298106717 0
+112C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\resolve\test\pathfilter\deep_ref\main.js132798114293001307 0
+141C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\refs\json-schema-2020-12\meta\content.json132798114297506687 0
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\physics\arcade\index.js132798114323536718 0
 138C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\refs\json-schema-2020-12\meta\core.json132798114297686708 0
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\util\isArrayLike.js132798114306626676 0
@@ -6988,9 +6995,9 @@
 108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\polygon\Perimeter.js132798114328976685 0
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\highlight.js\lib\languages\actionscript.js132798114296386689 0
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal132798114340679972 1
+122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\lazy-result.js132798114276925797 0
 126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\compile\validate\keyword.ts132798114307446679 0
 131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\util\subscribeToResult.js132798114320676685 0
-122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\lazy-result.js132798114276925797 0
 128C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\compile\validate\subschema.ts132798114309856682 0
 123C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\lib\compile\jtd\serialize.ts132798114309796691 0
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash\noop.js132798114316346677 0
@@ -7042,6 +7049,7 @@
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\triangle\Rotate.js132798114336586709 0
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\dist\ajv.js132798114277035814 0
 126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\operators\pluck.d.ts132798114348066691 0
+113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\example\index.html132799241460624013 0
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash\_getWrapDetails.js132798114300616687 0
 110C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\dist\ajv.js.map132798114299226680 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\plugins\impact\UpdateMotion.js132798114343126696 0
@@ -7637,10 +7645,11 @@
 156C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint-plugin-node\node_modules\eslint-plugin-es\lib\rules\no-shared-array-buffer.js132798114295896691 0
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\src\internal\Subscriber.ts132798114339846691 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\operator\mergeAll.d.ts132798114346166702 0
-118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\dist\compile\resolve.js132798114296046702 0
 130C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\scope-manager\dist\lib\es2015.symbol.js132798114287005783 0
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\split2\test.js132798114266090311 0
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\jsdom\lib\jsdom\living\generated\Navigator.js132798114301406709 0
+108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\tsconfig.json132799241460704052 0
+118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\table\node_modules\ajv\dist\compile\resolve.js132798114296046702 0
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\highlight.js\styles\atelier-seaside-light.css132798114286585821 0
 120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\operators\timeInterval.js132798114316646689 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\operators\pluck.js.map132798114333896671 0
@@ -8019,8 +8028,8 @@
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\svgo\node_modules\commander\esm.mjs132798114275715824 0
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\modules\es.math.sign.js132798114306826687 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\operators\takeWhile.js132798114316136689 0
-126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\bufferTime.d.ts.map132798114320856679 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\scheduler\async.js.map132798114319906691 0
+126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\bufferTime.d.ts.map132798114320856679 0
 100C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\posthtml\types\posthtml.d.ts132798114275625782 0
 108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\svgo\node_modules\commander\index.js132798114264200308 0
 136C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\scheduler\VirtualTimeScheduler.d.ts.map132798114333376705 0
@@ -8088,6 +8097,7 @@
 108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\ajax\ajax.js132798114281795798 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\supports-color\index.js132798114263850328 0
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\supports-color\readme.md132798114269480328 0
+104C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\README.md132799241460724037 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\stylehacks\CHANGELOG.md132798114285765797 0
 87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\stylehacks\dist132798114283075797 1
 120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\scheduler\asap.d.ts.map132798114319646693 0
@@ -8210,7 +8220,7 @@
 112C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\string.prototype.trimstart\test\tests.js132798114281005795 0
 111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\math\easing\elastic\InOut.js132798114324346679 0
 129C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\observable\timer.js.map132798114337936680 0
-85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.1a851ad5.js.map132798236379290135 0
+85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.1a851ad5.js.map132799215944501956 0
 110C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\string.prototype.trimend\.eslintignore132798114261750317 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\src\internal\operators\combineLatestAll.ts132798114335456682 0
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\randomfill\test.js132798114274805805 0
@@ -8272,6 +8282,8 @@
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\string-argv\index.d.ts132798114265050329 0
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\string-argv\index.js132798114267300311 0
 102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\actions\IncAlpha.js132798114321696703 0
+116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\tsconfig-example.json132799241460694025 0
+101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-bigint\.github\FUNDING.yml132798114277125830 0
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\string-argv\package.json132798114260860321 0
 126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\observable\dom132798114338376683 1
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\flatted\php\flatted.php132798114281305798 0
@@ -8417,14 +8429,14 @@
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\operators\concatMapTo.js132798114299186677 0
 142C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\stream-browserify\node_modules\readable-stream\lib\_stream_readable.js132798114267780354 0
 89C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash\fp\keys.js132798114314966683 0
+137C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\scope-manager\dist\lib\es2015.promise.d.ts.map132798114299316698 0
+114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\scheduler\async.js132798114294526710 0
+122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\bufferTime.d.ts132798114335286672 0
 105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@babel\core\lib\config\caching.js132798114266770328 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\util\isFunction.js.map132798114329976695 0
 131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\operators\distinct.js.map132798114327076700 0
 127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\json-stable-stringify-without-jsonify\example\nested.js132798114273565792 0
 143C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\stream-browserify\node_modules\readable-stream\lib\_stream_transform.js132798114272025797 0
-137C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\scope-manager\dist\lib\es2015.promise.d.ts.map132798114299316698 0
-122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\bufferTime.d.ts132798114335286672 0
-114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\scheduler\async.js132798114294526710 0
 132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\scheduler\VirtualTimeScheduler.d.ts132798114340806715 0
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\internals\a-constructor.js132798114275365814 0
 100C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint-scope\lib\variable.js132798114278105823 0
@@ -9687,6 +9699,7 @@
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\types.js132798114317046702 0
 121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\optimizer-cssnano\lib\CSSNanoOptimizer.js132798114262470312 0
 126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\ignoreElements.d.ts132798114336766785 0
+121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\dist\webfont-loader.js.map132799241460714220 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\isEmpty.d.ts132798114337156693 0
 132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\observable\FromEventObservable.d.ts132798114343916691 0
 125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\jsdom\lib\jsdom\living\generated\PopStateEventInit.js132798114302376685 0
@@ -9769,6 +9782,7 @@
 128C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal-compatibility\index.js132798114309356695 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\repeat.d.ts132798114338846685 0
 138C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm2015\internal\observable\partition.js132798114315396682 0
+119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\dist\webfont-loader.d.ts132799241460734034 0
 126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\repeatWhen.d.ts.map132798114328496697 0
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\operators\retry.d.ts132798114338976710 0
 131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\parse5\lib\extensions\error-reporting\preprocessor-mixin.js132798114277795802 0
@@ -9906,6 +9920,7 @@
 129C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\observable\fromSubscribable.d.ts132798114336636683 0
 108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\data\DataManagerPlugin.js132798114311186725 0
 120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\operator\concatMap.d.ts132798114341776672 0
+120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\example\webfont-loader.js132799241460674016 0
 133C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\operators\windowWhen.js.map132798114339046712 0
 121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\observable\generate.d.ts132798114336656687 0
 115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\src\operator\do.ts132798114342746678 0
@@ -9934,8 +9949,8 @@
 150C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\eslint-plugin\dist\rules\padding-line-between-statements.js132798114297576966 0
 134C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\observable\onErrorResumeNext.d.ts.map132798114327316678 0
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2017\SecFromTime.js132798114317246709 0
-117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\operators\elementAt.js132798114301416686 0
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib132798114288745781 1
+117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\operators\elementAt.js132798114301416686 0
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\lodash\fp\invokeMap.js132798114313366674 0
 121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\types\internal\observable\race.d.ts.map132798114328166703 0
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\modules\esnext.weak-set.delete-all.js132798114315506684 0
@@ -10544,8 +10559,6 @@
 125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\operators\timeInterval.js.map132798114332296699 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\display\typedefs\InputColorObject.js132798114324466695 0
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\operators\timeout.js132798114316746721 0
-86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-obj\license132798114264710304 0
-118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetLineToPolygon.js132798114318236670 0
 84C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\.bin\tsc.cmd132798114353626689 0
 131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\scope-manager\dist\lib\es2021.weakref.js132798114293191330 0
 124C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm5\internal\operators\timeoutWith.js.map132798114332556678 0
@@ -10872,7 +10885,7 @@
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\async-limiter\.nycrc132798114263460331 0
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\utils\array\FindClosestInSorted.js132798114315666684 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\util\isFunction.js132798114307016689 0
-81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.e7f05703.js132798339403990336 0
+81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.e7f05703.js132799339412379177 0
 128C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\operators\withLatestFrom.js.map132798114339136687 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\util\isIterable.js132798114307226694 0
 115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\esm\internal\util\isObservable.js132798114307336698 0
@@ -11515,9 +11528,9 @@
 104C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\operators\index.js132798114305566681 0
 93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\nanoid\async\index.js132798114278775794 0
 99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\ajax132798114332836707 1
+116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\CircleToCircle.js132798114306106683 0
 145C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\typescript-estree\node_modules\semver\classes\range.js132798114289645788 0
 124C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\renderer\webgl\pipelines\LightPipeline.js132798114325756675 0
-116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\CircleToCircle.js132798114306106683 0
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\async\component.json132798114267470341 0
 108C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\AnyCatcher.js132798114290095802 0
 112C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\AnyCatcher.js.map132798114319166706 0
@@ -12224,7 +12237,7 @@
 128C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-values\node_modules\source-map\README.md132798114262520301 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\observable\race.js132798114312956702 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\observable\range.js.map132798114328316673 0
-86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.af814d91.css.map132798236379290135 0
+86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.af814d91.css.map132799215944301978 0
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@babel\traverse\lib\path\inference132798114283995788 1
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\observable\timer.js.map132798114332596703 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\rxjs\dist\cjs\internal\observable\using.js.map132798114333316701 0
@@ -13256,7 +13269,6 @@
 147C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-local-by-default\node_modules\source-map\dist\source-map.js132798114285975891 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\caniuse-lite\data\features\css-text-spacing.js132798114302076699 0
 151C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-local-by-default\node_modules\source-map\dist\source-map.min.js132798114286495800 0
-124C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetRectangleToTriangle.js132798114318886713 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\colord\plugins\mix.d.ts132798114289725797 0
 155C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-local-by-default\node_modules\source-map\dist\source-map.min.js.map132798114288085784 0
 141C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-local-by-default\node_modules\postcss\CONTRIBUTING.md132798114264640311 0
@@ -13270,8 +13282,8 @@
 135C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\scope-manager\dist\lib\esnext.promise.js.map132798114303126677 0
 140C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-local-by-default\node_modules\postcss\lib\comment.js132798114281975801 0
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\human-signals\build\src\main.js.map132798114277135801 0
-114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\dist\renderer\verbose.renderer.d.ts132798114293936701 0
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\package.json132798114288365804 0
+114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\dist\renderer\verbose.renderer.d.ts132798114293936701 0
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\has-symbols\.nycrc132798114263740305 0
 142C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-local-by-default\node_modules\postcss\lib\container.js132798114283035809 0
 138C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss-modules-local-by-default\node_modules\postcss\lib\parse.js132798114287045789 0
@@ -13621,6 +13633,7 @@
 91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss\lib\rule.js132798114284665789 0
 127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\add\operator\windowWhen.js.map132798114339036676 0
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss\lib\stringify.js132798114285425795 0
+107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\package.json132799241460684015 0
 94C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss\lib\symbols.js132798114285805785 0
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\caniuse-lite\data\regions\BS.js132798114295076689 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\postcss\lib\tokenize.js132798114286515832 0
@@ -13646,10 +13659,6 @@
 102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\es\reflect\own-keys.js132798114326196685 0
 105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\math\typedefs\index.js132798114323496692 0
 80C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\pn\os.js132798114284495805 0
-85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\pn\process.js132798114285635802 0
-93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\node-forge\lib\xhr.js132798114294496683 0
-87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\has\LICENSE-MIT132798114261760319 0
-136C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\gameobjects\particles\ParticleManagerWebGLRenderer.js132798114328736675 0
 131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\scope-manager\dist\lib\esnext.promise.js132798114294226724 0
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\pn\readline.js132798114286685804 0
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\colord\plugins\names.mjs132798114286125781 0
@@ -13698,6 +13707,11 @@
 135C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm2015\internal\operators\isEmpty.js132798114310326684 0
 126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\src\add\operator\takeWhile.ts132798114351046688 0
 91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\picocolors\types.ts132798114273465813 0
+117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\loader\filetypes\typedefs\index.js132798114323196715 0
+99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\dist132799241460734034 1
+102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\example132799241460674016 1
+120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\scene\events\TRANSITION_INIT_EVENT.js132798114342546682 0
+98C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser3-webfont-loader\src132799241460744032 1
 121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\src\add\operator\last.ts132798114345506714 0
 105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\CHANGELOG-v3.00-v3.24.1.md132798114345656688 0
 132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\util\TimeoutError.js132798114322466692 0
@@ -14106,7 +14120,6 @@
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@eslint\eslintrc\node_modules\ignore\legacy.js132798114275075795 0
 111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\scene\events\RESUME_EVENT.js132798114336236703 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\scene\events\SHUTDOWN_EVENT.js132798114338146694 0
-120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\scene\events\TRANSITION_INIT_EVENT.js132798114342546682 0
 98C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\performance-now\.npmignore132798114261530318 0
 100C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\stable\string\sub.js132798114329656669 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\scene\events\TRANSITION_OUT_EVENT.js132798114342566689 0
@@ -14540,7 +14553,6 @@
 102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\plugins\impact\index.js132798114321876689 0
 132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\loader\filetypes\typedefs\BitmapFontFileConfig.js132798114299836677 0
 125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\loader\filetypes\typedefs\CSSFileConfig.js132798114310766896 0
-117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\loader\filetypes\typedefs\index.js132798114323196715 0
 126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\loader\filetypes\typedefs\JSONFileConfig.js132798114325086692 0
 132C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@babel\helper-create-class-features-plugin\lib\decorators.js132798114264570344 0
 104C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\stable\weak-set\index.js132798114322666685 0
@@ -14634,8 +14646,8 @@
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\input\gamepad\configs\index.js132798114322946683 0
 134C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\operators\retry.js.map132798114334966723 0
 127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\input\gamepad\configs\SNES_USB_Controller.js132798114338816674 0
-126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\input\gamepad\configs\XBox360_Controller.js132798114344326670 0
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\input.js132798114275685785 0
+126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\input\gamepad\configs\XBox360_Controller.js132798114344326670 0
 115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\input\events\DRAG_LEAVE_EVENT.js132798114313526710 0
 129C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\operators\concat.js.map132798114326106696 0
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\input\events\DRAG_OVER_EVENT.js132798114313556679 0
@@ -14773,13 +14785,19 @@
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2021\IsStringPrefix.js132798114311246701 0
 107C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\path-browserify\.github\FUNDING.yml132798114283775802 0
 105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\line\PerpSlope.js132798114329036673 0
+106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\node_modules\which\which.js132798114272065785 0
+101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\line\Width.js132798114344066687 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\CircleToRectangle.js132798114306136688 0
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetLineToCircle.js132798114318179666 0
 139C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\operators\windowWhen.js.map132798114339026682 0
 115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetLineToLine.js132798114318196751 0
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetLineToPoints.js132798114318216685 0
+86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-obj\license132798114264710304 0
+118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetLineToPolygon.js132798114318236670 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\ajv\lib\dot\pattern.jst132798114295476692 0
 127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetRaysFromPointToPolygon.js132798114318806708 0
+126C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetRectangleIntersection.js132798114318836694 0
+124C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetRectangleToTriangle.js132798114318886713 0
 119C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetTriangleToLine.js132798114319316691 0
 87C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\jsdom\lib\jsdom132798114310556699 1
 123C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\phaser\src\geom\intersects\GetTriangleToTriangle.js132798114319336690 0
@@ -16045,8 +16063,8 @@
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\parcel-plugin-clean-easy\node_modules132798114353216695 1
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\parcel-plugin-clean-easy\README.md132798114269610309 0
 106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\parcel-plugin-clean-easy\yarn.lock132798114271935778 0
-114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\parcel-plugin-clean-easy\node_modules\.bin132798114353326684 1
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\at-rule.js132798114262490317 0
+114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\parcel-plugin-clean-easy\node_modules\.bin132798114353326684 1
 116C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\parcel-plugin-clean-easy\node_modules\rimraf132798114267790309 1
 149C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\eslint-plugin\dist\rules\naming-convention-utils\format.js132798114289485794 0
 123C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\parcel-plugin-clean-easy\node_modules\rimraf\bin.js132798114262180317 0
@@ -16236,8 +16254,8 @@
 101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\object-inspect\test\bigint.js132798114272545820 0
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\Subscriber.js.map132798114336566689 0
 99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\object-inspect\test\browser132798114276985818 1
-121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\add\operator\takeLast.js132798114321386702 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\README.md132798114288575827 0
+121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\add\operator\takeLast.js132798114321386702 0
 103C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\object-inspect\test\circular.js132798114275295792 0
 102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\object-inspect\test\element.js132798114277805789 0
 98C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\object-inspect\test\has.js132798114282225885 0
@@ -16557,7 +16575,6 @@
 105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@babel\core\lib\config\printer.js132798114286165797 0
 89C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\nan\doc\scopes.md132798114290635785 0
 123C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\jsdom\lib\jsdom\living\generated\HTMLSpanElement.js132798114300066679 0
-133C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\source-map\dist\source-map.min.js.map132798114288079069 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\nan\doc\string_bytes.md132798114290980526 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\nan\doc\v8_internals.md132798114291125800 0
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\nan\doc\v8_misc.md132798114291235787 0
@@ -17844,7 +17861,6 @@
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\locate-path\index.js132798114263180307 0
 101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\enquirer\lib\types\boolean.js132798114276315783 0
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\locate-path\package.json132798114261150335 0
-129C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\source-map\dist\source-map.min.js132798114286480498 0
 93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\locate-path\readme.md132798114267560333 0
 95C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\braces\lib\constants.js132798114274145809 0
 104C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\modules\esnext.map.of.js132798114313956688 0
@@ -18145,8 +18161,6 @@
 117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\internal\util\not.js132798114314196692 0
 138C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal-compatibility\index.js.map132798114329266685 0
 127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\AsyncSubject.js132798114293616709 0
-117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\features\typed-array\float32-array.js132798114317926681 0
-131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\AsyncSubject.js.map132798114324906687 0
 134C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\BehaviorSubject.js.map132798114325116696 0
 143C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@typescript-eslint\eslint-plugin\dist\rules\no-loss-of-precision.js.map132798114302846697 0
 121C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\listr2\node_modules\rxjs\_esm5\internal\config.js132798114300156678 0
@@ -21327,7 +21341,6 @@
 112C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\internals\inherit-if-required.js132798114322736679 0
 91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-bigint\README.md132798114276215797 0
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-bigint\test132798114271575794 1
-101C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-bigint\.github\FUNDING.yml132798114277125830 0
 97C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-arrayish\.istanbul.yml132798114271675788 0
 91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-arrayish\LICENSE132798114265790321 0
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\is-arrayish\package.json132798114259820325 0
@@ -21383,8 +21396,14 @@
 125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\source-map\lib\source-node.js132798114281205802 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\source-map\lib\util.js132798114281835802 0
 131C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\source-map\dist\source-map.debug.js132798114285035781 0
+102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\es\symbol\match-all.js132798114325146680 0
+106C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\2020\NumberToBigInt.js132798114314706676 0
+125C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\source-map\dist\source-map.js132798114285965807 0
+129C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\source-map\dist\source-map.min.js132798114286480498 0
+133C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\source-map\dist\source-map.min.js.map132798114288079069 0
 111C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\LICENSE132798114260290309 0
 118C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\comment.js132798114264590314 0
+120C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\container.js132798114269640316 0
 127C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\css-syntax-error.js132798114272775786 0
 122C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\declaration.js132798114274325798 0
 115C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\icss-utils\node_modules\postcss\lib\list.js132798114277575806 0
@@ -23166,8 +23185,6 @@
 102C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\lib\shared\ast-utils.js132798114283935799 0
 109C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\lib\shared\config-validator.js132798114292291308 0
 113C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\lib\shared\deprecation-warnings.js132798114293946679 0
-117C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\caniuse-lite\data\features\referrer-policy.js132798114314806729 0
-100C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\lib\shared\logging.js132798114298916690 0
 114C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\es-abstract\helpers\isTrailingSurrogate.js132798114311266669 0
 105C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\eslint\lib\shared\string-utils.js132798114308646683 0
 99C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\core-js\stable\set\index.js132798114322546691 0
@@ -28155,7 +28172,6 @@
 93C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\packager-html132798114267180311 1
 91C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\packager-js132798114284895793 1
 92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\packager-raw132798114266700305 1
-92C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\packager-svg132798114266700305 1
 86C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\plugin132798114266700305 1
 96C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\resolver-default132798114266700305 1
 90C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\@parcel\runtime-js132798114290765824 1
@@ -29201,8 +29217,8 @@
 81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\.bin\uuid132798114353636712 0
 82C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\node_modules\.bin\which132798114353636712 0
 81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\character_sprites132798114460176543 1
-81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.1a851ad5.js132798236379260122 0
-85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.e7f05703.js.map132798339404174896 0
+81C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.1a851ad5.js132799215944481953 0
+85C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\index.e7f05703.js.map132799339412549021 0
 72C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\tilemaps132798114460303196 1
 72C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\tilesets132798114460493176 1
 83C:\Users\LuLi2\Documents\GitHub\project-cybersyn-game\.git\dist\tilesets\tilea5.png132797524344284662 0

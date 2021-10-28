@@ -1,5 +1,7 @@
 import Phaser from 'phaser'
 import { GridEngine } from 'grid-engine'
+import { WebFontLoaderPlugin } from '../node_modules/phaser3-webfont-loader/src/webfont-loader'
+import MainMenuScene from './scenes/MainMenuScene'
 import StandardScene from './scenes/HelloWorldScene'
 import SecondScene from './scenes/SecondScene'
 
@@ -20,10 +22,17 @@ const config: Phaser.Types.Core.GameConfig = {
         plugin: GridEngine,
         mapping: 'gridEngine'
       }
+    ],
+    global: [
+      {
+        key: 'WebFontLoader',
+        plugin: WebFontLoaderPlugin,
+        start: true
+      }
     ]
   },
   parent: 'game-canvas',
-  scene: [StandardScene, SecondScene]
+  scene: [MainMenuScene, StandardScene, SecondScene]
 }
 
 export default new Phaser.Game(config)
