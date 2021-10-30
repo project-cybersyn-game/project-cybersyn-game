@@ -1,5 +1,120 @@
 {
-  "dialog1":{
-
+  "1": {
+    "text": "Good morning, Alba! We are on the verge of implementing our new project for managing the public economy of Chile. But we have hit a wall. Maybe you can help!",
+    "choices": [
+      {
+        "text": "Good Morning, Fernando! What can I do?",
+        "next": "2"
+      }
+    ]
+  },
+  "2": {
+    "text": "For building a system that can communicate data from the factories all over the country to the capital, we need a network. But Chile does not have enough computers to install them in every region. We need another solution.",
+    "choices": [
+      {
+        "text": "What do you propose?",
+        "next": "3"
+      },
+      {
+        "text": "I have a friend at ENTEL, the National Telecommunications Enterprise. I will ask him for help!",
+        "next": "4"
+      }
+    ]
+  },
+  "3": {
+    "text": "Try to talk to Sr. Batanero, the head of ENTEL. This is the National Telecommunications Enterprise. He might be able to help!"
+  },
+  "4": {
+    "text": "Perfect! Personal connections are always the best way to cut bureaucracy! Let's hope your friend can help us out."
+  },
+  "5": {
+    "text": "Hello, Senora. My name is Batanero. I am the director of ENTEL, our National Telecommunications Enterprise. Can I help you somehow? Be quick, I am very busy!",
+    "choices": [
+      {
+        "text": "Yes, do you have any telex machines available for a new project CORFOR is working on? How many are installed in the country?",
+        "next": "6"
+      },
+      {
+        "text": "Yes, I am looking for my friend Paulo. He works here. Could you direct me to him?",
+        "next": "7"
+      }
+    ]
+  },
+  "6": {
+    "text": "Telex machines? No! There are just a handful installed. And we don't have this stuff lying around, of course. Please excuse me, I have work to do!",
+    "effect": "isBantaneroBusy"
+  },
+  "7": {
+    "text": "Sure, he should be at his desk over there. *points to the far side of the room* Do you see him, in the red shirt? Please run along. I have work to do!",
+    "effect": "isBataneroBusy"
+  },
+  "8": {
+    "text": "I'm busy, don't bother me!",
+    "condition": "isBataneroBusy"
+  },
+  "9": {
+    "text": "Alba! Long time, no see. How are you? What are you doing here? I thought you work at CORFO!",
+    "choices": [
+      {
+        "text": "Hello Paulo! I am on an errand for work and thought I'd say hi. Unfortunately, Sr. Batanero cannot help me.",
+        "next": "10"
+      }
+    ]
+  },
+  "10": {
+    "text": "Oh, Batanero! He only thinks, he knows, what's going on here. We, the workers, are the ones with the real knowledge. What do you need?",
+    "choices": [
+      {
+        "text": "Well, CORFO is working on a new project and they need a lot of telex machines to install all over the country. But buying new machines are a lot more expensive.",
+        "next": "11"
+      }
+    ]
+  },
+  "11": {
+    "text": "Never fear, Alba. I know a little secret. There's an Aladdin's cave in the basement of this building that will hold exactly the treasure you were hoping for! Follow me... ",
+    "effect": "goToBasement"
+  },
+  "12": {
+    "text": "How are you doing, Alba? I think, to get further into the room, you'll have to push some boxes around. Have you found what you were looking for?",
+    "choices": [
+      {
+        "text": "Yes, I need to go back to CORFO to tell them the good news! Thank you, Paulo.",
+        "next": "13",
+        "condition": "isTelexFound"
+      },
+      {
+        "text": "No, there seem to be some boxes in the way and I got stuck.",
+        "next": "14"
+      }
+    ]
+  },
+  "13": {
+    "text": "That's great, Alba! I'm glad I could help! I'll take you back there.",
+    "effect": "teleportToCorfor"
+  },
+  "14": {
+    "text": "That's no problem, Alba. I will help you put them back where they were.",
+    "effect": "resetBoxPuzzle"
+  },
+  "15": {
+    "text": "Alba, have you had any success?",
+    "choices": [
+      {
+        "text": "Yes, there are hundreds of telex machines in the basement of the ENTEL building. It's exactly what we need.",
+        "next": "16",
+        "condition": "isTelexFound"
+      },
+      {
+        "text": "No, unfortunately I haven't found anything, yet.",
+        "next": "17"
+      }
+    ]
+  },
+  "16": {
+    "text": "Wonderful!  Now we can get started with the real work. Thank you Alba!",
+    "effect": "winTheGame"
+  },
+  "17": {
+    "text": "Try talking to the people at ENTEL. They might be able to help you!"
   }
 }
