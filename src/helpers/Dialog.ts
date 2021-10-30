@@ -1,5 +1,5 @@
 /** This class will be used to create a Dialog Window **/
-export class DialogWindow {
+class DialogWindow {
   // parameters
   scene!: Phaser.Scene
   borderThickness!: number
@@ -122,4 +122,7 @@ export class DialogWindow {
     this.graphics.fillStyle(this.windowColor, this.windowAlpha)
     this.graphics.fillRect(windowDimensions.x + 1, windowDimensions.y + 1, windowDimensions.width - 1, windowDimensions.height - 1)
   }
+}
+
+export class Dialog {
 }
