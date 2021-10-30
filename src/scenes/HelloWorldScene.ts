@@ -4,6 +4,7 @@ import { createCharacterSprite, Npcs, Objects } from '../helpers/NpcsAndObjects'
 import { createDoor } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
+import GlobalGameState from '../components/GlobalGameState'
 
 enum ImageNames {
   Dude = 'dude',
@@ -103,6 +104,10 @@ export default class HelloWorldScene extends GameScene {
         scene.gridEngine.moveRandomly(name, 3, 5)
       }, 3)
     new Objects(this, 5, 10, ImageNames.Door, 0.5)
+
+    // example of setting and accessing GlobalGameState
+    GlobalGameState.setGameProgress('isTelexFound', true)
+    console.log(GlobalGameState.getGameProgress('isTelexFound'))
   }
 
   update (): void {
