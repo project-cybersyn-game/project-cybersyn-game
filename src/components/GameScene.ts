@@ -11,6 +11,7 @@ export default class GameScene extends Phaser.Scene {
   // Klassenvariablen festlegen
   cursors!: Phaser.Types.Input.Keyboard.CursorKeys
   interactionKey!: Phaser.Input.Keyboard.Key
+  backKey!: Phaser.Input.Keyboard.Key
   gridEngine: any
   playerSprite!: Phaser.Physics.Arcade.Sprite
   doors: Door[] = []
@@ -30,6 +31,7 @@ export default class GameScene extends Phaser.Scene {
   create (): void {
     this.cursors = this.input.keyboard.createCursorKeys()
     this.interactionKey = this.input.keyboard.addKey('E')
+    this.backKey = this.input.keyboard.addKey('ESC')
     createAnims(this, ImageNames.Dude)
   }
 
@@ -38,5 +40,9 @@ export default class GameScene extends Phaser.Scene {
     updateDoors(this)
     // npcInteraction(this)
     NpcsAndObjects.interaction(this)
+
+    if (this.backKey.isDown) {
+      this.scene.switch('main-menu')
+    }
   }
 }
