@@ -9,9 +9,13 @@ export interface Door {
 
 /** This function is used to add a door to the doors array of the scene. */
 export function createDoor (
+  /** The scene the door should be in. */
   scene: GameScene,
+  /** The x-coordinate the door is at. */
   x: integer,
+  /** The y-coordinate the door it at. */
   y: integer,
+  /** The scene the game should switch to when the player is interacting with the door. */
   nextScene: string
 ): void {
   scene.doors.push({ x: x, y: y, nextScene: nextScene })
@@ -27,20 +31,6 @@ export function updateDoors (
       scene.interactionKey.isDown
     ) {
       scene.scene.switch(door.nextScene)
-    }
-  })
-}
-
-/** This function is for interacting with NPCs and then executing the action set in the associated NPC object. */
-export function npcInteraction (
-  scene: GameScene
-): void {
-  scene.npcs.forEach(npc => {
-    if (
-      scene.gridEngine.getFacingPosition('player').equals(scene.gridEngine.getPosition(npc.name)) === true &&
-      scene.interactionKey.isDown
-    ) {
-      npc.action(scene, npc.name)
     }
   })
 }
