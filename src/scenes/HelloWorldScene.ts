@@ -5,6 +5,7 @@ import { createDoor } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import GlobalGameState from '../components/GlobalGameState'
+import { DialogWindow } from '../helpers/DialogWindow'
 
 enum ImageNames {
   Dude = 'dude',
@@ -95,7 +96,14 @@ export default class HelloWorldScene extends GameScene {
     createDoor(this, 19, 17, 'second')
 
     // adding NPCs and pushable objects
-    new Npcs(this, 10, 15, ImageNames.NPCs, 1.2, undefined)
+    new Npcs(this, 10, 15, ImageNames.NPCs, 1.2,
+      (
+        scene: GameScene,
+        name: string
+      ) => {
+        const dw = new DialogWindow(scene, {})
+        dw.setText('Ich bin ein test  djosdfoi sdfhiosdfohi huisdfhiuhuisd huisdhiuhiusdf gusdgiusdgiuzgiuz guisdfgiuzgiuzsdhou ghusfdgiugiuzsdf', true)
+      })
     new Npcs(this, 10, 10, ImageNames.NPCs, 1.2,
       (
         scene: GameScene,

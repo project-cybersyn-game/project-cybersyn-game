@@ -1,5 +1,5 @@
 /** This class will be used to create a Dialog Window **/
-class DialogWindow {
+export class DialogWindow {
   // parameters
   scene!: Phaser.Scene
   borderThickness!: number
@@ -13,7 +13,7 @@ class DialogWindow {
   eventCounter!: number
   visible!: boolean
   text?: Phaser.GameObjects.Text
-  dialog?: string[]
+  dialog: string[] = []
   graphics!: Phaser.GameObjects.Graphics
   timedEvent!: Phaser.Time.TimerEvent
 
@@ -35,8 +35,8 @@ class DialogWindow {
   }
 
   destroy (): void {
-      if (this.timedEvent) this.timedEvent.remove()
-      if (this.text) this.text.destroy()
+    if (this.timedEvent != null) this.timedEvent.remove()
+    if (this.text != null) this.text.destroy()
   }
 
   // Hide/Show the Dialog Window
@@ -51,7 +51,7 @@ class DialogWindow {
     // Reset the dialog
     this.eventCounter = 0
     this.dialog = text.split('')
-    if (this.timedEvent) this.timedEvent.remove()
+    if (this.timedEvent != null) this.timedEvent.remove()
 
     const tempText = animate ? '' : text
     this._setText(tempText)
@@ -82,15 +82,16 @@ class DialogWindow {
         wordWrap: { width: +this.scene.game.config.height - (this.padding * 2) - 25 }
       }
     })
+    this.text.setDepth(10000)
   }
 
   // Slowly displays the text in the window to make it appear annimated
   _animateText (): void {
-    this.eventCounter++
-    this.text?.setText(this.text.text + this.dialog?[this.eventCounter])
+    this.text?.setText(this.text.text + this.dialog[this.eventCounter])
     if (this.eventCounter === this.dialog?.length) {
       this.timedEvent.remove()
     }
+    this.eventCounter++
   }
 
   _create (): void {
@@ -98,6 +99,7 @@ class DialogWindow {
     const gameWidth = this.scene.game.config.width
     const windowDimensions = this._calculateDimensions(+gameWidth, +gameHeight)
     this.graphics = this.scene.add.graphics()
+    this.graphics.setDepth(9999)
 
     this._createOuterWindow(windowDimensions)
     this._createInnerWindow(windowDimensions)
@@ -122,7 +124,4 @@ class DialogWindow {
     this.graphics.fillStyle(this.windowColor, this.windowAlpha)
     this.graphics.fillRect(windowDimensions.x + 1, windowDimensions.y + 1, windowDimensions.width - 1, windowDimensions.height - 1)
   }
-}
-
-export class Dialog {
 }
