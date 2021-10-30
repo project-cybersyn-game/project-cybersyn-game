@@ -41,6 +41,8 @@ export default class GameScene extends Phaser.Scene {
     // npcInteraction(this)
     NpcsAndObjects.interaction(this)
 
+    // switch to main menu when pressing ESC key
+    // --- DEFINITELY CHANGE LATER ---
     if (this.backKey.isDown) {
       this.scene.switch('main-menu')
     }

@@ -2,7 +2,8 @@ import Phaser from 'phaser'
 import { Menu } from '../helpers/Menu'
 
 enum ImageNames {
-  OpsRoom = 'opsroom'
+  OpsRoom = 'opsroom',
+  OpsRoomLight = 'opsroom-light'
 }
 
 export default class MainMenuScene extends Phaser.Scene {
@@ -18,6 +19,7 @@ export default class MainMenuScene extends Phaser.Scene {
   preload (): void {
     // load background image
     this.load.image(ImageNames.OpsRoom, 'images/main-menu-ops-room.png')
+    this.load.image(ImageNames.OpsRoomLight, 'images/main-menu-ops-room-lighteffect.png')
 
     // preload the menu dependencies
     Menu.preload(this)
@@ -93,6 +95,9 @@ export default class MainMenuScene extends Phaser.Scene {
         { text: 'Exit', scene: 'second' }
       ]
     )
+
+    // add light effects
+    this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, ImageNames.OpsRoomLight)
   }
 
   update (): void {

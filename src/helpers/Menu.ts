@@ -162,15 +162,21 @@ export class Menu {
   control (): void {
     // change / choose selected option
     if (this.cursors.up.isDown && this.pressed === 0 && this.selectedOption > 0) {
-      this.pressed = 30
+      this.pressed = 20
+
+      this.cursorLine.setVisible(true)
 
       this.selectedOption--
     } else if (this.cursors.down.isDown && this.pressed === 0 && this.selectedOption < (this.options.length - 1)) {
-      this.pressed = 30
+      this.pressed = 20
+
+      this.cursorLine.setVisible(true)
 
       this.selectedOption++
     } else if (this.selectKey.isDown && this.pressed === 0) {
-      this.pressed = 30
+      this.pressed = 20
+
+      this.cursorLine.setVisible(true)
 
       this.scene.scene.switch(this.options[this.selectedOption].scene)
     } else if (this.pressed > 0) {
@@ -182,7 +188,7 @@ export class Menu {
 
     // blinking of cursor line
     if (this.cursorLineCounter === 0) {
-      this.cursorLineCounter = 100
+      this.cursorLineCounter = 60
       this.cursorLine.setVisible(!this.cursorLine.visible)
     } else {
       this.cursorLineCounter--
