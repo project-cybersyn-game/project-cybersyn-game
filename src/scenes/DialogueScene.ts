@@ -1,6 +1,7 @@
 /* eslint-disable no-new */
 import { Scene } from 'phaser'
 import { DialogWindow } from '../helpers/DialogWindow'
+import eventsCenter from '../helpers/EventsCenter'
 
 export default class HelloWorldScene extends Scene {
   dialogWindow?: DialogWindow
@@ -36,7 +37,7 @@ export default class HelloWorldScene extends Scene {
     this.counter = 0
   }
 
-  init (data: {startDialogId: string}): void {
+  init (data: {startDialogId: string }): void {
   }
 
   preload (): void {
@@ -44,13 +45,18 @@ export default class HelloWorldScene extends Scene {
   }
 
   create (): void {
-    if (this.startDialogId === '') this.scene.stop()
+    // --- REASON FOR THE DOUBLE INTERACTION PROBLEM ---
+    // startDialogId isn't set here yet
+    // still seems to work. really needed? @Jana
+    // if (this.startDialogId === '') this.scene.stop()
 
     this._start()
     this._displayDialogueUnit(this.startDialogId)
   }
 
   _start (): void {
+    eventsCenter.emit('inDialogue')
+
     this.dialogData = this.cache.json.get('dialogues')
     this.dialogWindow = new DialogWindow(this, {})
     this.cursors = this.input.keyboard.createCursorKeys()
@@ -79,6 +85,7 @@ export default class HelloWorldScene extends Scene {
           this.isChoicesActive = true
           this.dialogWindow?.setChoices(dialog.choices)
         } else {
+          eventsCenter.emit('outOfDialogue')
           this.scene.stop()
         }
       }

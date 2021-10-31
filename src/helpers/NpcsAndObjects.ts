@@ -1,6 +1,7 @@
 import GameScene from '../components/GameScene'
 import { WalkingAnimationMapping } from 'grid-engine'
 import Phaser from 'phaser'
+import eventsCenter from './EventsCenter'
 
 /** this functions creates a character sprite at the given coordinates on the map and scales the sprite. */
 export function createCharacterSprite (
@@ -66,6 +67,13 @@ export class NpcsAndObjects {
         ) {
           object.action(object.scene, object.name)
         }
+      })
+    })
+
+    eventsCenter.once('inDialogue', () => {
+      scene.interactionKey.removeAllListeners()
+      eventsCenter.once('outOfDialogue', () => {
+        NpcsAndObjects.interaction(scene)
       })
     })
   }

@@ -100,7 +100,7 @@ export default class HelloWorldScene extends GameScene {
         scene: GameScene,
         name: string
       ) => {
-        this.scene.run('ui-dialogue', { startDialogId: '1' })
+        this.scene.run('ui-dialogue', { startDialogId: '1', scene: this })
       })
     new Npcs(this, 10, 10, ImageNames.NPCs, 1.2,
       (
@@ -114,10 +114,6 @@ export default class HelloWorldScene extends GameScene {
     // example of setting and accessing GlobalGameState
     GlobalGameState.setGameProgress('isTelexFound', true)
     console.log(GlobalGameState.getGameProgress('isTelexFound'))
-
-    // fix dialogue bug
-    // --- IMPROVE LATER ---
-    this.scene.run('ui-dialogue', { startDialogId: '1' })
 
     NpcsAndObjects.interaction(this)
   }
