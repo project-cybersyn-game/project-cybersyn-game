@@ -70,6 +70,7 @@ export default class HelloWorldScene extends Scene {
       // If choices are being displayed, the dialogue needs to switch to the "next" id
       if (this.isChoicesActive) {
         this.isChoicesActive = false
+        this.enterKey.removeAllListeners()
         this._displayDialogueUnit(dialog.choices[this.activeChoice].next)
 
       // If it's an NPC talking, either choices need to be displayed after or the dialogue ends
