@@ -5,7 +5,7 @@ import { createDoor } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import GlobalGameState from '../components/GlobalGameState'
-import { DialogWindow } from '../helpers/DialogWindow'
+import { Dialog } from '../helpers/Dialog'
 
 enum ImageNames {
   Dude = 'dude',
@@ -101,8 +101,7 @@ export default class HelloWorldScene extends GameScene {
         scene: GameScene,
         name: string
       ) => {
-        const dw = new DialogWindow(scene, {})
-        dw.setText('Good morning, Alba! We are on the verge of implementing our new project for managing the public economy of Chile. But we have hit a wall. Maybe you can help!\n\nWhat do you propose?', true)
+        new Dialog(scene, '1')
       })
     new Npcs(this, 10, 10, ImageNames.NPCs, 1.2,
       (
