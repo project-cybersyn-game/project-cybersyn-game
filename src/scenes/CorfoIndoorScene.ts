@@ -133,7 +133,8 @@ export default class CorfoIndoorScene extends GameScene {
     this.cameras.main.startFollow(this.playerSprite, true)
 
     // creating all doors / doorpositions
-    createDoor(this, 21, 6, 'hello-world')
+    createDoor(this, 19, 10, 'outdoor')
+    createDoor(this, 20, 10, 'outdoor')
   }
 
   update (): void {

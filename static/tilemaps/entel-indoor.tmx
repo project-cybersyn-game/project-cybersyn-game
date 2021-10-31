@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="24" tileheight="24" infinite="0" nextlayerid="7" nextobjectid="1">
  <editorsettings>
-  <export target="corfo-indoor.json" format="json"/>
+  <export target="entel-indoor.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="DD_Exterior_A4" tilewidth="24" tileheight="24" tilecount="240" columns="16">
   <image source="../../../../../../Desktop/game-assets/Downtown Dungeon - Asset Pack Finals/Tiles 24x24/DD_Exterior_A4.png" width="384" height="360"/>
@@ -47692,7 +47692,7 @@
   </tile>
   <tile id="61">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -47701,7 +47701,7 @@
   </tile>
   <tile id="62">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -47980,7 +47980,7 @@
   </tile>
   <tile id="93">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -47989,7 +47989,7 @@
   </tile>
   <tile id="94">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48268,7 +48268,7 @@
   </tile>
   <tile id="125">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48277,7 +48277,7 @@
   </tile>
   <tile id="126">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48286,7 +48286,7 @@
   </tile>
   <tile id="127">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48556,7 +48556,7 @@
   </tile>
   <tile id="157">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48565,7 +48565,7 @@
   </tile>
   <tile id="158">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48574,7 +48574,7 @@
   </tile>
   <tile id="159">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48655,7 +48655,7 @@
   </tile>
   <tile id="168">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48664,7 +48664,7 @@
   </tile>
   <tile id="169">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48943,7 +48943,7 @@
   </tile>
   <tile id="200">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -48952,7 +48952,7 @@
   </tile>
   <tile id="201">
    <properties>
-    <property name="ge_collide" type="bool" value="false"/>
+    <property name="ge_collide" type="bool" value="true"/>
     <property name="ge_collide_down" type="bool" value="false"/>
     <property name="ge_collide_left" type="bool" value="false"/>
     <property name="ge_collide_right" type="bool" value="false"/>
@@ -51839,15 +51839,15 @@
 8,8,8,8,8,8,8,8,8,8,3486,3487,3487,3487,3487,3487,3487,3487,3487,3487,3487,3487,3487,3487,3487,3487,3487,3487,3487,3488,0,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,3510,3511,3511,3511,3511,3511,3511,3511,3511,3511,3511,3511,3511,3511,3511,3511,3511,3511,3511,3512,0,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,0,3534,3535,3535,3535,3535,3535,3535,3535,3535,3535,3535,3535,3535,3535,3535,3535,3535,3535,3535,3536,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,0,0,8,8,0,0,8,8,8,8,8,0,0,8,0,0,0,8,0,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,0,0,8,0,0,0,0,0,0,0,0,0,8,8,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,8,8,8,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,8,8,8,8,8,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,8,8,8,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,0,0,0,0,0,8,8,8,8,8,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,5385,4281,5357,5355,4282,0,0,0,0,0,0,4615,0,0,0,4583,5637,5638,0,5421,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,4297,5373,5371,4298,0,0,8,8,4586,8,4631,0,0,8,0,0,0,8,0,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,0,0,5388,5387,0,0,0,0,5406,5408,0,4616,8,8,5265,0,0,4554,0,0,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,0,0,5265,0,0,0,0,0,0,0,4632,8,8,5406,5407,5407,5408,0,0,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,8,8,8,8,8,0,4585,0,0,0,0,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,0,0,5355,5354,0,0,0,8,4330,8,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,0,0,4537,5370,5370,4282,8,8,5281,5449,5450,0,0,0,0,0,4330,0,0,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,0,0,4553,5370,5386,4298,0,0,5297,5417,5418,0,0,0,0,5374,5375,5376,0,0,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,0,0,0,0,5386,5435,0,0,0,0,0,4329,0,0,0,0,0,0,5096,0,0,0,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,0,0,0,0,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
@@ -51875,17 +51875,17 @@
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,8,8,8,8,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,0,0,8,8,8,0,0,0,0,0,0,0,5480,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,5248,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,0,8,8,0,0,0,0,0,0,8,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,0,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,0,8,8,0,0,8,8,8,8,8,8,8,8,8,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,0,0,0,8,0,0,8,8,8,8,8,8,8,8,8,0,0,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,8,8,8,8,8,8,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,8,0,0,0,0,8,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,8,8,8,8,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,5475,8,0,0,8,8,8,8,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,5353,0,4675,4676,8,0,0,0,5273,5242,5276,0,5480,0,0,0,4791,4792,0,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,5369,0,4691,4692,0,0,0,0,5289,5258,5292,4599,5248,0,0,4567,5621,5622,0,5405,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,0,8,8,0,0,0,0,4570,0,8,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,0,8,8,8,8,8,8,5390,5392,8,4600,8,8,5249,0,0,4538,0,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,0,8,5281,0,0,8,8,8,8,8,8,8,8,5390,5391,5391,5392,0,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,0,0,0,8,0,0,8,8,8,8,8,8,8,8,4569,0,0,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,4314,8,8,8,8,8,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,5433,5402,0,0,0,0,8,4314,0,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,5454,8,8,8,8,5401,5434,0,0,0,0,5390,5391,5392,0,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,5403,8,8,8,8,8,4313,0,8,8,8,8,0,5080,0,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,3371,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
@@ -51952,16 +51952,16 @@
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,5468,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,0,0,8,8,8,8,8,8,8,8,8,8,8,8,5484,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,0,8,8,8,8,8,8,8,8,5179,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,0,8,8,8,8,8,8,5424,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,5483,8,8,8,5486,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,8,8,8,8,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,8,0,0,0,8,0,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,
-8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,8,8,8,8,8,8,5423,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
