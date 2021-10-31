@@ -39,7 +39,6 @@ export default class GameScene extends Phaser.Scene {
     basicMovement(this, 'player', this.gridEngine, this.playerSprite)
     updateDoors(this)
     // npcInteraction(this)
-    NpcsAndObjects.interaction(this)
 
     // switch to main menu when pressing ESC key
     // --- DEFINITELY CHANGE LATER ---

@@ -33,7 +33,7 @@ const config: Phaser.Types.Core.GameConfig = {
     ]
   },
   parent: 'game-canvas',
-  scene: [MainMenuScene, StandardScene, SecondScene, DialogueScene],
+  scene: [StandardScene, MainMenuScene, SecondScene, DialogueScene],
   title: 'Cybersyn: The Game',
   version: '0.1',
   url: 'https://project-cybersyn-game.github.io/project-cybersyn-game/'

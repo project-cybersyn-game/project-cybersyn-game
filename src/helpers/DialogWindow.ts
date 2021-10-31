@@ -12,7 +12,7 @@ export class DialogWindow {
   dialogSpeed!: number
   eventCounter!: number
   visible!: boolean
-  text?: Phaser.GameObjects.Text
+  texts: Phaser.GameObjects.Text[]
   dialog: string[] = []
   graphics!: Phaser.GameObjects.Graphics
   timedEvent!: Phaser.Time.TimerEvent
@@ -26,23 +26,28 @@ export class DialogWindow {
     this.windowColor = options.windowColor ?? 0x303030
     this.windowHeight = options.windowHeight ?? 150
     this.padding = options.padding ?? 32
-    this.dialogSpeed = options.dialogSpeed ?? 3
+    this.dialogSpeed = options.dialogSpeed ?? 4
 
     this.eventCounter = 0
     this.visible = true
+    this.texts = []
 
     this._create()
   }
 
   destroy (): void {
     if (this.timedEvent != null) this.timedEvent.remove()
-    if (this.text != null) this.text.destroy()
+    if (this.texts.length > 0) this.texts?.forEach(text => text.destroy())
   }
 
   // Hide/Show the Dialog Window
   toggle (): void {
     this.visible = !this.visible
-    if (this.text != null) this.text.visible = this.visible
+    if (this.texts.length > 0) {
+      this.texts.forEach(text => {
+        text.visible = this.visible
+      })
+    }
     if (this.graphics != null) this.graphics.visible = this.visible
   }
 
@@ -52,6 +57,8 @@ export class DialogWindow {
     this.eventCounter = 0
     this.dialog = text.split('')
     if (this.timedEvent != null) this.timedEvent.remove()
+    if (this.texts.length > 0) this.texts.forEach(text => text.destroy())
+    this.texts = []
 
     const tempText = animate ? '' : text
     this._setText(tempText)
@@ -66,23 +73,35 @@ export class DialogWindow {
     }
   }
 
-  // Calcuate the position of the text in the dialog window
-  _setText (text: string): void {
+  setChoices (choices: Array<{text: string}>): void {
     // Reset the dialog
-    if (this.text != null) this.text.destroy()
+    this.eventCounter = 0
+    if (this.timedEvent != null) this.timedEvent.remove()
+    if (this.texts.length > 0) this.texts.forEach(text => text.destroy())
+    this.texts = []
+
+    choices.forEach((choice, index) => {
+      this._setText(`${index + 1}. ${choice.text}`, index)
+    })
+  }
+
+  // Calcuate the position of the text in the dialog window
+  _setText (text: string, lineOffset: integer = 0): void {
+    // Reset the dialog
 
     const x = this.padding + 10
-    const y = +this.scene.game.config.height - this.windowHeight - this.padding + 10
+    const y = +this.scene.game.config.height - this.windowHeight - this.padding + 10 + lineOffset * 22
 
-    this.text = this.scene.make.text({
+    this.texts.push(this.scene.make.text({
       x,
       y,
       text,
       style: {
         wordWrap: { width: +this.scene.game.config.height - (this.padding * 2) - 25 }
       }
-    })
-    this.text.setDepth(10000)
+    }))
+    this.texts[this.texts.length - 1].setDepth(10000)
+    console.log(this.texts)
   }
 
   // Slowly displays the text in the window to make it appear animated
@@ -92,7 +111,7 @@ export class DialogWindow {
       this.timedEvent.remove()
       return
     }
-    this.text?.setText(this.text.text + nextCharacter)
+    this.texts[0].setText(this.texts[0].text + nextCharacter)
     this.eventCounter++
   }
 

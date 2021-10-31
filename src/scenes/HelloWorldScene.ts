@@ -1,6 +1,6 @@
 /* eslint-disable no-new */
 // import { addNpc } from '../helpers/Characters'
-import { createCharacterSprite, Npcs, Objects } from '../helpers/NpcsAndObjects'
+import { createCharacterSprite, Npcs, NpcsAndObjects, Objects } from '../helpers/NpcsAndObjects'
 import { createDoor } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
@@ -114,6 +114,8 @@ export default class HelloWorldScene extends GameScene {
     // example of setting and accessing GlobalGameState
     GlobalGameState.setGameProgress('isTelexFound', true)
     console.log(GlobalGameState.getGameProgress('isTelexFound'))
+
+    NpcsAndObjects.interaction(this)
   }
 
   update (): void {
