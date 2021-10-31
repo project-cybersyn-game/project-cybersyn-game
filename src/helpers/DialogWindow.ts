@@ -97,7 +97,7 @@ export class DialogWindow {
       y,
       text,
       style: {
-        wordWrap: { width: +this.scene.game.config.height - (this.padding * 2) - 25 }
+        wordWrap: { width: +this.scene.game.config.width - (this.padding * 2) - 25 }
       }
     }))
     this.texts[this.texts.length - 1].setDepth(10000)
