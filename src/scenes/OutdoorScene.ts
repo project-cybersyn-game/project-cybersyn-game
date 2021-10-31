@@ -134,6 +134,8 @@ export default class OutdoorScene extends GameScene {
 
     // creating all doors / doorpositions
     createDoor(this, 21, 6, 'entel-indoor')
+    createDoor(this, 36, 6, 'entel-basement')
+    createDoor(this, 37, 6, 'entel-basement')
     createDoor(this, 47, 28, 'corfo-indoor')
     createDoor(this, 48, 28, 'corfo-indoor')
   }
