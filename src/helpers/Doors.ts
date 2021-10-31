@@ -23,11 +23,12 @@ export function createDoor (
 
 /** This function is used to make the doors useable by the player. */
 export function updateDoors (
-  scene: GameScene
+  scene: GameScene,
+  playerId: string = 'player'
 ): void {
   scene.doors.forEach(door => {
     if (
-      scene.gridEngine.getFacingPosition('player').equals({ x: door.x, y: door.y }) === true &&
+      scene.gridEngine.getFacingPosition(playerId).equals({ x: door.x, y: door.y }) === true &&
       scene.interactionKey.isDown
     ) {
       scene.scene.switch(door.nextScene)
