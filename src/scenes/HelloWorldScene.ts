@@ -5,6 +5,7 @@ import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
+import GlobalGameState from '../components/GlobalGameState'
 
 export default class HelloWorldScene extends GameScene {
   constructor () {
@@ -119,7 +120,12 @@ export default class HelloWorldScene extends GameScene {
       ) => {
         scene.gridEngine.moveRandomly(name, 3, 5)
       }, 3)
+
     new Objects(this, 5, 10, this.imageNames.Door, 0.5, 'helloworld_player')
+
+    // example of setting and accessing GlobalGameState
+    GlobalGameState.setGameProgress('isTelexFound', true)
+    console.log(GlobalGameState.getGameProgress('isTelexFound'))
   }
 
   update (): void {
