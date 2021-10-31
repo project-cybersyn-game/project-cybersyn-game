@@ -115,6 +115,10 @@ export default class HelloWorldScene extends GameScene {
     GlobalGameState.setGameProgress('isTelexFound', true)
     console.log(GlobalGameState.getGameProgress('isTelexFound'))
 
+    // fix dialogue bug
+    // --- IMPROVE LATER ---
+    this.scene.run('ui-dialogue', { startDialogId: '1' })
+
     NpcsAndObjects.interaction(this)
   }
 
