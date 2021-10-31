@@ -5,7 +5,6 @@ import { createDoor } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import GlobalGameState from '../components/GlobalGameState'
-import { Dialog } from '../helpers/Dialog'
 
 enum ImageNames {
   Dude = 'dude',
@@ -96,12 +95,12 @@ export default class HelloWorldScene extends GameScene {
     createDoor(this, 19, 17, 'second')
 
     // adding NPCs and pushable objects
-    new Npcs(this, 10, 15, ImageNames.NPCs, 1.2,
+    new Npcs(this, 2, 2, ImageNames.NPCs, 1.2,
       (
         scene: GameScene,
         name: string
       ) => {
-        new Dialog(scene, '1')
+        this.scene.run('ui-dialogue', { startDialogId: '1' })
       })
     new Npcs(this, 10, 10, ImageNames.NPCs, 1.2,
       (

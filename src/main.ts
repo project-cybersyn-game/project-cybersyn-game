@@ -4,6 +4,7 @@ import { WebFontLoaderPlugin } from '../node_modules/phaser3-webfont-loader/src/
 import MainMenuScene from './scenes/MainMenuScene'
 import StandardScene from './scenes/HelloWorldScene'
 import SecondScene from './scenes/SecondScene'
+import DialogueScene from './scenes/DialogueScene'
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -32,7 +33,7 @@ const config: Phaser.Types.Core.GameConfig = {
     ]
   },
   parent: 'game-canvas',
-  scene: [MainMenuScene, StandardScene, SecondScene],
+  scene: [MainMenuScene, StandardScene, SecondScene, DialogueScene],
   title: 'Cybersyn: The Game',
   version: '0.1',
   url: 'https://project-cybersyn-game.github.io/project-cybersyn-game/'
