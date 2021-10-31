@@ -85,12 +85,14 @@ export class DialogWindow {
     this.text.setDepth(10000)
   }
 
-  // Slowly displays the text in the window to make it appear annimated
+  // Slowly displays the text in the window to make it appear animated
   _animateText (): void {
-    this.text?.setText(this.text.text + this.dialog[this.eventCounter])
-    if (this.eventCounter === this.dialog?.length) {
+    const nextCharacter = this.dialog[this.eventCounter]
+    if (nextCharacter == null) {
       this.timedEvent.remove()
+      return
     }
+    this.text?.setText(this.text.text + nextCharacter)
     this.eventCounter++
   }
 

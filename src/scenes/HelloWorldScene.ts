@@ -102,7 +102,7 @@ export default class HelloWorldScene extends GameScene {
         name: string
       ) => {
         const dw = new DialogWindow(scene, {})
-        dw.setText('Ich bin ein test  djosdfoi sdfhiosdfohi huisdfhiuhuisd huisdhiuhiusdf gusdgiusdgiuzgiuz guisdfgiuzgiuzsdhou ghusfdgiugiuzsdf', true)
+        dw.setText('Good morning, Alba! We are on the verge of implementing our new project for managing the public economy of Chile. But we have hit a wall. Maybe you can help!\n\nWhat do you propose?', true)
       })
     new Npcs(this, 10, 10, ImageNames.NPCs, 1.2,
       (
