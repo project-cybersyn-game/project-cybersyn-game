@@ -6,16 +6,8 @@
       {
         "text": "Good Morning, Fernando! What can I do?",
         "next": "2"
-      },
-      {
-        "text": "Ich muss testen wie das mit den Choices funktioniert.",
-        "next": "2a"
       }
     ]
-  },
-  "2a": {
-    "character": "Flores",
-    "text": "Das folgt auf die zweite Auswahlmöglichkeit und es gibt keinen weiteren Verlauf."
   },
   "2": {
     "character": "Flores",
@@ -90,7 +82,7 @@
     ]
   },
   "11": {
-    "character": "ENTEL Friend Paulo",
+    "character": "Paulo",
     "text": "Never fear, Alba. I know a little secret. There's an Aladdin's cave in the basement of this building that will hold exactly the treasure you were hoping for! Follow me... ",
     "effect": "goToBasement"
   },
