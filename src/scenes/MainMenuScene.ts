@@ -21,6 +21,8 @@ export default class MainMenuScene extends Phaser.Scene {
     this.load.image(ImageNames.OpsRoom, 'images/main-menu-ops-room.png')
     this.load.image(ImageNames.OpsRoomLight, 'images/main-menu-ops-room-lighteffect.png')
 
+    this.load.audio('title_music', ['sounds/title_music.mp3'])
+
     // preload the menu dependencies
     Menu.preload(this)
   }
@@ -98,6 +100,11 @@ export default class MainMenuScene extends Phaser.Scene {
 
     // add light effects
     this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, ImageNames.OpsRoomLight)
+
+    const music = this.sound.add('title_music')
+    music.play({
+      loop: true
+    })
   }
 
   update (): void {
