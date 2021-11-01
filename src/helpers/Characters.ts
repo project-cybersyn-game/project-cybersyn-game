@@ -12,35 +12,43 @@ export function basicMovement (
   gridEngine: any,
   playerSprite: Phaser.Physics.Arcade.Sprite
 ): void {
+  if (!scene.inDialogue) {
   // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
-  if (
-    gridEngine.isMoving(id) === false &&
+    if (
+      gridEngine.isMoving(id) === false &&
     (
       gridEngine.getPosition(id).y !== ((gridEngine.getSprite(id).getBottomCenter().y / 32) - 1) ||
       // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
       gridEngine.getPosition(id).x !== (((gridEngine.getSprite(id).getBottomCenter().x + 15.25) / 32) - 1)
     )
-  ) {
+    ) {
     // Position neu setzen
-    const x = (((Math.round(gridEngine.getSprite(id).getBottomCenter().x) + 15) / 32) - 1)
-    const y = ((Math.round(gridEngine.getSprite(id).getBottomCenter().y) / 32) - 1)
-    gridEngine.setPosition(id, { x: x, y: y })
-  }
+      const x = (((Math.round(gridEngine.getSprite(id).getBottomCenter().x) + 15) / 32) - 1)
+      const y = ((Math.round(gridEngine.getSprite(id).getBottomCenter().y) / 32) - 1)
+      gridEngine.setPosition(id, { x: x, y: y })
+    }
 
-  // I know that it seems unnecessary to have multiple if-statements that do the same.
-  // It just works better like this. Don't change it please. :)
+    // I know that it seems unnecessary to have multiple if-statements that do the same.
+    // It just works better like this. Don't change it please. :)
 
-  // actual movement
-  if (gridEngine.isMoving(id) === false) {
+    // actual movement
+    if (gridEngine.isMoving(id) === false) {
     // Movement itself
-    if (scene.cursors.up.isDown) {
-      gridEngine.move(id, Direction.UP)
-    } else if (scene.cursors.down.isDown) {
-      gridEngine.move(id, Direction.DOWN)
-    } else if (scene.cursors.left.isDown) {
-      gridEngine.move(id, Direction.LEFT)
-    } else if (scene.cursors.right.isDown) {
-      gridEngine.move(id, Direction.RIGHT)
+      if (scene.cursors.up.isDown) {
+        gridEngine.move(id, Direction.UP)
+      } else if (scene.cursors.down.isDown) {
+        gridEngine.move(id, Direction.DOWN)
+      } else if (scene.cursors.left.isDown) {
+        gridEngine.move(id, Direction.LEFT)
+      } else if (scene.cursors.right.isDown) {
+        gridEngine.move(id, Direction.RIGHT)
+      }
+    }
+
+    // switch to main menu when pressing ESC key
+    // --- DEFINITELY CHANGE LATER ---
+    if (scene.backKey.isDown) {
+      scene.scene.switch('main-menu')
     }
   }
 
