@@ -22,9 +22,7 @@ class GlobalGameState extends Phaser.Events.EventEmitter {
       this.on(index, (args: boolean) => {
         this._gameProgress[index] = args
       })
-      this.test++
     }
-    console.log(this.test)
   }
 }
 

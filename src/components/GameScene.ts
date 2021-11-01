@@ -24,13 +24,6 @@ export default class GameScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys()
     this.interactionKey = this.input.keyboard.addKey('E')
     this.backKey = this.input.keyboard.addKey('ESC')
-
-    globalGameState.on('inDialogue', () => {
-      this.inDialogue = true
-      globalGameState.once('outOfDialogue', () => {
-        this.inDialogue = false
-      })
-    })
   }
 
   update (): void {

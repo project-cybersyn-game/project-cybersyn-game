@@ -1,6 +1,7 @@
 import GameScene from '../components/GameScene'
 import { Direction } from 'grid-engine'
 import Phaser from 'phaser'
+import globalGameState from '../components/GlobalGameState'
 
 /** This function is used for grid-based movement of a character sprite in four directions.
  *  It also prevents positioning errors that come with the GridEngine plugin and plays movement animations.
@@ -12,7 +13,7 @@ export function basicMovement (
   gridEngine: any,
   playerSprite: Phaser.Physics.Arcade.Sprite
 ): void {
-  if (!scene.inDialogue) {
+  if (!globalGameState._gameProgress.inDialogue) {
   // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
     if (
       gridEngine.isMoving(id) === false &&
