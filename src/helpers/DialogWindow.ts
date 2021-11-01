@@ -79,14 +79,18 @@ export class DialogWindow {
     if (this.timedEvent != null) this.timedEvent.remove()
     if (this.texts.length > 0) this.texts.forEach(text => text.destroy())
     this.texts = []
+    let lastHeight: integer = 0
 
     choices.forEach((choice, index) => {
-      this._setText(`${index + 1}. ${choice.text}`, index, index == 0 ? characterName : null)
+      if (index > 0) {
+        lastHeight = this.texts[index - 1].displayHeight - 15
+      }
+      this._setText(`${index + 1}. ${choice.text}`, index, index == 0 ? characterName : null, lastHeight)
     })
   }
 
   // Calcuate the position of the text in the dialog window
-  _setText (text: string, lineOffset: integer = 0, characterName?: string | null): void {
+  _setText (text: string, lineOffset: integer = 0, characterName?: string | null, lastHeight: integer = 0): void {
     if (characterName != null) this._setText(`${characterName}:`)
 
     // Reset the dialog
@@ -100,7 +104,7 @@ export class DialogWindow {
     console.log(2)
     console.log('----------')
 
-    const y = +this.scene.game.config.height - this.windowHeight - this.padding + 10 + lineOffset * 22
+    const y = +this.scene.game.config.height - this.windowHeight - this.padding + 10 + lineOffset * 22 + lastHeight
 
     this.texts.push(this.scene.make.text({
       x,
