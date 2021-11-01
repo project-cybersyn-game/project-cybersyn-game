@@ -1,6 +1,6 @@
 {
   "1": {
-    "character": "Flores",
+    "character": "Sr. Flores",
     "text": "Good morning, Alba! We are on the verge of implementing our new project for managing the public economy of Chile. But we have hit a wall. Maybe you can help!",
     "effect": "hasTalkedToFlores",
     "condition": "hasTalkedToFlores",
@@ -13,7 +13,7 @@
     ]
   },
   "2": {
-    "character": "Flores",
+    "character": "Sr. Flores",
     "text": "For building a system that can communicate data from the factories all over the country to the capital, we need a network. But Chile does not have enough computers to install them in every region. We need another solution.",
     "choices": [
       {
@@ -27,11 +27,11 @@
     ]
   },
   "3": {
-    "character": "Flores",
+    "character": "Sr. Flores",
     "text": "Try to talk to Sr. Batanero, the head of ENTEL. This is the National Telecommunications Enterprise. He might be able to help!"
   },
   "4": {
-    "character": "Flores",
+    "character": "Sr. Flores",
     "text": "Perfect! Personal connections are always the best way to cut bureaucracy! Let's hope your friend can help us out."
   },
   "5": {
@@ -115,7 +115,7 @@
     "effect": "resetBoxPuzzle"
   },
   "15": {
-    "character": "Flores",
+    "character": "Sr. Flores",
     "text": "Alba, have you had any success?",
     "choices": [
       {
@@ -130,12 +130,12 @@
     ]
   },
   "16": {
-    "character": "Flores",
+    "character": "Sr. Flores",
     "text": "Wonderful!  Now we can get started with the real work. Thank you Alba!",
     "effect": "winTheGame"
   },
   "17": {
-    "character": "Flores",
+    "character": "Sr. Flores",
     "text": "Try talking to the people at ENTEL. They might be able to help you!"
   },
   "18": {

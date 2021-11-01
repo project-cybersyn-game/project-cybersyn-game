@@ -47,7 +47,26 @@ export default class MainMenuScene extends Phaser.Scene {
       })
 
     // display game-info
-    this.add.text(665, 545, 'GAMEINFO',
+    this.add.text(140, 545, 'GRAPHICS',
+      {
+        fontFamily: 'Nova Mono',
+        fontSize: '20px',
+        color: '#000'
+      })
+    this.add.text(120, 580,
+      [
+        'By Darby Machin',
+        'freely available',
+        'on itch.io'
+      ],
+      {
+        fontFamily: 'Nova Mono',
+        fontSize: '14px',
+        color: '#fff'
+      })
+
+    // display game-info
+    this.add.text(665, 545, 'GAME INFO',
       {
         fontFamily: 'Nova Mono',
         fontSize: '20px',

@@ -1,4 +1,5 @@
 @import url("./styles/globals/theme.css");
 @import url("./styles/globals/global.css");
 
+@import url("./styles/components/controls.css");
 @import url("./styles/components/game-canvas.css");
