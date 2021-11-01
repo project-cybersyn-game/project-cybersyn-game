@@ -110,7 +110,7 @@ export default class MainMenuScene extends Phaser.Scene {
       this.backKey,
       { leftX: 330, rightX: 570, upperY: 120, lowerY: 400 },
       [
-        { text: 'Start game', scene: 'outdoor' },
+        { text: 'Start game', scene: 'intro' },
         { text: 'Options', scene: 'hello-world' },
         { text: 'Credits', scene: '' },
         { text: 'Exit', scene: 'second' }

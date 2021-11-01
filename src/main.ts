@@ -8,6 +8,7 @@ import CorfoIndoorScene from './scenes/CorfoIndoorScene'
 import EntelIndoorScene from './scenes/EntelIndoorScene'
 import EntelBasementScene from './scenes/EntelBasementScene'
 import OutroScene from './scenes/OutroScene'
+import IntroScene from './scenes/IntroScene'
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -36,7 +37,7 @@ const config: Phaser.Types.Core.GameConfig = {
     ]
   },
   parent: 'game-canvas',
-  scene: [MainMenuScene, OutdoorScene, CorfoIndoorScene, EntelIndoorScene, EntelBasementScene, DialogueScene, OutroScene],
+  scene: [MainMenuScene, OutdoorScene, CorfoIndoorScene, EntelIndoorScene, EntelBasementScene, DialogueScene, OutroScene, IntroScene],
   title: 'Cybersyn: The Game',
   version: '0.1',
   url: 'https://project-cybersyn-game.github.io/project-cybersyn-game/'
