@@ -5,7 +5,7 @@ import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
-import GlobalGameState from "~/components/GlobalGameState";
+import GlobalGameState from '../components/GlobalGameState'
 
 export default class CorfoIndoorScene extends GameScene {
   constructor () {
