@@ -2,6 +2,9 @@
   "1": {
     "character": "Sr. Flores",
     "text": "Good morning, Alba! We are on the verge of implementing our new project for managing the public economy of Chile. But we have hit a wall. Maybe you can help!",
+    "effect": "hasTalkedToFlores",
+    "condition": "hasTalkedToFlores",
+    "conditionAlternative": "15",
     "choices": [
       {
         "text": "Good Morning, Fernando! What can I do?",

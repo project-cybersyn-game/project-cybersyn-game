@@ -1,9 +1,10 @@
 /* eslint-disable no-new */
 import { createCharacterSprite, Npcs, NpcsAndObjects, Objects } from '../helpers/NpcsAndObjects'
-import { createDoor, updateDoors } from '../helpers/Doors'
+import { updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
+import globalGameState from '../components/GlobalGameState'
 
 export default class EntelBasementScene extends GameScene {
   constructor () {
@@ -112,7 +113,7 @@ export default class EntelBasementScene extends GameScene {
     this.cameras.main.startFollow(this.playerSprite, true)
 
     // creating all doors / doorpositions
-    createDoor(this, 21, 8, 'outdoor')
+    // createDoor(this, 21, 8, 'outdoor')
 
     // adding NPCs and pushable objects
     // new Npcs(this, 19, 10, this.imageNames.NPCs, 0.8, () => {
@@ -127,6 +128,24 @@ export default class EntelBasementScene extends GameScene {
     new Npcs(this, 38, 37, this.imageNames.Telex, 1, () => {
       this.scene.run('ui-dialogue', { startDialogueId: '18' })
     })
+    // Add Paulo NPC
+    new Npcs(this, 26, 12, this.imageNames.NPCs, 0.8,
+      (
+        scene: GameScene,
+        name: String
+      ) => {
+        this.scene.run('ui-dialogue', { startDialogueId: '12' })
+        globalGameState.off('teleportToCorfor')
+        globalGameState.on('teleportToCorfor', () => {
+          globalGameState.off('teleportToCorfor')
+          this.scene.switch('corfo-indoor')
+        })
+        globalGameState.off('resetBoxPuzzle')
+        globalGameState.on('resetBoxPuzzle', () => {
+          globalGameState.off('resetBoxPuzzle')
+          NpcsAndObjects.resetAllCharacters(this)
+        })
+      }, 6)
     new Objects(this, 22, 20, this.imageNames.Box1, 1, 'entelbasement_player')
     new Objects(this, 23, 20, this.imageNames.Box1, 1, 'entelbasement_player')
     new Objects(this, 27, 20, this.imageNames.Box2, 1, 'entelbasement_player')

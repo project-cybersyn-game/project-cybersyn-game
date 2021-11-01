@@ -5,6 +5,7 @@ import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
+import globalGameState from '../components/GlobalGameState'
 
 export default class EntelIndoorScene extends GameScene {
   constructor () {
@@ -79,7 +80,6 @@ export default class EntelIndoorScene extends GameScene {
         frameHeight: 36
       }
     )
-    console.log(this.scene.key)
   }
 
   create (): void {
@@ -142,7 +142,7 @@ export default class EntelIndoorScene extends GameScene {
         name: String
       ) => {
         this.scene.run('ui-dialogue', { startDialogueId: '5' })
-      })
+      }, 5)
 
     // Add Paulo NPC
     new Npcs(this, 26, 12, this.imageNames.NPCs, 1.2,
@@ -151,7 +151,11 @@ export default class EntelIndoorScene extends GameScene {
         name: String
       ) => {
         this.scene.run('ui-dialogue', { startDialogueId: '9' })
-      })
+        globalGameState.on('goToBasement', () => {
+          globalGameState.off('goToBasement')
+          this.scene.switch('entel-basement')
+        })
+      }, 6)
 
     NpcsAndObjects.interaction(this, 'entelindoor_player')
   }

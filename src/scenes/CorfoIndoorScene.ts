@@ -80,7 +80,6 @@ export default class CorfoIndoorScene extends GameScene {
         frameHeight: 36
       }
     )
-    console.log(this.scene.key)
   }
 
   create (): void {
@@ -148,7 +147,7 @@ export default class CorfoIndoorScene extends GameScene {
           GlobalGameState.off('winTheGame')
           this.scene.switch('outro')
         })
-      })
+      }, 0)
     NpcsAndObjects.interaction(this, 'corfoindoor_player')
   }
 
