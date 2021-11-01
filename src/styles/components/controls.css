@@ -1,0 +1,66 @@
+.controls {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  width: 900px;
+  padding: 15px;
+  flex-wrap: wrap;
+}
+
+.controls .h2 {
+  width: 100%;
+}
+
+.controls-left,
+.controls-right {
+  width: 50%;
+}
+
+.controls-list {
+  list-style: none;
+  padding: 0;
+}
+
+.controls-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+[class*="controls-key-"] {
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  background-image: url('../../../static/images/keys/icons-keyboard.png');
+  background-size: 406px;
+  overflow: hidden;
+  margin-right: 8px;
+  background-origin: top left;
+}
+
+.controls-key-e {
+  background-position-x: calc((-34px) * 2);
+  background-position-y: calc((-34px) * 0);
+}
+
+.controls-key-up {
+  background-position-x: calc((-34px) * 9);
+  background-position-y: calc((-34px) * 4);
+}
+.controls-key-down {
+  background-position-x: calc((-34px) * 10);
+  background-position-y: calc((-34px) * 4);
+}
+.controls-key-left {
+  background-position-x: calc((-34px) * 7);
+  background-position-y: calc((-34px) * 4);
+}
+.controls-key-right {
+  background-position-x: calc((-34px) * 8);
+  background-position-y: calc((-34px) * 4);
+}
+
+.controls-key-return {
+  background-position-x: calc((-34px) * 5);
+  background-position-y: calc((-34px) * 4);
+}
