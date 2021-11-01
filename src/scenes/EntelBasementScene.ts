@@ -140,6 +140,11 @@ export default class EntelBasementScene extends GameScene {
           globalGameState.off('teleportToCorfor')
           this.scene.switch('corfo-indoor')
         })
+        globalGameState.off('resetBoxPuzzle')
+        globalGameState.on('resetBoxPuzzle', () => {
+          globalGameState.off('resetBoxPuzzle')
+          NpcsAndObjects.resetAllCharacters(this)
+        })
       }, 6)
     new Objects(this, 22, 20, this.imageNames.Box1, 1, 'entelbasement_player')
     new Objects(this, 23, 20, this.imageNames.Box1, 1, 'entelbasement_player')

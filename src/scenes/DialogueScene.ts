@@ -101,7 +101,6 @@ export default class HelloWorldScene extends Scene {
         // check for conditions
         if (choices !== undefined && choices.length > 0) {
           choices.forEach((choice, index) => {
-            console.log(choice.condition + ' - ' + globalGameState._gameProgress[choice.condition])
             if (choice.condition != null && !globalGameState._gameProgress[choice.condition]) {
               choices.splice(index, 1)
             }

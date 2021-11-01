@@ -120,7 +120,7 @@ export default class OutdoorScene extends GameScene {
         {
           id: 'outdoor_player',
           sprite: this.playerSprite,
-          startPosition: { x: 10, y: 20 }
+          startPosition: { x: 52, y: 30 }
         }
       ]
     }
