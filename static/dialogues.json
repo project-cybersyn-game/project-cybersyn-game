@@ -134,5 +134,10 @@
   "17": {
     "character": "Flores",
     "text": "Try talking to the people at ENTEL. They might be able to help you!"
+  },
+  "18": {
+    "character": "...",
+    "text": "I think these telex machines could be a lot of help. I should tell Flores about it!",
+    "effect": "isTelexFound"
   }
 }
