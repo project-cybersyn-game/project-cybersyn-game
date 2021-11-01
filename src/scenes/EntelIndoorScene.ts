@@ -134,12 +134,13 @@ export default class EntelIndoorScene extends GameScene {
 
     // creating all doors / doorpositions
     createDoor(this, 15, 10, 'outdoor')
+
+    NpcsAndObjects.interaction(this, 'entelindoor_player')
   }
 
   update (): void {
     super.update()
     basicMovement(this, 'entelindoor_player', this.gridEngine, this.playerSprite)
     updateDoors(this, 'entelindoor_player')
-    NpcsAndObjects.interaction(this, 'entelindoor_player')
   }
 }

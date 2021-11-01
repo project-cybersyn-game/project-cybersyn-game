@@ -138,10 +138,6 @@ export default class OutdoorScene extends GameScene {
     createDoor(this, 47, 28, 'corfo-indoor')
     createDoor(this, 48, 28, 'corfo-indoor')
 
-    // adding NPCs and pushable objects
-    new Npcs(this, 10, 22, this.imageNames.NPCs, 0.8, () => {
-      this.scene.run('ui-dialogue', { startDialogueId: '5', scene: this })
-    })
     NpcsAndObjects.interaction(this, 'outdoor_player')
   }
 

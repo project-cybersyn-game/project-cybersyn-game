@@ -135,12 +135,13 @@ export default class CorfoIndoorScene extends GameScene {
     // creating all doors / doorpositions
     createDoor(this, 19, 10, 'outdoor')
     createDoor(this, 20, 10, 'outdoor')
+
+    NpcsAndObjects.interaction(this, 'corfoindoor_player')
   }
 
   update (): void {
     super.update()
     basicMovement(this, 'corfoindoor_player', this.gridEngine, this.playerSprite)
     updateDoors(this, 'corfoindoor_player')
-    NpcsAndObjects.interaction(this, 'corfoindoor_player')
   }
 }

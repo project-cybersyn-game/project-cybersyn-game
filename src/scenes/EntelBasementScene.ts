@@ -134,12 +134,13 @@ export default class EntelBasementScene extends GameScene {
     new Objects(this, 22, 27, this.imageNames.Box2, 1, 'entelbasement_player')
     new Objects(this, 23, 27, this.imageNames.Box1, 1, 'entelbasement_player')
     new Objects(this, 29, 27, this.imageNames.Box1, 1, 'entelbasement_player')
+
+    NpcsAndObjects.interaction(this, 'entelbasement_player')
   }
 
   update (): void {
     super.update()
     basicMovement(this, 'entelbasement_player', this.gridEngine, this.playerSprite)
     updateDoors(this, 'entelbasement_player')
-    NpcsAndObjects.interaction(this, 'entelbasement_player')
   }
 }
