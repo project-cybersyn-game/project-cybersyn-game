@@ -1,3 +1,5 @@
+import eventsCenter from "./EventsCenter"
+
 /** This class will be used to create a Dialog Window **/
 export class DialogWindow {
   // parameters
@@ -16,6 +18,7 @@ export class DialogWindow {
   dialog: string[] = []
   graphics!: Phaser.GameObjects.Graphics
   timedEvent!: Phaser.Time.TimerEvent
+  selectedChoice: integer = 1
 
   constructor (scene: Phaser.Scene, options: { borderThickness?: number, borderColor?: number, borderAlpha?: number, windowAlpha?: number, windowColor?: number, windowHeight?: number, padding?: number, dialogSpeed?: number }) {
     this.scene = scene
@@ -83,24 +86,45 @@ export class DialogWindow {
 
     choices.forEach((choice, index) => {
       if (index > 0) {
-        lastHeight = this.texts[index - 1].displayHeight - 15
+        lastHeight = this.texts[index].displayHeight - 15
       }
-      this._setText(`${index + 1}. ${choice.text}`, index, index == 0 ? characterName : null, lastHeight)
+      this._setText(`${index + 1}. ${choice.text}`, index, index === 0 ? characterName : 'YouChoicePlaceholder', lastHeight)
+    })
+
+    // select choice
+    this.selectedChoice = 1
+    eventsCenter.on('selectedChoiceUp', () => {
+      this.selectedChoice--
+      this.texts[0].setY(this.texts[0].getTopLeft().y - (this.texts[this.selectedChoice + 1].getTopLeft().y - this.texts[this.selectedChoice].getTopLeft().y))
+    })
+    eventsCenter.on('selectedChoiceDown', () => {
+      this.selectedChoice++
+      this.texts[0].setY(this.texts[0].getTopLeft().y + (this.texts[this.selectedChoice].getTopLeft().y - this.texts[this.selectedChoice - 1].getTopLeft().y))
     })
   }
 
   // Calcuate the position of the text in the dialog window
   _setText (text: string, lineOffset: integer = 0, characterName?: string | null, lastHeight: integer = 0): void {
-    if (characterName != null) this._setText(`${characterName}:`)
+    if (characterName != null && characterName !== 'YouChoicePlaceholder') this._setText(`${characterName}:`)
 
     // Reset the dialog
     console.log(text)
     let x = this.padding + 10
+    let xIndentation = 0
+
     if (characterName != null) {
       console.log(1)
       const textWidth = this.texts[this.texts.length - 1].width
-      x = this.texts[this.texts.length - 1].x + textWidth + this.padding + 100
+      x = this.texts[this.texts.length - 1].x + textWidth + this.padding
     }
+
+    // used for indentation of choices (for 'You:')
+    if (characterName === 'YouChoicePlaceholder') {
+      const textWidth = this.texts[0].width
+      x = this.texts[0].x + textWidth + this.padding
+      xIndentation = x - (this.padding + 10)
+    }
+
     console.log(2)
     console.log('----------')
 
@@ -111,7 +135,7 @@ export class DialogWindow {
       y,
       text,
       style: {
-        wordWrap: { width: +this.scene.game.config.width - (this.padding * 2) - 25 }
+        wordWrap: { width: +this.scene.game.config.width - (this.padding * 2) - 25 - xIndentation }
       }
     }))
     this.texts[this.texts.length - 1].setDepth(10000)

@@ -25,7 +25,7 @@ export default class HelloWorldScene extends Scene {
   }
 
   isChoicesActive: boolean
-  activeChoice: integer
+  selectedChoice: integer = 0
   counter: integer
 
   constructor () {
@@ -34,7 +34,6 @@ export default class HelloWorldScene extends Scene {
     this.dialogData = {}
 
     this.isChoicesActive = false
-    this.activeChoice = 0
     this.counter = 0
   }
 
@@ -74,17 +73,38 @@ export default class HelloWorldScene extends Scene {
     // Pressing Enter
     this.enterKey.on('down', () => {
       console.log(this.counter++)
+
+      eventsCenter.removeListener('selectedChoiceDown')
+      eventsCenter.removeListener('selectedChoiceUp')
+      this.cursors.up.removeListener('down')
+      this.cursors.down.removeListener('down')
+
       // If choices are being displayed, the dialogue needs to switch to the "next" id
       if (this.isChoicesActive) {
         this.isChoicesActive = false
+        console.log('The player selected choice number ' + this.selectedChoice + '.')
         this.enterKey.removeAllListeners()
-        this._displayDialogueUnit(dialog.choices[this.activeChoice].next)
+        this._displayDialogueUnit(dialog.choices[this.selectedChoice].next)
 
       // If it's an NPC talking, either choices need to be displayed after or the dialogue ends
       } else {
         if (dialog.choices !== undefined && dialog.choices.length > 0) {
           this.isChoicesActive = true
-          this.dialogWindow?.setChoices(dialog.choices)
+          this.selectedChoice = 0
+          this.dialogWindow?.setChoices(dialog.choices, 'You')
+
+          this.cursors.down.on('down', () => {
+            if (this.selectedChoice < dialog.choices.length - 1) {
+              this.selectedChoice++
+              eventsCenter.emit('selectedChoiceDown')
+            }
+          })
+          this.cursors.up.on('down', () => {
+            if (this.selectedChoice > 0) {
+              this.selectedChoice--
+              eventsCenter.emit('selectedChoiceUp')
+            }
+          })
         } else {
           eventsCenter.emit('outOfDialogue')
           this.scene.stop()
