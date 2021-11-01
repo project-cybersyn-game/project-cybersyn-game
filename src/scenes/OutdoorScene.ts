@@ -140,7 +140,7 @@ export default class OutdoorScene extends GameScene {
 
     // adding NPCs and pushable objects
     new Npcs(this, 10, 22, this.imageNames.NPCs, 0.8, () => {
-      this.scene.run('ui-dialogue', { startDialogueId: '1', scene: this })
+      this.scene.run('ui-dialogue', { startDialogueId: '5', scene: this })
     })
     NpcsAndObjects.interaction(this, 'outdoor_player')
   }

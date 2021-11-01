@@ -42,6 +42,8 @@
   "5": {
     "character": "Sr. Batanero",
     "text": "Hello, Senora. My name is Batanero. I am the director of ENTEL, our National Telecommunications Enterprise. Can I help you somehow? Be quick, I am very busy!",
+    "condition": "isBataneroBusy",
+    "conditionAlternative": "8",
     "choices": [
       {
         "text": "Yes, do you have any telex machines available for a new project CORFOR is working on? How many are installed in the country?",
@@ -65,8 +67,7 @@
   },
   "8": {
     "character": "Sr. Batanero",
-    "text": "I'm busy, don't bother me!",
-    "condition": "isBataneroBusy"
+    "text": "I'm busy, don't bother me!"
   },
   "9": {
     "character": "Paulo",

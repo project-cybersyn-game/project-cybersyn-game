@@ -21,6 +21,7 @@ export default class HelloWorldScene extends Scene {
       }>
       effect: string
       condition: string
+      conditionAlternative: string
     }
   }
 
@@ -61,7 +62,19 @@ export default class HelloWorldScene extends Scene {
 
   _displayDialogueUnit (dialogueId: string): void {
     const dialogue = this.dialogueData[dialogueId]
+
+    // check for conditions
+    if (dialogue.condition != null && globalGameState._gameProgress[dialogue.condition]) {
+      this._displayDialogueUnit(dialogue.conditionAlternative)
+      return
+    }
+
     this.dialogueWindow?.setText(dialogue.text, dialogue.character, false)
+
+    // if an effect exists on the dialogue, the variable is set to true
+    if (dialogue.effect != null) {
+      globalGameState.emit(dialogue.effect, true)
+    }
 
     // this.numberKeys = this.input.keyboard.addKey(49)
 
@@ -80,10 +93,20 @@ export default class HelloWorldScene extends Scene {
         // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         console.log('The player selected choice number ' + this.selectedChoice + '.')
         this.enterKey.removeAllListeners()
+
         this._displayDialogueUnit(dialogue.choices[this.selectedChoice].next)
 
       // If it's an NPC talking, either choices need to be displayed after or the dialogue ends
       } else {
+        // check for conditions
+        if (dialogue.choices !== undefined && dialogue.choices.length > 0) {
+          dialogue.choices.forEach((choice) => {
+            if (choice.condition != null && !globalGameState._gameProgress[choice.condition]) {
+              dialogue.choices.splice(dialogue.choices.indexOf(choice), 1)
+            }
+          })
+        }
+
         if (dialogue.choices !== undefined && dialogue.choices.length > 0) {
           this.isChoicesActive = true
           this.selectedChoice = 0
