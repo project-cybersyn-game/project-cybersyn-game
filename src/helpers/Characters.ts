@@ -13,6 +13,7 @@ export function basicMovement (
   gridEngine: any,
   playerSprite: Phaser.Physics.Arcade.Sprite
 ): void {
+  console.log(globalGameState._gameProgress.inDialogue)
   if (!globalGameState._gameProgress.inDialogue) {
   // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
     if (

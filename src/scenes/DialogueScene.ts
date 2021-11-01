@@ -76,8 +76,6 @@ export default class HelloWorldScene extends Scene {
       globalGameState.emit(dialogue.effect, true)
     }
 
-    // this.numberKeys = this.input.keyboard.addKey(49)
-
     // Pressing Enter
     this.enterKey.on('down', () => {
       console.log(this.counter++)

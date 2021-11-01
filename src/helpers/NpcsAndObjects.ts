@@ -75,7 +75,6 @@ export class NpcsAndObjects {
       if (value) {
         scene.interactionKey.removeAllListeners()
       } else {
-        globalGameState.off('inDialogue')
         NpcsAndObjects.interaction(scene, playerId)
       }
     })
