@@ -136,14 +136,6 @@ export default class CorfoIndoorScene extends GameScene {
     createDoor(this, 19, 10, 'outdoor')
     createDoor(this, 20, 10, 'outdoor')
 
-    new Npcs(this, 20, 15, this.imageNames.NPCs, 1.2,
-      (
-        scene: GameScene,
-        name: String
-      ) => {
-        this.scene.run('ui-dialogue', { startDialogueId: '1', scene: this })
-      })
-
     // Add Fernando Flores NPC
     new Npcs(this, 20, 15, this.imageNames.NPCs, 1.2,
       (
