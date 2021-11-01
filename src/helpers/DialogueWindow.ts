@@ -108,13 +108,11 @@ export class DialogueWindow {
     if (characterName != null && characterName !== 'YouChoicePlaceholder') this._setText(`${characterName}:`)
 
     // Reset the dialogue
-    console.log(text)
     let x = this.padding + 10
     let xIndentation = 0
 
     // FIXME: animations with indentation
     if (characterName != null) {
-      console.log(1)
       const textWidth = this.texts[this.texts.length - 1].width
       x = this.texts[this.texts.length - 1].x + textWidth + this.padding
     }
@@ -125,9 +123,6 @@ export class DialogueWindow {
       x = this.texts[0].x + textWidth + this.padding
       xIndentation = x - (this.padding + 10)
     }
-
-    console.log(2)
-    console.log('----------')
 
     const y = +this.scene.game.config.height - this.windowHeight - this.padding + 10 + lineOffset * 22 + lastHeight
 
@@ -140,7 +135,6 @@ export class DialogueWindow {
       }
     }))
     this.texts[this.texts.length - 1].setDepth(10000)
-    console.log(this.texts)
   }
 
   // Slowly displays the text in the window to make it appear animated

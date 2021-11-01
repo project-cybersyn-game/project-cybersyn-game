@@ -12,6 +12,7 @@ class GlobalGameState extends Phaser.Events.EventEmitter {
 
     // define all gameState objects
     this._gameProgress = {
+      hasTalkedToFlores: false,
       isTelexFound: false,
       inDialogue: false,
       isBataneroBusy: false
@@ -19,6 +20,7 @@ class GlobalGameState extends Phaser.Events.EventEmitter {
 
     // define all listeners
     for (const [index] of Object.entries(this._gameProgress)) {
+      console.log(index)
       this.on(index, (args: boolean) => {
         this._gameProgress[index] = args
       })

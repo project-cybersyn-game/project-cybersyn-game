@@ -19,9 +19,13 @@ export function createCharacterSprite (
 
 export class NpcsAndObjects {
   static number: integer = 0
+  static npcsAndObjectsArray: NpcsAndObjects[] = []
+  texture!: string
   name: String
   type: 'object' | 'npc'
   scene: GameScene
+  startX: integer = 0
+  startY: integer = 0
   /** default action if no action-parameter is assigned when creating the object */
   protected action: Function = (): void => {
     // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
@@ -41,8 +45,13 @@ export class NpcsAndObjects {
     // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
     this.name = type + NpcsAndObjects.number
     NpcsAndObjects.number++
+    NpcsAndObjects.npcsAndObjectsArray.push(this)
     this.type = type
     this.scene = scene
+
+    this.startX = xPos
+    this.startY = yPos
+    this.texture = texture
 
     // adding object to the scene
     const npcSprite = createCharacterSprite(scene, 0, 0, texture, scale)
@@ -61,6 +70,7 @@ export class NpcsAndObjects {
     scene: GameScene,
     playerId: string
   ): void {
+    scene.interactionKey.removeAllListeners()
     scene.npcsAndObjectsArray.forEach(object => {
       scene.interactionKey.on('down', () => {
         if (
@@ -76,6 +86,24 @@ export class NpcsAndObjects {
         scene.interactionKey.removeAllListeners()
       } else {
         NpcsAndObjects.interaction(scene, playerId)
+      }
+    })
+  }
+
+  /** This function is used for removing one NPC / Object. */
+  resetCharacter (): void {
+    this.scene.gridEngine.setPosition(this.name, { x: this.startX, y: this.startY })
+  }
+
+  /** This function is used for removing all NPCs and Objects in a scene. */
+  static resetAllCharacters (
+    scene: GameScene
+  ): void {
+    NpcsAndObjects.npcsAndObjectsArray.forEach((element, index) => {
+      if (element.scene === scene) {
+        // NpcsAndObjects.number--
+        // NpcsAndObjects.npcsAndObjectsArray.splice(index, 1)
+        element.resetCharacter()
       }
     })
   }
