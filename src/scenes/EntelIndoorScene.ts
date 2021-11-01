@@ -1,6 +1,6 @@
 /* eslint-disable no-new */
 // import { addNpc } from '../helpers/Characters'
-import { createCharacterSprite, NpcsAndObjects } from '../helpers/NpcsAndObjects'
+import { createCharacterSprite, Npcs, NpcsAndObjects } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
@@ -134,6 +134,15 @@ export default class EntelIndoorScene extends GameScene {
 
     // creating all doors / doorpositions
     createDoor(this, 15, 10, 'outdoor')
+
+    // Add Batanero NPC
+    new Npcs(this, 14, 15, this.imageNames.NPCs, 1.2,
+      (
+        scene: GameScene,
+        name: String
+      ) => {
+        this.scene.run('ui-dialogue', { startDialogueId: '5' })
+      })
 
     NpcsAndObjects.interaction(this, 'entelindoor_player')
   }
