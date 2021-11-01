@@ -121,7 +121,7 @@ export class Menu {
         fontFamily: 'Nova Mono',
         // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         fontSize: this.fontSize + 'px',
-        color: '#fff'
+        color: y === 0 ? '#fff' : '#686868'
       })
     }
 
@@ -131,7 +131,7 @@ export class Menu {
         fontFamily: 'Nova Mono',
         // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         fontSize: this.fontSize + 'px',
-        color: '#fff'
+        color: y === 0 ? '#fff' : '#686868'
       })
       if (y + 1 < this.options.length) {
         this.scene.add.line(
