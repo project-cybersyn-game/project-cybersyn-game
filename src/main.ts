@@ -3,8 +3,7 @@ import { GridEngine } from 'grid-engine'
 import { WebFontLoaderPlugin } from '../node_modules/phaser3-webfont-loader/src/webfont-loader'
 import MainMenuScene from './scenes/MainMenuScene'
 import OutdoorScene from './scenes/OutdoorScene'
-import StandardScene from './scenes/HelloWorldScene'
-import SecondScene from './scenes/SecondScene'
+import DialogueScene from './scenes/DialogueScene'
 import CorfoIndoorScene from './scenes/CorfoIndoorScene'
 import EntelIndoorScene from './scenes/EntelIndoorScene'
 import EntelBasementScene from './scenes/EntelBasementScene'
@@ -36,7 +35,7 @@ const config: Phaser.Types.Core.GameConfig = {
     ]
   },
   parent: 'game-canvas',
-  scene: [MainMenuScene, OutdoorScene, CorfoIndoorScene, EntelIndoorScene, EntelBasementScene, StandardScene, SecondScene],
+  scene: [MainMenuScene, OutdoorScene, CorfoIndoorScene, EntelIndoorScene, EntelBasementScene, DialogueScene],
   title: 'Cybersyn: The Game',
   version: '0.1',
   url: 'https://project-cybersyn-game.github.io/project-cybersyn-game/'

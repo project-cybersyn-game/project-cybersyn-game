@@ -112,8 +112,14 @@ export default class HelloWorldScene extends GameScene {
     createDoor(this, 19, 17, 'second')
 
     // adding NPCs and pushable objects
-    new Npcs(this, 10, 15, this.imageNames.NPCs, 1.2, undefined)
-    new Npcs(this, 10, 10, this.imageNames.NPCs, 1.2,
+    new Npcs(this, 2, 2, ImageNames.NPCs, 1.2,
+      (
+        scene: GameScene,
+        name: string
+      ) => {
+        this.scene.run('ui-dialogue', { startDialogueId: '1', scene: this })
+      })
+    new Npcs(this, 10, 10, ImageNames.NPCs, 1.2,
       (
         scene: GameScene,
         name: String
@@ -126,6 +132,8 @@ export default class HelloWorldScene extends GameScene {
     // example of setting and accessing GlobalGameState
     GlobalGameState.setGameProgress('isTelexFound', true)
     console.log(GlobalGameState.getGameProgress('isTelexFound'))
+
+    NpcsAndObjects.interaction(this)
   }
 
   update (): void {
