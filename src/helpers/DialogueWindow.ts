@@ -1,7 +1,7 @@
 import eventsCenter from './EventsCenter'
 
-/** This class will be used to create a Dialog Window **/
-export class DialogWindow {
+/** This class will be used to create a Dialogue Window **/
+export class DialogueWindow {
   // parameters
   scene!: Phaser.Scene
   borderThickness!: number
@@ -11,16 +11,16 @@ export class DialogWindow {
   windowColor!: number
   windowHeight!: number
   padding!: number
-  dialogSpeed!: number
+  dialogueSpeed!: number
   eventCounter!: number
   visible!: boolean
   texts: Phaser.GameObjects.Text[]
-  dialog: string[] = []
+  dialogue: string[] = []
   graphics!: Phaser.GameObjects.Graphics
   timedEvent!: Phaser.Time.TimerEvent
   selectedChoice: integer = 1
 
-  constructor (scene: Phaser.Scene, options: { borderThickness?: number, borderColor?: number, borderAlpha?: number, windowAlpha?: number, windowColor?: number, windowHeight?: number, padding?: number, dialogSpeed?: number }) {
+  constructor (scene: Phaser.Scene, options: { borderThickness?: number, borderColor?: number, borderAlpha?: number, windowAlpha?: number, windowColor?: number, windowHeight?: number, padding?: number, dialogueSpeed?: number }) {
     this.scene = scene
     this.borderThickness = options.borderThickness ?? 3
     this.borderColor = options.borderColor ?? 0x907748
@@ -29,7 +29,7 @@ export class DialogWindow {
     this.windowColor = options.windowColor ?? 0x303030
     this.windowHeight = options.windowHeight ?? 150
     this.padding = options.padding ?? 32
-    this.dialogSpeed = options.dialogSpeed ?? 4
+    this.dialogueSpeed = options.dialogueSpeed ?? 4
 
     this.eventCounter = 0
     this.visible = true
@@ -43,7 +43,7 @@ export class DialogWindow {
     if (this.texts.length > 0) this.texts?.forEach(text => text.destroy())
   }
 
-  // Hide/Show the Dialog Window
+  // Hide/Show the Dialogue Window
   toggle (): void {
     this.visible = !this.visible
     if (this.texts.length > 0) {
@@ -54,11 +54,11 @@ export class DialogWindow {
     if (this.graphics != null) this.graphics.visible = this.visible
   }
 
-  // Sets the text for the dialog window
+  // Sets the text for the dialogue window
   setText (text: string, characterName: string, animate: boolean = true): void {
-    // Reset the dialog
+    // Reset the dialogue
     this.eventCounter = 0
-    this.dialog = text.split('')
+    this.dialogue = text.split('')
     if (this.timedEvent != null) this.timedEvent.remove()
     if (this.texts.length > 0) this.texts.forEach(text => text.destroy())
     this.texts = []
@@ -68,7 +68,7 @@ export class DialogWindow {
 
     if (animate) {
       this.timedEvent = this.scene.time.addEvent({
-        delay: 150 - (this.dialogSpeed * 30),
+        delay: 150 - (this.dialogueSpeed * 30),
         callback: this._animateText,
         callbackScope: this,
         loop: true
@@ -77,7 +77,7 @@ export class DialogWindow {
   }
 
   setChoices (choices: Array<{text: string}>, characterName: string): void {
-    // Reset the dialog
+    // Reset the dialogue
     this.eventCounter = 0
     if (this.timedEvent != null) this.timedEvent.remove()
     if (this.texts.length > 0) this.texts.forEach(text => text.destroy())
@@ -103,11 +103,11 @@ export class DialogWindow {
     })
   }
 
-  // Calcuate the position of the text in the dialog window
+  // Calcuate the position of the text in the dialogue window
   _setText (text: string, lineOffset: integer = 0, characterName?: string | null, lastHeight: integer = 0): void {
     if (characterName != null && characterName !== 'YouChoicePlaceholder') this._setText(`${characterName}:`)
 
-    // Reset the dialog
+    // Reset the dialogue
     console.log(text)
     let x = this.padding + 10
     let xIndentation = 0
@@ -145,7 +145,7 @@ export class DialogWindow {
 
   // Slowly displays the text in the window to make it appear animated
   _animateText (): void {
-    const nextCharacter = this.dialog[this.eventCounter]
+    const nextCharacter = this.dialogue[this.eventCounter]
     if (nextCharacter == null) {
       this.timedEvent.remove()
       return
@@ -173,13 +173,13 @@ export class DialogWindow {
     return { x, y, width: rectWidth, height: rectHeight }
   }
 
-  // Creates the border rectangle of the dialog window
+  // Creates the border rectangle of the dialogue window
   _createOuterWindow (windowDimensions: { x: number, y: number, width: number, height: number }): void {
     this.graphics.lineStyle(this.borderThickness, this.borderColor, this.borderAlpha)
     this.graphics.strokeRect(windowDimensions.x, windowDimensions.y, windowDimensions.width, windowDimensions.height)
   }
 
-  // Creates the inner dialog window (where the text is displayed)
+  // Creates the inner dialogue window (where the text is displayed)
   _createInnerWindow (windowDimensions: { x: number, y: number, width: number, height: number }): void {
     this.graphics.fillStyle(this.windowColor, this.windowAlpha)
     this.graphics.fillRect(windowDimensions.x + 1, windowDimensions.y + 1, windowDimensions.width - 1, windowDimensions.height - 1)

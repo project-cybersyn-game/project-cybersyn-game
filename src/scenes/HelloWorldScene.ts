@@ -100,7 +100,7 @@ export default class HelloWorldScene extends GameScene {
         scene: GameScene,
         name: string
       ) => {
-        this.scene.run('ui-dialogue', { startDialogId: '1', scene: this })
+        this.scene.run('ui-dialogue', { startDialogueId: '1', scene: this })
       })
     new Npcs(this, 10, 10, ImageNames.NPCs, 1.2,
       (
