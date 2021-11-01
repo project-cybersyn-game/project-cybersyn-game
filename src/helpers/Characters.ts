@@ -22,9 +22,9 @@ export function basicMovement (
       gridEngine.getPosition(id).x !== (((gridEngine.getSprite(id).getBottomCenter().x + 15.25) / 32) - 1)
     )
     ) {
-    // Position neu setzen
-    gridEngine.setPosition(id, gridEngine.getPosition(id))
-  }
+      // Position neu setzen
+      gridEngine.setPosition(id, gridEngine.getPosition(id))
+    }
 
     // I know that it seems unnecessary to have multiple if-statements that do the same.
     // It just works better like this. Don't change it please. :)

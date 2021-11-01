@@ -1,7 +1,7 @@
 /* eslint-disable no-new */
 import { Scene } from 'phaser'
 import { DialogueWindow } from '../helpers/DialogueWindow'
-import eventsCenter from '../helpers/EventsCenter'
+import globalGameState from '../components/GlobalGameState'
 
 export default class HelloWorldScene extends Scene {
   dialogueWindow?: DialogueWindow
@@ -50,7 +50,7 @@ export default class HelloWorldScene extends Scene {
   }
 
   _start (): void {
-    eventsCenter.emit('inDialogue')
+    globalGameState.emit('inDialogue', true)
 
     this.dialogueData = this.cache.json.get('dialogues')
     this.dialogueWindow = new DialogueWindow(this, {})
@@ -69,8 +69,8 @@ export default class HelloWorldScene extends Scene {
     this.enterKey.on('down', () => {
       console.log(this.counter++)
 
-      eventsCenter.removeListener('selectedChoiceDown')
-      eventsCenter.removeListener('selectedChoiceUp')
+      globalGameState.removeListener('selectedChoiceDown')
+      globalGameState.removeListener('selectedChoiceUp')
       this.cursors.up.removeListener('down')
       this.cursors.down.removeListener('down')
 
@@ -92,17 +92,17 @@ export default class HelloWorldScene extends Scene {
           this.cursors.down.on('down', () => {
             if (this.selectedChoice < dialogue.choices.length - 1) {
               this.selectedChoice++
-              eventsCenter.emit('selectedChoiceDown')
+              globalGameState.emit('selectedChoiceDown')
             }
           })
           this.cursors.up.on('down', () => {
             if (this.selectedChoice > 0) {
               this.selectedChoice--
-              eventsCenter.emit('selectedChoiceUp')
+              globalGameState.emit('selectedChoiceUp')
             }
           })
         } else {
-          eventsCenter.emit('outOfDialogue')
+          globalGameState.emit('inDialogue', false)
           this.scene.stop()
         }
       }

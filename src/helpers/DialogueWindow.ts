@@ -1,4 +1,4 @@
-import eventsCenter from './EventsCenter'
+import globalGameState from '../components/GlobalGameState'
 
 /** This class will be used to create a Dialogue Window **/
 export class DialogueWindow {
@@ -93,11 +93,11 @@ export class DialogueWindow {
 
     // select choice
     this.selectedChoice = 1
-    eventsCenter.on('selectedChoiceUp', () => {
+    globalGameState.on('selectedChoiceUp', () => {
       this.selectedChoice--
       this.texts[0].setY(this.texts[0].getTopLeft().y - (this.texts[this.selectedChoice + 1].getTopLeft().y - this.texts[this.selectedChoice].getTopLeft().y))
     })
-    eventsCenter.on('selectedChoiceDown', () => {
+    globalGameState.on('selectedChoiceDown', () => {
       this.selectedChoice++
       this.texts[0].setY(this.texts[0].getTopLeft().y + (this.texts[this.selectedChoice].getTopLeft().y - this.texts[this.selectedChoice - 1].getTopLeft().y))
     })

@@ -1,6 +1,5 @@
 /* eslint-disable no-new */
-// import { addNpc } from '../helpers/Characters'
-import { createCharacterSprite, NpcsAndObjects } from '../helpers/NpcsAndObjects'
+import { createCharacterSprite, Npcs, NpcsAndObjects } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
@@ -138,12 +137,17 @@ export default class OutdoorScene extends GameScene {
     createDoor(this, 37, 6, 'entel-basement')
     createDoor(this, 47, 28, 'corfo-indoor')
     createDoor(this, 48, 28, 'corfo-indoor')
+
+    // adding NPCs and pushable objects
+    new Npcs(this, 10, 22, this.imageNames.NPCs, 0.8, () => {
+      this.scene.run('ui-dialogue', { startDialogueId: '1', scene: this })
+    })
+    NpcsAndObjects.interaction(this, 'outdoor_player')
   }
 
   update (): void {
     super.update()
     basicMovement(this, 'outdoor_player', this.gridEngine, this.playerSprite)
     updateDoors(this, 'outdoor_player')
-    NpcsAndObjects.interaction(this, 'outdoor_player')
   }
 }
