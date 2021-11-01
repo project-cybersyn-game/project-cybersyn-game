@@ -61,6 +61,7 @@ export class NpcsAndObjects {
     scene: GameScene,
     playerId: string
   ): void {
+    scene.interactionKey.removeAllListeners()
     scene.npcsAndObjectsArray.forEach(object => {
       scene.interactionKey.on('down', () => {
         if (

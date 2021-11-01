@@ -79,7 +79,6 @@ export default class CorfoIndoorScene extends GameScene {
         frameHeight: 36
       }
     )
-    console.log(this.scene.key)
   }
 
   create (): void {
@@ -151,7 +150,7 @@ export default class CorfoIndoorScene extends GameScene {
         name: String
       ) => {
         this.scene.run('ui-dialogue', { startDialogueId: '1' })
-      })
+      }, 0)
     NpcsAndObjects.interaction(this, 'corfoindoor_player')
   }
 

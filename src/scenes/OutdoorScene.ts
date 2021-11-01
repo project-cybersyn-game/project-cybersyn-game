@@ -1,5 +1,5 @@
 /* eslint-disable no-new */
-import { createCharacterSprite, Npcs, NpcsAndObjects } from '../helpers/NpcsAndObjects'
+import { createCharacterSprite, NpcsAndObjects } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
@@ -78,7 +78,6 @@ export default class OutdoorScene extends GameScene {
         frameHeight: 36
       }
     )
-    console.log(this.scene.key)
   }
 
   create (): void {
@@ -142,8 +141,8 @@ export default class OutdoorScene extends GameScene {
 
     // creating all doors / doorpositions
     createDoor(this, 21, 6, 'entel-indoor')
-    createDoor(this, 36, 6, 'entel-basement')
-    createDoor(this, 37, 6, 'entel-basement')
+    // createDoor(this, 36, 6, 'entel-basement')
+    // createDoor(this, 37, 6, 'entel-basement')
     createDoor(this, 47, 28, 'corfo-indoor')
     createDoor(this, 48, 28, 'corfo-indoor')
 

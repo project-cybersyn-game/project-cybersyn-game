@@ -61,7 +61,12 @@ export default class HelloWorldScene extends Scene {
   }
 
   _displayDialogueUnit (dialogueId: string): void {
-    const dialogue = this.dialogueData[dialogueId]
+    const dialogue = { ...this.dialogueData[dialogueId] }
+    const choices: Array<{
+      text: string
+      next: string
+      condition: string
+    }> = (dialogue.choices !== undefined && dialogue.choices.length > 0) ? [...dialogue.choices] : []
 
     // check for conditions
     if (dialogue.condition != null && globalGameState._gameProgress[dialogue.condition]) {
@@ -78,8 +83,6 @@ export default class HelloWorldScene extends Scene {
 
     // Pressing Enter
     this.enterKey.on('down', () => {
-      console.log(this.counter++)
-
       globalGameState.removeListener('selectedChoiceDown')
       globalGameState.removeListener('selectedChoiceUp')
       this.cursors.up.removeListener('down')
@@ -89,29 +92,29 @@ export default class HelloWorldScene extends Scene {
       if (this.isChoicesActive) {
         this.isChoicesActive = false
         // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-        console.log('The player selected choice number ' + this.selectedChoice + '.')
         this.enterKey.removeAllListeners()
 
-        this._displayDialogueUnit(dialogue.choices[this.selectedChoice].next)
+        this._displayDialogueUnit(choices[this.selectedChoice].next)
 
       // If it's an NPC talking, either choices need to be displayed after or the dialogue ends
       } else {
         // check for conditions
-        if (dialogue.choices !== undefined && dialogue.choices.length > 0) {
-          dialogue.choices.forEach((choice) => {
+        if (choices !== undefined && choices.length > 0) {
+          choices.forEach((choice, index) => {
+            console.log(choice.condition + ' - ' + globalGameState._gameProgress[choice.condition])
             if (choice.condition != null && !globalGameState._gameProgress[choice.condition]) {
-              dialogue.choices.splice(dialogue.choices.indexOf(choice), 1)
+              choices.splice(index, 1)
             }
           })
         }
 
-        if (dialogue.choices !== undefined && dialogue.choices.length > 0) {
+        if (choices !== undefined && choices.length > 0) {
           this.isChoicesActive = true
           this.selectedChoice = 0
-          this.dialogueWindow?.setChoices(dialogue.choices, 'You')
+          this.dialogueWindow?.setChoices(choices, 'You')
 
           this.cursors.down.on('down', () => {
-            if (this.selectedChoice < dialogue.choices.length - 1) {
+            if (this.selectedChoice < choices.length - 1) {
               this.selectedChoice++
               globalGameState.emit('selectedChoiceDown')
             }
