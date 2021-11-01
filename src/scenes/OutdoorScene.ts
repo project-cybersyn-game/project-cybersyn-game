@@ -1,5 +1,5 @@
 /* eslint-disable no-new */
-import { createCharacterSprite, NpcsAndObjects } from '../helpers/NpcsAndObjects'
+import { createCharacterSprite, Npcs, NpcsAndObjects } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
