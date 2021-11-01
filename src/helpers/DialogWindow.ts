@@ -112,14 +112,15 @@ export class DialogWindow {
     let x = this.padding + 10
     let xIndentation = 0
 
+    // FIXME: animations with indentation
     if (characterName != null) {
       console.log(1)
       const textWidth = this.texts[this.texts.length - 1].width
       x = this.texts[this.texts.length - 1].x + textWidth + this.padding
     }
 
-    // used for indentation of choices (for 'You:')
-    if (characterName === 'YouChoicePlaceholder') {
+    // used for indentation of text
+    if (characterName === 'YouChoicePlaceholder' || characterName != null) {
       const textWidth = this.texts[0].width
       x = this.texts[0].x + textWidth + this.padding
       xIndentation = x - (this.padding + 10)

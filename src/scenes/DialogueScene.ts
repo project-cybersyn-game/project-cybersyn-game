@@ -66,7 +66,8 @@ export default class HelloWorldScene extends Scene {
 
   _displayDialogueUnit (dialogId: string): void {
     const dialog = this.dialogData[dialogId]
-    this.dialogWindow?.setText(dialog.text, dialog.character)
+    // FIXME: with animation
+    this.dialogWindow?.setText(dialog.text, dialog.character, false)
 
     // this.numberKeys = this.input.keyboard.addKey(49)
 
