@@ -144,6 +144,15 @@ export default class EntelIndoorScene extends GameScene {
         this.scene.run('ui-dialogue', { startDialogueId: '5' })
       })
 
+    // Add Paulo NPC
+    new Npcs(this, 26, 12, this.imageNames.NPCs, 1.2,
+      (
+        scene: GameScene,
+        name: String
+      ) => {
+        this.scene.run('ui-dialogue', { startDialogueId: '9' })
+      })
+
     NpcsAndObjects.interaction(this, 'entelindoor_player')
   }
 

@@ -115,9 +115,9 @@ export default class EntelBasementScene extends GameScene {
     createDoor(this, 21, 8, 'outdoor')
 
     // adding NPCs and pushable objects
-    new Npcs(this, 19, 10, this.imageNames.NPCs, 0.8, () => {
-      this.scene.run('ui-dialogue', { startDialogueId: '1' })
-    })
+    // new Npcs(this, 19, 10, this.imageNames.NPCs, 0.8, () => {
+    //   this.scene.run('ui-dialogue', { startDialogueId: '1' })
+    // })
     new Objects(this, 22, 20, this.imageNames.Box1, 1, 'entelbasement_player')
     new Objects(this, 23, 20, this.imageNames.Box1, 1, 'entelbasement_player')
     new Objects(this, 27, 20, this.imageNames.Box2, 1, 'entelbasement_player')
