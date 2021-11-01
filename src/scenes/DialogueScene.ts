@@ -45,11 +45,6 @@ export default class HelloWorldScene extends Scene {
   }
 
   create (): void {
-    // --- REASON FOR THE DOUBLE INTERACTION PROBLEM ---
-    // startDialogId isn't set here yet
-    // still seems to work. really needed? @Jana
-    // if (this.startDialogId === '') this.scene.stop()
-
     this._start()
     this._displayDialogueUnit(this.startDialogId)
   }
