@@ -5,6 +5,7 @@ import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
+import GlobalGameState from "~/components/GlobalGameState";
 
 export default class CorfoIndoorScene extends GameScene {
   constructor () {
@@ -151,6 +152,10 @@ export default class CorfoIndoorScene extends GameScene {
         name: String
       ) => {
         this.scene.run('ui-dialogue', { startDialogueId: '1' })
+        GlobalGameState.on('winTheGame', () => {
+          GlobalGameState.off('winTheGame')
+          this.scene.switch('outro')
+        })
       })
     NpcsAndObjects.interaction(this, 'corfoindoor_player')
   }
