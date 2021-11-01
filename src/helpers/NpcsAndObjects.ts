@@ -58,7 +58,8 @@ export class NpcsAndObjects {
 
   /** This function is used for interacting with NPCs and objects and then executing the action set in the associated NPC object. */
   static interaction (
-    scene: GameScene
+    scene: GameScene,
+    playerId: string = 'player'
   ): void {
     scene.npcsAndObjectsArray.forEach(object => {
       scene.interactionKey.on('down', () => {
@@ -100,9 +101,11 @@ export class NpcsAndObjects {
  * Class for all pushable objects
  */
 export class Objects extends NpcsAndObjects {
+  playerId: string = 'player'
+
   protected action: Function = (): void => {
     if (this.scene.gridEngine.isMoving(this.name) === false) {
-      this.scene.gridEngine.move(this.name, this.scene.gridEngine.getFacingDirection('player'))
+      this.scene.gridEngine.move(this.name, this.scene.gridEngine.getFacingDirection(this.playerId))
     }
   }
 
@@ -119,9 +122,11 @@ export class Objects extends NpcsAndObjects {
      */
     texture: string,
     /** A simple scaling factor to resize the image. Default: 1 */
-    scale: number = 1
+    scale: number = 1,
+    playerId: string
   ) {
     super(scene, 'object', xPos, yPos, texture, scale, undefined)
+    this.playerId = playerId
   }
 }
 

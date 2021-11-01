@@ -8,7 +8,7 @@ import Phaser from 'phaser'
 export function basicMovement (
   /** The scene the player is in. */
   scene: GameScene,
-  id: string = 'player',
+  id: string,
   gridEngine: any,
   playerSprite: Phaser.Physics.Arcade.Sprite
 ): void {
@@ -23,10 +23,8 @@ export function basicMovement (
     )
     ) {
     // Position neu setzen
-      const x = (((Math.round(gridEngine.getSprite(id).getBottomCenter().x) + 15) / 32) - 1)
-      const y = ((Math.round(gridEngine.getSprite(id).getBottomCenter().y) / 32) - 1)
-      gridEngine.setPosition(id, { x: x, y: y })
-    }
+    gridEngine.setPosition(id, gridEngine.getPosition(id))
+  }
 
     // I know that it seems unnecessary to have multiple if-statements that do the same.
     // It just works better like this. Don't change it please. :)
