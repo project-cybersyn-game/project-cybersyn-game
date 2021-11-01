@@ -77,6 +77,7 @@ export default class HelloWorldScene extends Scene {
       // If choices are being displayed, the dialogue needs to switch to the "next" id
       if (this.isChoicesActive) {
         this.isChoicesActive = false
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         console.log('The player selected choice number ' + this.selectedChoice + '.')
         this.enterKey.removeAllListeners()
         this._displayDialogueUnit(dialog.choices[this.selectedChoice].next)

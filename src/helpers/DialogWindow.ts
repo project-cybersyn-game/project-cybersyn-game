@@ -1,4 +1,4 @@
-import eventsCenter from "./EventsCenter"
+import eventsCenter from './EventsCenter'
 
 /** This class will be used to create a Dialog Window **/
 export class DialogWindow {
