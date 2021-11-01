@@ -1,7 +1,7 @@
 import GameScene from '../components/GameScene'
 import { WalkingAnimationMapping } from 'grid-engine'
 import Phaser from 'phaser'
-import eventsCenter from './EventsCenter'
+import globalGameState from '../components/GlobalGameState'
 
 /** this functions creates a character sprite at the given coordinates on the map and scales the sprite. */
 export function createCharacterSprite (
@@ -59,23 +59,25 @@ export class NpcsAndObjects {
   /** This function is used for interacting with NPCs and objects and then executing the action set in the associated NPC object. */
   static interaction (
     scene: GameScene,
-    playerId: string = 'player'
+    playerId: string
   ): void {
     scene.npcsAndObjectsArray.forEach(object => {
       scene.interactionKey.on('down', () => {
         if (
-          scene.gridEngine.getFacingPosition('player').equals(scene.gridEngine.getPosition(object.name)) === true
+          scene.gridEngine.getFacingPosition(playerId).equals(scene.gridEngine.getPosition(object.name)) === true
         ) {
           object.action(object.scene, object.name)
         }
       })
     })
 
-    eventsCenter.once('inDialogue', () => {
-      scene.interactionKey.removeAllListeners()
-      eventsCenter.once('outOfDialogue', () => {
-        NpcsAndObjects.interaction(scene)
-      })
+    globalGameState.on('inDialogue', (value: boolean) => {
+      if (value) {
+        scene.interactionKey.removeAllListeners()
+      } else {
+        globalGameState.off('inDialogue')
+        NpcsAndObjects.interaction(scene, playerId)
+      }
     })
   }
 

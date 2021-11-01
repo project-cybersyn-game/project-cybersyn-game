@@ -1,7 +1,7 @@
 /* eslint-disable no-new */
 import { Scene } from 'phaser'
 import { DialogueWindow } from '../helpers/DialogueWindow'
-import eventsCenter from '../helpers/EventsCenter'
+import globalGameState from '../components/GlobalGameState'
 
 export default class HelloWorldScene extends Scene {
   dialogueWindow?: DialogueWindow
@@ -21,6 +21,7 @@ export default class HelloWorldScene extends Scene {
       }>
       effect: string
       condition: string
+      conditionAlternative: string
     }
   }
 
@@ -50,7 +51,7 @@ export default class HelloWorldScene extends Scene {
   }
 
   _start (): void {
-    eventsCenter.emit('inDialogue')
+    globalGameState.emit('inDialogue', true)
 
     this.dialogueData = this.cache.json.get('dialogues')
     this.dialogueWindow = new DialogueWindow(this, {})
@@ -61,7 +62,19 @@ export default class HelloWorldScene extends Scene {
 
   _displayDialogueUnit (dialogueId: string): void {
     const dialogue = this.dialogueData[dialogueId]
+
+    // check for conditions
+    if (dialogue.condition != null && globalGameState._gameProgress[dialogue.condition]) {
+      this._displayDialogueUnit(dialogue.conditionAlternative)
+      return
+    }
+
     this.dialogueWindow?.setText(dialogue.text, dialogue.character, false)
+
+    // if an effect exists on the dialogue, the variable is set to true
+    if (dialogue.effect != null) {
+      globalGameState.emit(dialogue.effect, true)
+    }
 
     // this.numberKeys = this.input.keyboard.addKey(49)
 
@@ -69,8 +82,8 @@ export default class HelloWorldScene extends Scene {
     this.enterKey.on('down', () => {
       console.log(this.counter++)
 
-      eventsCenter.removeListener('selectedChoiceDown')
-      eventsCenter.removeListener('selectedChoiceUp')
+      globalGameState.removeListener('selectedChoiceDown')
+      globalGameState.removeListener('selectedChoiceUp')
       this.cursors.up.removeListener('down')
       this.cursors.down.removeListener('down')
 
@@ -80,10 +93,20 @@ export default class HelloWorldScene extends Scene {
         // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         console.log('The player selected choice number ' + this.selectedChoice + '.')
         this.enterKey.removeAllListeners()
+
         this._displayDialogueUnit(dialogue.choices[this.selectedChoice].next)
 
       // If it's an NPC talking, either choices need to be displayed after or the dialogue ends
       } else {
+        // check for conditions
+        if (dialogue.choices !== undefined && dialogue.choices.length > 0) {
+          dialogue.choices.forEach((choice) => {
+            if (choice.condition != null && !globalGameState._gameProgress[choice.condition]) {
+              dialogue.choices.splice(dialogue.choices.indexOf(choice), 1)
+            }
+          })
+        }
+
         if (dialogue.choices !== undefined && dialogue.choices.length > 0) {
           this.isChoicesActive = true
           this.selectedChoice = 0
@@ -92,17 +115,17 @@ export default class HelloWorldScene extends Scene {
           this.cursors.down.on('down', () => {
             if (this.selectedChoice < dialogue.choices.length - 1) {
               this.selectedChoice++
-              eventsCenter.emit('selectedChoiceDown')
+              globalGameState.emit('selectedChoiceDown')
             }
           })
           this.cursors.up.on('down', () => {
             if (this.selectedChoice > 0) {
               this.selectedChoice--
-              eventsCenter.emit('selectedChoiceUp')
+              globalGameState.emit('selectedChoiceUp')
             }
           })
         } else {
-          eventsCenter.emit('outOfDialogue')
+          globalGameState.emit('inDialogue', false)
           this.scene.stop()
         }
       }
