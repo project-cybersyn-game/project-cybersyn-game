@@ -78,6 +78,8 @@ export default class OutdoorScene extends GameScene {
         frameHeight: 36
       }
     )
+    this.load.audio('easter_egg', ['sounds/easter_egg.mp3'])
+    this.load.image('eg', 'images/easter_egg.png')
     console.log(this.scene.key)
   }
 
@@ -146,6 +148,20 @@ export default class OutdoorScene extends GameScene {
     createDoor(this, 37, 6, 'entel-basement')
     createDoor(this, 47, 28, 'corfo-indoor')
     createDoor(this, 48, 28, 'corfo-indoor')
+
+    // Add Easteregg NPC
+    new Npcs(this, 40, 22, this.imageNames.NPCs, 1.2,
+      (
+        scene: GameScene,
+        name: String
+      ) => {
+        const music = this.sound.add('easter_egg')
+        music.play({
+          loop: true,
+          volume: 5.0
+        })
+        this.add.image(+this.game.config.width, +this.game.config.height - 100, 'eg').setDepth(9999)
+      })
 
     NpcsAndObjects.interaction(this, 'outdoor_player')
   }
