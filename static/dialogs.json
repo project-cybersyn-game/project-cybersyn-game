@@ -1,5 +1,6 @@
 {
   "1": {
+    "character": "Flores",
     "text": "Good morning, Alba! We are on the verge of implementing our new project for managing the public economy of Chile. But we have hit a wall. Maybe you can help!",
     "choices": [
       {
@@ -13,9 +14,11 @@
     ]
   },
   "2a": {
+    "character": "Flores",
     "text": "Das folgt auf die zweite Auswahlmöglichkeit und es gibt keinen weiteren Verlauf."
   },
   "2": {
+    "character": "Flores",
     "text": "For building a system that can communicate data from the factories all over the country to the capital, we need a network. But Chile does not have enough computers to install them in every region. We need another solution.",
     "choices": [
       {
@@ -29,12 +32,15 @@
     ]
   },
   "3": {
+    "character": "Flores",
     "text": "Try to talk to Sr. Batanero, the head of ENTEL. This is the National Telecommunications Enterprise. He might be able to help!"
   },
   "4": {
+    "character": "Flores",
     "text": "Perfect! Personal connections are always the best way to cut bureaucracy! Let's hope your friend can help us out."
   },
   "5": {
+    "character": "Sr. Batanero",
     "text": "Hello, Senora. My name is Batanero. I am the director of ENTEL, our National Telecommunications Enterprise. Can I help you somehow? Be quick, I am very busy!",
     "choices": [
       {
@@ -48,18 +54,22 @@
     ]
   },
   "6": {
+    "character": "Sr. Batanero",
     "text": "Telex machines? No! There are just a handful installed. And we don't have this stuff lying around, of course. Please excuse me, I have work to do!",
     "effect": "isBantaneroBusy"
   },
   "7": {
+    "character": "Sr. Batanero",
     "text": "Sure, he should be at his desk over there. *points to the far side of the room* Do you see him, in the red shirt? Please run along. I have work to do!",
     "effect": "isBataneroBusy"
   },
   "8": {
+    "character": "Sr. Batanero",
     "text": "I'm busy, don't bother me!",
     "condition": "isBataneroBusy"
   },
   "9": {
+    "character": "Paulo",
     "text": "Alba! Long time, no see. How are you? What are you doing here? I thought you work at CORFO!",
     "choices": [
       {
@@ -69,6 +79,7 @@
     ]
   },
   "10": {
+    "character": "Paulo",
     "text": "Oh, Batanero! He only thinks, he knows, what's going on here. We, the workers, are the ones with the real knowledge. What do you need?",
     "choices": [
       {
@@ -78,10 +89,12 @@
     ]
   },
   "11": {
+    "character": "ENTEL Friend Paulo",
     "text": "Never fear, Alba. I know a little secret. There's an Aladdin's cave in the basement of this building that will hold exactly the treasure you were hoping for! Follow me... ",
     "effect": "goToBasement"
   },
   "12": {
+    "character": "Paulo",
     "text": "How are you doing, Alba? I think, to get further into the room, you'll have to push some boxes around. Have you found what you were looking for?",
     "choices": [
       {
@@ -96,14 +109,17 @@
     ]
   },
   "13": {
+    "character": "Paulo",
     "text": "That's great, Alba! I'm glad I could help! I'll take you back there.",
     "effect": "teleportToCorfor"
   },
   "14": {
+    "character": "Paulo",
     "text": "That's no problem, Alba. I will help you put them back where they were.",
     "effect": "resetBoxPuzzle"
   },
   "15": {
+    "character": "Flores",
     "text": "Alba, have you had any success?",
     "choices": [
       {
@@ -118,10 +134,12 @@
     ]
   },
   "16": {
+    "character": "Flores",
     "text": "Wonderful!  Now we can get started with the real work. Thank you Alba!",
     "effect": "winTheGame"
   },
   "17": {
+    "character": "Flores",
     "text": "Try talking to the people at ENTEL. They might be able to help you!"
   }
 }

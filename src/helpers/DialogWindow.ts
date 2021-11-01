@@ -52,7 +52,7 @@ export class DialogWindow {
   }
 
   // Sets the text for the dialog window
-  setText (text: string, animate: boolean): void {
+  setText (text: string, characterName: string, animate: boolean = true): void {
     // Reset the dialog
     this.eventCounter = 0
     this.dialog = text.split('')
@@ -61,7 +61,7 @@ export class DialogWindow {
     this.texts = []
 
     const tempText = animate ? '' : text
-    this._setText(tempText)
+    this._setText(tempText, 0, characterName)
 
     if (animate) {
       this.timedEvent = this.scene.time.addEvent({
@@ -73,7 +73,7 @@ export class DialogWindow {
     }
   }
 
-  setChoices (choices: Array<{text: string}>): void {
+  setChoices (choices: Array<{text: string}>, characterName: string): void {
     // Reset the dialog
     this.eventCounter = 0
     if (this.timedEvent != null) this.timedEvent.remove()
@@ -81,15 +81,25 @@ export class DialogWindow {
     this.texts = []
 
     choices.forEach((choice, index) => {
-      this._setText(`${index + 1}. ${choice.text}`, index)
+      this._setText(`${index + 1}. ${choice.text}`, index, index == 0 ? characterName : null)
     })
   }
 
   // Calcuate the position of the text in the dialog window
-  _setText (text: string, lineOffset: integer = 0): void {
-    // Reset the dialog
+  _setText (text: string, lineOffset: integer = 0, characterName?: string | null): void {
+    if (characterName != null) this._setText(`${characterName}:`)
 
-    const x = this.padding + 10
+    // Reset the dialog
+    console.log(text)
+    let x = this.padding + 10
+    if (characterName != null) {
+      console.log(1)
+      const textWidth = this.texts[this.texts.length - 1].width
+      x = this.texts[this.texts.length - 1].x + textWidth + this.padding + 100
+    }
+    console.log(2)
+    console.log('----------')
+
     const y = +this.scene.game.config.height - this.windowHeight - this.padding + 10 + lineOffset * 22
 
     this.texts.push(this.scene.make.text({

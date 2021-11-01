@@ -11,6 +11,7 @@ export default class HelloWorldScene extends Scene {
   numberKeys?: Phaser.Input.Keyboard.Key
   dialogData: {
     [index: string]: {
+      character: string
       text: string
       choices: Array<{
         text: string
@@ -60,7 +61,7 @@ export default class HelloWorldScene extends Scene {
 
   _displayDialogueUnit (dialogId: string): void {
     const dialog = this.dialogData[dialogId]
-    this.dialogWindow?.setText(dialog.text, true)
+    this.dialogWindow?.setText(dialog.text, dialog.character)
 
     // this.numberKeys = this.input.keyboard.addKey(49)
 
