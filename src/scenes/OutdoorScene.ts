@@ -127,6 +127,15 @@ export default class OutdoorScene extends GameScene {
     }
     this.gridEngine.create(map, gridEngineConfig)
 
+    // adding texts on buildings
+    this.add.text(20.5 * 24, 4 * 24, 'ENTEL').setDepth(9998)
+    this.add.text(46.8 * 24, 26.2 * 24, 'CORFO', {
+      fontSize: '20px'
+    }).setDepth(9998)
+    this.add.text(36.2 * 24, 4.2 * 24, 'EMCO', {
+      color: '#000'
+    }).setDepth(9998)
+
     // add camera that follows the character
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
     this.cameras.main.startFollow(this.playerSprite, true)
@@ -137,6 +146,8 @@ export default class OutdoorScene extends GameScene {
     createDoor(this, 37, 6, 'entel-basement')
     createDoor(this, 47, 28, 'corfo-indoor')
     createDoor(this, 48, 28, 'corfo-indoor')
+
+    NpcsAndObjects.interaction(this, 'outdoor_player')
   }
 
   update (): void {
