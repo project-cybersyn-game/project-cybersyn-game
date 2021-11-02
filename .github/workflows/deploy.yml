@@ -3,7 +3,7 @@ name: Publish Game
 on:
   push:
     branches:
-      - main
+      - release-0.2
 
 jobs:
   build-deploy:
