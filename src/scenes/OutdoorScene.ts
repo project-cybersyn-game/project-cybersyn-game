@@ -158,7 +158,7 @@ export default class OutdoorScene extends GameScene {
         const music = this.sound.add('easter_egg')
         music.play({
           loop: true,
-          volume: 5.0
+          volume: 6.0
         })
         this.add.image(+this.game.config.width, +this.game.config.height - 100, 'eg').setDepth(9999)
       })
