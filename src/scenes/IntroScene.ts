@@ -25,9 +25,7 @@ export default class IntroScene extends Phaser.Scene {
       volume: 0.5
     })
 
-    const enterKey = this.input.keyboard.addKey('ENTER')
-    enterKey.on('down', () => {
-      enterKey.removeAllListeners()
+    this.time.delayedCall(20000, () => {
       text.destroy()
       this.tweens.add({
         targets: music,
@@ -36,6 +34,6 @@ export default class IntroScene extends Phaser.Scene {
         volume: 0
       })
       this.scene.run('outdoor')
-    })
+    }, [], this)
   }
 }
