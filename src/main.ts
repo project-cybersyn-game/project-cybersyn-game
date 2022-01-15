@@ -10,6 +10,8 @@ import EntelBasementScene from './scenes/EntelBasementScene'
 import OutroScene from './scenes/OutroScene'
 import IntroScene from './scenes/IntroScene'
 
+// comment for testing github
+
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   width: 900,
