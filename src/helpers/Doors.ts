@@ -28,7 +28,8 @@ export function updateDoors (
 ): void {
   scene.doors.forEach(door => {
     if (
-      scene.gridEngine.getFacingPosition(playerId).equals({ x: door.x, y: door.y }) === true &&
+      scene.gridEngine.getFacingPosition(playerId).x === door.x &&
+      scene.gridEngine.getFacingPosition(playerId).y === door.y &&
       scene.interactionKey.isDown
     ) {
       scene.scene.switch(door.nextScene)

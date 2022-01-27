@@ -74,7 +74,8 @@ export class NpcsAndObjects {
     scene.npcsAndObjectsArray.forEach(object => {
       scene.interactionKey.on('down', () => {
         if (
-          scene.gridEngine.getFacingPosition(playerId).equals(scene.gridEngine.getPosition(object.name)) === true
+          scene.gridEngine.getFacingPosition(playerId).x === scene.gridEngine.getPosition(object.name).x &&
+          scene.gridEngine.getFacingPosition(playerId).y === scene.gridEngine.getPosition(object.name).y
         ) {
           object.action(object.scene, object.name)
         }
