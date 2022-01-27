@@ -113,7 +113,7 @@ export default class OutdoorScene extends GameScene {
         { tilesetName: this.imageNames.DD_Interior_School_B, image: (this.imageNames.DD_Interior_School_B) },
         { tilesetName: this.imageNames.DD_Interior_School_C, image: (this.imageNames.DD_Interior_School_C) }
       ],
-      ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay', '5_Objects_Overlay_hs', '6_Objects_Overlay_Overlay']
+      ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay_Edge', '5_Objects_Overlay', '6_Objects_Overlay_Overlay']
     ).tilemap
 
     // GridEngine
@@ -125,7 +125,8 @@ export default class OutdoorScene extends GameScene {
           sprite: this.playerSprite,
           startPosition: { x: 52, y: 30 }
         }
-      ]
+      ],
+      layerOverlay: true
     }
     this.gridEngine.create(map, gridEngineConfig)
 
