@@ -1,5 +1,5 @@
 import GameScene from '../components/GameScene'
-import { WalkingAnimationMapping } from 'grid-engine'
+import { WalkingAnimationMapping, Direction } from 'grid-engine'
 import Phaser from 'phaser'
 import globalGameState from '../components/GlobalGameState'
 
@@ -21,7 +21,7 @@ export class NpcsAndObjects {
   static number: integer = 0
   static npcsAndObjectsArray: NpcsAndObjects[] = []
   texture!: string
-  name: String
+  name: string
   type: 'object' | 'npc'
   scene: GameScene
   startX: integer = 0
@@ -74,13 +74,14 @@ export class NpcsAndObjects {
     scene.interactionKey.on('down', () => {
       scene.npcsAndObjectsArray.forEach(object => {
         if (
-          scene.gridEngine.getFacingPosition(playerId).equals(scene.gridEngine.getPosition(object.name)) === true
+          scene.gridEngine.getFacingPosition(playerId).x === scene.gridEngine.getPosition(object.name.toString()).x &&
+          scene.gridEngine.getFacingPosition(playerId).y === scene.gridEngine.getPosition(object.name.toString()).y
         ) {
           object.action(object.scene, object.name)
         }
       })
     })
-/*
+    /*
     scene.npcsAndObjectsArray.forEach(object => {
       scene.interactionKey.on('down', () => {
         if (
@@ -90,7 +91,7 @@ export class NpcsAndObjects {
         }
       })
     })
-*/
+    */
     globalGameState.on('inDialogue', (value: boolean) => {
       if (value) {
         scene.interactionKey.removeAllListeners()
@@ -101,15 +102,15 @@ export class NpcsAndObjects {
   }
 
   /** This function is used for removing one NPC / Object. */
-  resetCharacter (): void {
+  /* resetCharacter (): void {
     console.log(`${this.name}: ${this.scene.gridEngine.getPosition(this.name)}`)
     this.scene.gridEngine.setPosition(this.name, { x: this.startX, y: this.startY })
     this.scene.gridEngine.stopMovement(this.name)
     console.log(`${this.name}: ${this.scene.gridEngine.getPosition(this.name)}`)
-  }
+  } */
 
   /** This function is used for removing all NPCs and Objects in a scene. */
-  static resetAllCharacters (
+  /* static resetAllCharacters (
     scene: GameScene
   ): void {
     NpcsAndObjects.npcsAndObjectsArray.forEach((element, index) => {
@@ -119,7 +120,7 @@ export class NpcsAndObjects {
         element.resetCharacter()
       }
     })
-  }
+  } */
 
   /** This function is used for adding a character to the GridEngine plugin. */
   addCharacter (
@@ -133,7 +134,7 @@ export class NpcsAndObjects {
         id: (this.name),
         sprite: npcSprite,
         startPosition: { x: xPos, y: yPos },
-        facingDirection: 'down'
+        facingDirection: Direction.DOWN
       }
     )
   }
@@ -146,7 +147,7 @@ export class Objects extends NpcsAndObjects {
   playerId: string = 'player'
 
   protected action: Function = (): void => {
-    if (this.scene.gridEngine.isMoving(this.name) === false) {
+    if (!this.scene.gridEngine.isMoving(this.name)) {
       this.scene.gridEngine.move(this.name, this.scene.gridEngine.getFacingDirection(this.playerId))
     }
   }
@@ -214,7 +215,7 @@ export class Npcs extends NpcsAndObjects {
         sprite: npcSprite,
         startPosition: { x: xPos, y: yPos },
         walkingAnimationMapping: walkingAnimationMapping,
-        facingDirection: 'down'
+        facingDirection: Direction.DOWN
       }
     )
   }

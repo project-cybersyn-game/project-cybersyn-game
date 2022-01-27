@@ -50,7 +50,8 @@ export default class GameScene extends Phaser.Scene {
    */
   reset (
     /** If set to true, the position and orientation of the player character will be kept. */
-    keepCharacterPosition: boolean = false
+    keepCharacterPosition: boolean = false,
+    transitionScreen: boolean = true
   ): void {
     console.log(this.gridEngine.getAllCharacters())
     const oldPosition: Position = this.gridEngine.getPosition(this.playerName)
@@ -59,10 +60,11 @@ export default class GameScene extends Phaser.Scene {
     this.doors = []
     this.gridEngine.removeAllCharacters()
     this.scene.restart()
-    this.gridEngine.setPosition(this.playerName, oldPosition)
-    this.gridEngine.turnTowards(this.playerName, oldDirection)
     if (keepCharacterPosition) {
       setTimeout(() => {
+        console.log(this.gridEngine.getAllCharacters())
+        this.gridEngine.setPosition(this.playerName, oldPosition)
+        this.gridEngine.turnTowards(this.playerName, oldDirection)
       }, 5000)
     }
   }
