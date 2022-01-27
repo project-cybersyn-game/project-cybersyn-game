@@ -92,7 +92,7 @@ export default class EntelBasementScene extends GameScene {
         { tilesetName: this.imageNames.HC_SewerC, image: (this.imageNames.HC_SewerC) },
         { tilesetName: this.imageNames.Telex, image: (this.imageNames.Telex) }
       ],
-      ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay', '5_Objects_Overlay_hs', '6_Objects_Overlay_Overlay']
+      ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay_Edge', '5_Objects_Overlay', '6_Objects_Overlay_Overlay']
     ).tilemap
 
     // GridEngine
