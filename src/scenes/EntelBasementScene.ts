@@ -100,7 +100,7 @@ export default class EntelBasementScene extends GameScene {
     const gridEngineConfig = {
       characters: [
         {
-          id: 'entelbasement_player',
+          id: this.playerName,
           sprite: this.playerSprite,
           startPosition: { x: 21, y: 9 }
         }
@@ -143,33 +143,41 @@ export default class EntelBasementScene extends GameScene {
         globalGameState.off('resetBoxPuzzle')
         globalGameState.on('resetBoxPuzzle', () => {
           globalGameState.off('resetBoxPuzzle')
-          NpcsAndObjects.resetAllCharacters(this)
+          console.log(scene.gridEngine.getAllCharacters())
+          console.log(scene.interactionKey.listeners)
+          this.reset(true)
+          setTimeout(() => {
+            console.log(scene.gridEngine.getAllCharacters())
+            console.log(scene.interactionKey.listeners)
+          }, 5000)
+          // console.log(this.gridEngine.getAllCharacters())
+          // NpcsAndObjects.resetAllCharacters(this)
         })
       }, 6)
-    new Objects(this, 22, 20, this.imageNames.Box1, 1, 'entelbasement_player')
-    new Objects(this, 23, 20, this.imageNames.Box1, 1, 'entelbasement_player')
-    new Objects(this, 27, 20, this.imageNames.Box2, 1, 'entelbasement_player')
-    new Objects(this, 30, 20, this.imageNames.Box4, 1, 'entelbasement_player')
-    new Objects(this, 24, 21, this.imageNames.Box3, 1, 'entelbasement_player')
-    new Objects(this, 29, 21, this.imageNames.Box2, 1, 'entelbasement_player')
-    new Objects(this, 21, 22, this.imageNames.Box2, 1, 'entelbasement_player')
-    new Objects(this, 27, 22, this.imageNames.Box3, 1, 'entelbasement_player')
-    new Objects(this, 27, 23, this.imageNames.Box2, 1, 'entelbasement_player')
-    new Objects(this, 26, 25, this.imageNames.Box3, 1, 'entelbasement_player')
-    new Objects(this, 27, 25, this.imageNames.Box1, 1, 'entelbasement_player')
-    new Objects(this, 21, 26, this.imageNames.Box1, 1, 'entelbasement_player')
-    new Objects(this, 26, 26, this.imageNames.Box4, 1, 'entelbasement_player')
-    new Objects(this, 30, 26, this.imageNames.Box2, 1, 'entelbasement_player')
-    new Objects(this, 22, 27, this.imageNames.Box2, 1, 'entelbasement_player')
-    new Objects(this, 23, 27, this.imageNames.Box1, 1, 'entelbasement_player')
-    new Objects(this, 29, 27, this.imageNames.Box1, 1, 'entelbasement_player')
+    new Objects(this, 22, 20, this.imageNames.Box1, 1, this.playerName)
+    new Objects(this, 23, 20, this.imageNames.Box1, 1, this.playerName)
+    new Objects(this, 27, 20, this.imageNames.Box2, 1, this.playerName)
+    new Objects(this, 30, 20, this.imageNames.Box4, 1, this.playerName)
+    new Objects(this, 24, 21, this.imageNames.Box3, 1, this.playerName)
+    new Objects(this, 29, 21, this.imageNames.Box2, 1, this.playerName)
+    new Objects(this, 21, 22, this.imageNames.Box2, 1, this.playerName)
+    new Objects(this, 27, 22, this.imageNames.Box3, 1, this.playerName)
+    new Objects(this, 27, 23, this.imageNames.Box2, 1, this.playerName)
+    new Objects(this, 26, 25, this.imageNames.Box3, 1, this.playerName)
+    new Objects(this, 27, 25, this.imageNames.Box1, 1, this.playerName)
+    new Objects(this, 21, 26, this.imageNames.Box1, 1, this.playerName)
+    new Objects(this, 26, 26, this.imageNames.Box4, 1, this.playerName)
+    new Objects(this, 30, 26, this.imageNames.Box2, 1, this.playerName)
+    new Objects(this, 22, 27, this.imageNames.Box2, 1, this.playerName)
+    new Objects(this, 23, 27, this.imageNames.Box1, 1, this.playerName)
+    new Objects(this, 29, 27, this.imageNames.Box1, 1, this.playerName)
 
-    NpcsAndObjects.interaction(this, 'entelbasement_player')
+    NpcsAndObjects.interaction(this, this.playerName)
   }
 
   update (): void {
     super.update()
-    basicMovement(this, 'entelbasement_player', this.gridEngine, this.playerSprite)
-    updateDoors(this, 'entelbasement_player')
+    basicMovement(this, this.playerName, this.gridEngine, this.playerSprite)
+    updateDoors(this, this.playerName)
   }
 }

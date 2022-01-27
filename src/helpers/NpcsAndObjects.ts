@@ -71,6 +71,16 @@ export class NpcsAndObjects {
     playerId: string
   ): void {
     scene.interactionKey.removeAllListeners()
+    scene.interactionKey.on('down', () => {
+      scene.npcsAndObjectsArray.forEach(object => {
+        if (
+          scene.gridEngine.getFacingPosition(playerId).equals(scene.gridEngine.getPosition(object.name)) === true
+        ) {
+          object.action(object.scene, object.name)
+        }
+      })
+    })
+/*
     scene.npcsAndObjectsArray.forEach(object => {
       scene.interactionKey.on('down', () => {
         if (
@@ -80,7 +90,7 @@ export class NpcsAndObjects {
         }
       })
     })
-
+*/
     globalGameState.on('inDialogue', (value: boolean) => {
       if (value) {
         scene.interactionKey.removeAllListeners()
@@ -92,7 +102,10 @@ export class NpcsAndObjects {
 
   /** This function is used for removing one NPC / Object. */
   resetCharacter (): void {
+    console.log(`${this.name}: ${this.scene.gridEngine.getPosition(this.name)}`)
     this.scene.gridEngine.setPosition(this.name, { x: this.startX, y: this.startY })
+    this.scene.gridEngine.stopMovement(this.name)
+    console.log(`${this.name}: ${this.scene.gridEngine.getPosition(this.name)}`)
   }
 
   /** This function is used for removing all NPCs and Objects in a scene. */
