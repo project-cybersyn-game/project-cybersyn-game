@@ -39,27 +39,11 @@ export default class GameScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys()
     this.interactionKey = this.input.keyboard.addKey('E')
     this.backKey = this.input.keyboard.addKey('ESC')
-
-    this.fadingRectangle = this.add.rectangle(this.cameras.main.x, this.cameras.main.y, this.cameras.main.displayHeight, this.cameras.main.displayWidth, 0x000000, 255)
-    this.fadingRectangle.setZ(1000)
-
-    this.fadingTween = this.tweens.create({
-      targets: this.fadingRectangle,
-      alpha: 255,
-      duration: 10000,
-      ease: 'Linear',
-      yoyo: true,
-      hold: 10000,
-      onStart: console.log('tweenStart'),
-      onActive: console.log('tweenActive'),
-      onYoyo: console.log('tweenYoyo'),
-      onStop: console.log('tweenStop')
-    })
   }
 
   update (): void {
     // switch to main menu when pressing ESC key
-    // --- DEFINITELY CHANGE LATER ---
+    // --- TODO: DEFINITELY CHANGE LATER ---
     if (this.backKey.isDown && !globalGameState._gameProgress.inDialogue) {
       this.scene.switch('main-menu')
     }
@@ -84,15 +68,8 @@ export default class GameScene extends Phaser.Scene {
     const oldPosition: Position = this.gridEngine.getPosition(this.playerName)
     const oldDirection: Direction = this.gridEngine.getFacingDirection(this.playerName)
 
-    console.log(`transitionScreen: ${transitionScreen}`)
-    console.log(`(transitionScreen === true || transitionScreen >= 0) ${(transitionScreen === true || transitionScreen >= 0)}`)
-    console.log(`(typeof transitionScreen === 'boolean' ? 1000 : transitionScreen) ${(typeof transitionScreen === 'boolean' ? 1000 : transitionScreen)}`)
-    console.log(`stopDialogue: ${stopDialogue}`)
-    console.log(`(stopDialogue === true || stopDialogue >= 0) ${(stopDialogue === true || stopDialogue >= 0)}`)
-    console.log(`(typeof stopDialogue === 'boolean' ? 0 : stopDialogue) ${(typeof stopDialogue === 'boolean' ? 0 : stopDialogue)}`)
-
     if (transitionScreen === true || transitionScreen >= 0) {
-      this.fadingTween.play()
+      // TODO
     }
 
     if (stopDialogue === true || stopDialogue >= 0) {
