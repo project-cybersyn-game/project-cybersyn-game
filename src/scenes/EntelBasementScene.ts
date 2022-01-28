@@ -104,7 +104,8 @@ export default class EntelBasementScene extends GameScene {
           sprite: this.playerSprite,
           startPosition: { x: 21, y: 9 }
         }
-      ]
+      ],
+      characterCollisionStrategy: 'BLOCK_ONE_TILE_AHEAD'
     }
     this.gridEngine.create(map, gridEngineConfig)
 
