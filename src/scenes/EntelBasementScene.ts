@@ -143,15 +143,7 @@ export default class EntelBasementScene extends GameScene {
         globalGameState.off('resetBoxPuzzle')
         globalGameState.on('resetBoxPuzzle', () => {
           globalGameState.off('resetBoxPuzzle')
-          console.log(scene.gridEngine.getAllCharacters())
-          console.log(scene.interactionKey.listeners)
-          this.reset(true)
-          setTimeout(() => {
-            console.log(scene.gridEngine.getAllCharacters())
-            console.log(scene.interactionKey.listeners)
-          }, 5000)
-          // console.log(this.gridEngine.getAllCharacters())
-          // NpcsAndObjects.resetAllCharacters(this)
+          this.reset(true, 6000, 1000)
         })
       }, 6)
     new Objects(this, 22, 20, this.imageNames.Box1, 1, this.playerName)

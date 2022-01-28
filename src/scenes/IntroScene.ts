@@ -25,7 +25,7 @@ export default class IntroScene extends Phaser.Scene {
       volume: 0.5
     })
 
-    this.time.delayedCall(20000, () => {
+    const timer = this.time.delayedCall(20000, () => {
       text.destroy()
       this.tweens.add({
         targets: music,
@@ -35,5 +35,10 @@ export default class IntroScene extends Phaser.Scene {
       })
       this.scene.run('outdoor')
     }, [], this)
+
+    this.input.keyboard.addKey('ENTER').once('down', () => {
+      timer.callback()
+      timer.destroy()
+    })
   }
 }

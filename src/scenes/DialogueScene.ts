@@ -53,6 +53,11 @@ export default class HelloWorldScene extends Scene {
   _start (): void {
     globalGameState.emit('inDialogue', true)
 
+    globalGameState.on('reloadGameScene', () => {
+      globalGameState.emit('inDialogue', false)
+      this.scene.stop()
+    })
+
     this.dialogueData = this.cache.json.get('dialogues')
     this.dialogueWindow = new DialogueWindow(this, {})
     this.cursors = this.input.keyboard.createCursorKeys()
