@@ -1,5 +1,5 @@
 /* eslint-disable no-new */
-import { createCharacterSprite, Npcs, NpcsAndObjects, Objects } from '../helpers/NpcsAndObjects'
+import { createCharacterSprite, Npcs, Objects } from '../helpers/NpcsAndObjects'
 import { updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
@@ -143,7 +143,7 @@ export default class EntelBasementScene extends GameScene {
         globalGameState.off('resetBoxPuzzle')
         globalGameState.on('resetBoxPuzzle', () => {
           globalGameState.off('resetBoxPuzzle')
-          this.reset(true, 6000, 1000)
+          this.reset(true, false)
         })
       }, 6)
     new Objects(this, 22, 20, this.imageNames.Box1, 1, this.playerName)
@@ -163,8 +163,6 @@ export default class EntelBasementScene extends GameScene {
     new Objects(this, 22, 27, this.imageNames.Box2, 1, this.playerName)
     new Objects(this, 23, 27, this.imageNames.Box1, 1, this.playerName)
     new Objects(this, 29, 27, this.imageNames.Box1, 1, this.playerName)
-
-    NpcsAndObjects.interaction(this, this.playerName)
   }
 
   update (): void {

@@ -1,6 +1,6 @@
 /* eslint-disable no-new */
 // import { addNpc } from '../helpers/Characters'
-import { createCharacterSprite, Npcs, NpcsAndObjects } from '../helpers/NpcsAndObjects'
+import { createCharacterSprite, Npcs } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
@@ -120,7 +120,7 @@ export default class CorfoIndoorScene extends GameScene {
     const gridEngineConfig = {
       characters: [
         {
-          id: 'corfoindoor_player',
+          id: this.playerName,
           sprite: this.playerSprite,
           startPosition: { x: 19, y: 11 }
         }
@@ -148,12 +148,11 @@ export default class CorfoIndoorScene extends GameScene {
           this.scene.switch('outro')
         })
       }, 0)
-    NpcsAndObjects.interaction(this, 'corfoindoor_player')
   }
 
   update (): void {
     super.update()
-    basicMovement(this, 'corfoindoor_player', this.gridEngine, this.playerSprite)
-    updateDoors(this, 'corfoindoor_player')
+    basicMovement(this, this.playerName, this.gridEngine, this.playerSprite)
+    updateDoors(this, this.playerName)
   }
 }

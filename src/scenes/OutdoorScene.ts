@@ -1,5 +1,5 @@
 /* eslint-disable no-new */
-import { createCharacterSprite, Npcs, NpcsAndObjects } from '../helpers/NpcsAndObjects'
+import { createCharacterSprite, Npcs } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
@@ -163,8 +163,6 @@ export default class OutdoorScene extends GameScene {
         })
         this.add.image(+this.game.config.width, +this.game.config.height - 100, 'eg').setDepth(9999)
       })
-
-    NpcsAndObjects.interaction(this, 'outdoor_player')
   }
 
   update (): void {

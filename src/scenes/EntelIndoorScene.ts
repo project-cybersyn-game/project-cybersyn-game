@@ -1,6 +1,6 @@
 /* eslint-disable no-new */
 // import { addNpc } from '../helpers/Characters'
-import { createCharacterSprite, Npcs, NpcsAndObjects } from '../helpers/NpcsAndObjects'
+import { createCharacterSprite, Npcs } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
@@ -120,7 +120,7 @@ export default class EntelIndoorScene extends GameScene {
     const gridEngineConfig = {
       characters: [
         {
-          id: 'entelindoor_player',
+          id: this.playerName,
           sprite: this.playerSprite,
           startPosition: { x: 15, y: 11 }
         }
@@ -156,13 +156,11 @@ export default class EntelIndoorScene extends GameScene {
           this.scene.switch('entel-basement')
         })
       }, 6)
-
-    NpcsAndObjects.interaction(this, 'entelindoor_player')
   }
 
   update (): void {
     super.update()
-    basicMovement(this, 'entelindoor_player', this.gridEngine, this.playerSprite)
-    updateDoors(this, 'entelindoor_player')
+    basicMovement(this, this.playerName, this.gridEngine, this.playerSprite)
+    updateDoors(this, this.playerName)
   }
 }

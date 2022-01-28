@@ -33,6 +33,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   preload (): void {
+    this.load.image('eKey', 'images/keys/eKey.png')
   }
 
   create (): void {
@@ -47,6 +48,7 @@ export default class GameScene extends Phaser.Scene {
     if (this.backKey.isDown && !globalGameState._gameProgress.inDialogue) {
       this.scene.switch('main-menu')
     }
+    NpcsAndObjects.interaction(this, this.playerName)
   }
 
   /** Not a standard method of Phaser.Scene.
@@ -59,29 +61,13 @@ export default class GameScene extends Phaser.Scene {
     /** If set to true or greater than 0, a black screen transition will take place. A number represents the duration in milliseconds.
      * Default duration: 1000 ms
     */
-    transitionScreen: boolean | integer = true,
-    /** If set to true or greater than 0, the current dialogue will be ended. A number represents the delay in milliseconds.
-     * Default delay: 1000 ms
-     */
-    stopDialogue: boolean | integer = true
+    transitionScreen: boolean | integer = true
   ): void {
     const oldPosition: Position = this.gridEngine.getPosition(this.playerName)
     const oldDirection: Direction = this.gridEngine.getFacingDirection(this.playerName)
 
     if (transitionScreen === true || transitionScreen >= 0) {
-      // TODO
-    }
-
-    if (stopDialogue === true || stopDialogue >= 0) {
-      console.log('stop dialogue')
-      setTimeout(() => {
-        console.log('stopped dialogue')
-        globalGameState.emit('reloadGameScene')
-      }, (typeof stopDialogue === 'boolean' ? 0 : stopDialogue))
-      /* this.time.delayedCall((typeof stopDialogue === 'boolean' ? 0 : stopDialogue), () => {
-        console.log('stopped dialogue')
-        globalGameState.emit('reloadGameScene')
-      }) */
+      // TO-DO
     }
 
     this.npcsAndObjectsArray = []

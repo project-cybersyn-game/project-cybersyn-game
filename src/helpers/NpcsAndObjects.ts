@@ -26,6 +26,9 @@ export class NpcsAndObjects {
   scene: GameScene
   startX: integer = 0
   startY: integer = 0
+  eKey!: Phaser.GameObjects.Image
+  container!: Phaser.GameObjects.Container
+  interactionCounter: integer = 0
   /** default action if no action-parameter is assigned when creating the object */
   protected action: Function = (): void => {
     // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
@@ -55,7 +58,11 @@ export class NpcsAndObjects {
 
     // adding object to the scene
     const npcSprite = createCharacterSprite(scene, 0, 0, texture, scale)
-    this.addCharacter(npcSprite, xPos, yPos, walkingAnimationMapping)
+    this.eKey = scene.add.image(0, 10, 'eKey')
+    this.eKey.depth = 9999
+    this.eKey.setVisible(false)
+    this.container = scene.add.container(0, 0, [npcSprite, this.eKey])
+    this.addCharacter(npcSprite, xPos, yPos, this.container, walkingAnimationMapping)
 
     // adding action to execute when player interacts with the object
     if (action !== undefined) {
@@ -70,29 +77,27 @@ export class NpcsAndObjects {
     scene: GameScene,
     playerId: string
   ): void {
-    scene.interactionKey.removeAllListeners()
-    scene.interactionKey.on('down', () => {
-      scene.npcsAndObjectsArray.forEach(object => {
-        if (
-          scene.gridEngine.getFacingPosition(playerId).x === scene.gridEngine.getPosition(object.name.toString()).x &&
-          scene.gridEngine.getFacingPosition(playerId).y === scene.gridEngine.getPosition(object.name.toString()).y
-        ) {
-          object.action(object.scene, object.name)
-        }
-      })
-    })
-    /*
     scene.npcsAndObjectsArray.forEach(object => {
-      scene.interactionKey.on('down', () => {
-        if (
-          scene.gridEngine.getFacingPosition(playerId).x === scene.gridEngine.getPosition(object.name).x &&
-          scene.gridEngine.getFacingPosition(playerId).y === scene.gridEngine.getPosition(object.name).y
-        ) {
+      if (
+        scene.gridEngine.getFacingPosition(playerId).x === scene.gridEngine.getPosition(object.name.toString()).x &&
+        scene.gridEngine.getFacingPosition(playerId).y === scene.gridEngine.getPosition(object.name.toString()).y &&
+        !globalGameState._gameProgress.inDialogue
+      ) {
+        if (scene.interactionKey.isDown && object.interactionCounter <= 0) {
+          object.interactionCounter = 5
           object.action(object.scene, object.name)
+        } else {
+          if (object.interactionCounter > 0) {
+            object.interactionCounter--
+          } else if (object.name.toUpperCase().startsWith('NPC')) {
+            object.eKey.setVisible(true)
+          }
         }
-      })
+      } else {
+        object.eKey.setVisible(false)
+      }
     })
-    */
+
     globalGameState.on('inDialogue', (value: boolean) => {
       if (value) {
         scene.interactionKey.removeAllListeners()
@@ -128,12 +133,14 @@ export class NpcsAndObjects {
     npcSprite: Phaser.Physics.Arcade.Sprite,
     xPos: integer,
     yPos: integer,
+    container: Phaser.GameObjects.Container,
     walkingAnimationMapping?: number | WalkingAnimationMapping
   ): void {
     this.scene.gridEngine.addCharacter(
       {
         id: (this.name),
         sprite: npcSprite,
+        container,
         startPosition: { x: xPos, y: yPos },
         facingDirection: Direction.DOWN
       }
@@ -208,12 +215,14 @@ export class Npcs extends NpcsAndObjects {
     npcSprite: Phaser.Physics.Arcade.Sprite,
     xPos: integer,
     yPos: integer,
+    container: Phaser.GameObjects.Container,
     walkingAnimationMapping: number | WalkingAnimationMapping = 1
   ): void {
     this.scene.gridEngine.addCharacter(
       {
         id: (this.name),
         sprite: npcSprite,
+        container,
         startPosition: { x: xPos, y: yPos },
         walkingAnimationMapping: walkingAnimationMapping,
         facingDirection: Direction.DOWN
