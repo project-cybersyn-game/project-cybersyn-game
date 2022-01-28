@@ -83,7 +83,19 @@ export class NpcsAndObjects {
         scene.gridEngine.getFacingPosition(playerId).y === scene.gridEngine.getPosition(object.name.toString()).y &&
         !globalGameState._gameProgress.inDialogue
       ) {
-        if (scene.interactionKey.isDown && object.interactionCounter <= 0) {
+        let keyCheck: boolean = false
+        if (object.name.toUpperCase().startsWith('NPC')) {
+          keyCheck = scene.interactionKey.isDown
+        } else {
+          const direction: string = scene.gridEngine.getFacingDirection(scene.playerName)
+          keyCheck = (
+            (scene.cursors.up.isDown && direction === Direction.UP) ||
+            (scene.cursors.down.isDown && direction === Direction.DOWN) ||
+            (scene.cursors.right.isDown && direction === Direction.RIGHT) ||
+            (scene.cursors.left.isDown && direction === Direction.LEFT)
+          )
+        }
+        if (keyCheck && object.interactionCounter <= 0) {
           object.interactionCounter = 5
           object.action(object.scene, object.name)
         } else {
