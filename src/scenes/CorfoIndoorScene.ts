@@ -2,11 +2,9 @@
 // import { addNpc } from '../helpers/Characters'
 import { Npcs } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
-import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
 import GlobalGameState from '../components/GlobalGameState'
-import { Tilemaps } from 'phaser'
 
 export default class CorfoIndoorScene extends GameScene {
   constructor () {
@@ -15,25 +13,30 @@ export default class CorfoIndoorScene extends GameScene {
     this.imageNames = {
       Dude: 'corfoindoor_dude',
       Map: 'corfoindoor_Map',
-      DD_Exterior_A4: 'DD_Exterior_A4',
-      DD_Exterior_A5: 'DD_Exterior_A5',
-      DD_Exterior_B: 'DD_Exterior_B',
-      DD_Exterior_C: 'DD_Exterior_C',
-      DD_Exterior_D: 'DD_Exterior_D',
-      DD_Exterior_E: 'DD_Exterior_E',
-      DD_Exterior_Walls_Non_Auto: 'DD_Exterior-Walls_Non-Auto',
-      DD_General_A2: 'DD_General_A2',
-      DD_General_Non_Auto: 'DD_General_Non-Auto',
-      DD_General_Walls_Non_Auto: 'DD_General-Walls_Non-Auto',
-      DD_Interior_A4: 'DD_Interior_A4',
-      DD_Interior_A5: 'DD_Interior_A5',
-      DD_Interior_B: 'DD_Interior_B',
-      DD_Interior_B2: 'DD_Interior_B2',
-      DD_Interior_C: 'DD_Interior_C',
-      DD_Interior_C2: 'DD_Interior_C2',
-      DD_Interior_School_B: 'DD_Interior-School_B',
-      DD_Interior_School_C: 'DD_Interior-School_C',
       NPCs: 'corfoindoor_npcs'
+    }
+
+    this.tilemapJSONPath = 'tilemaps/corfo-indoor.json'
+    this.imageMapDefaultPath = 'tilesets/Downtown Dungeon/Tiles 24x24/'
+    this.imageMapNames = {
+      DD_Exterior_A4: { name: 'DD_Exterior_A4' },
+      DD_Exterior_A5: { name: 'DD_Exterior_A5' },
+      DD_Exterior_B: { name: 'DD_Exterior_B' },
+      DD_Exterior_C: { name: 'DD_Exterior_C' },
+      DD_Exterior_D: { name: 'DD_Exterior_D' },
+      DD_Exterior_E: { name: 'DD_Exterior_E' },
+      DD_Exterior_Walls_Non_Auto: { name: 'DD_Exterior-Walls_Non-Auto' },
+      DD_General_A2: { name: 'DD_General_A2' },
+      DD_General_Non_Auto: { name: 'DD_General_Non-Auto' },
+      DD_General_Walls_Non_Auto: { name: 'DD_General-Walls_Non-Auto' },
+      DD_Interior_A4: { name: 'DD_Interior_A4' },
+      DD_Interior_A5: { name: 'DD_Interior_A5' },
+      DD_Interior_B: { name: 'DD_Interior_B' },
+      DD_Interior_B2: { name: 'DD_Interior_B2' },
+      DD_Interior_C: { name: 'DD_Interior_C' },
+      DD_Interior_C2: { name: 'DD_Interior_C2' },
+      DD_Interior_School_B: { name: 'DD_Interior-School_B' },
+      DD_Interior_School_C: { name: 'DD_Interior-School_C' }
     }
 
     this.gridEngineSettings = {
@@ -52,34 +55,9 @@ export default class CorfoIndoorScene extends GameScene {
 
     super.loadAvatarSpritesheet()
 
-    this.loadMapImages()
+    super.loadMapImages()
 
     this.loadObjectImages()
-  }
-
-  loadMapImages (): void {
-    // Tilemap-Bilder laden
-    this.load.image(this.imageNames.DD_Exterior_A4, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_A4.png')
-    this.load.image(this.imageNames.DD_Exterior_A5, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_A5.png')
-    this.load.image(this.imageNames.DD_Exterior_B, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_B.png')
-    this.load.image(this.imageNames.DD_Exterior_C, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_C.png')
-    this.load.image(this.imageNames.DD_Exterior_D, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_D.png')
-    this.load.image(this.imageNames.DD_Exterior_E, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_E.png')
-    this.load.image(this.imageNames.DD_Exterior_Walls_Non_Auto, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior-Walls_Non-Auto.png')
-    this.load.image(this.imageNames.DD_General_A2, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_General_A2.png')
-    this.load.image(this.imageNames.DD_General_Non_Auto, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_General_Non-Auto.png')
-    this.load.image(this.imageNames.DD_General_Walls_Non_Auto, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_General-Walls_Non-Auto.png')
-    this.load.image(this.imageNames.DD_Interior_A4, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Interior_A4.png')
-    this.load.image(this.imageNames.DD_Interior_A5, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Interior_A5.png')
-    this.load.image(this.imageNames.DD_Interior_B, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Interior_B.png')
-    this.load.image(this.imageNames.DD_Interior_B2, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Interior_B2.png')
-    this.load.image(this.imageNames.DD_Interior_C, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Interior_C.png')
-    this.load.image(this.imageNames.DD_Interior_C2, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Interior_C2.png')
-    this.load.image(this.imageNames.DD_Interior_School_B, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Interior-School_B.png')
-    this.load.image(this.imageNames.DD_Interior_School_C, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Interior-School_C.png')
-
-    // Tilemap-JSON laden
-    this.load.tilemapTiledJSON(this.imageNames.Map, 'tilemaps/corfo-indoor.json')
   }
 
   loadObjectImages (): void {
@@ -99,7 +77,7 @@ export default class CorfoIndoorScene extends GameScene {
 
     createAnims(this, this.imageNames.Dude)
 
-    const map = this.createMap()
+    const map = super.createMap()
 
     super.initiateGridEngine(map)
 
@@ -110,37 +88,6 @@ export default class CorfoIndoorScene extends GameScene {
     createDoor(this, 20, 10, 'outdoor')
 
     this.createNpcs()
-  }
-
-  createMap (): Tilemaps.Tilemap {
-    // Tilemap erstellen
-    const map = createMap(
-      this,
-      this.imageNames.Map,
-      [
-        { tilesetName: this.imageNames.DD_Exterior_A4, image: (this.imageNames.DD_Exterior_A4) },
-        { tilesetName: this.imageNames.DD_Exterior_A5, image: (this.imageNames.DD_Exterior_A5) },
-        { tilesetName: this.imageNames.DD_Exterior_B, image: (this.imageNames.DD_Exterior_B) },
-        { tilesetName: this.imageNames.DD_Exterior_C, image: (this.imageNames.DD_Exterior_C) },
-        { tilesetName: this.imageNames.DD_Exterior_D, image: (this.imageNames.DD_Exterior_D) },
-        { tilesetName: this.imageNames.DD_Exterior_E, image: (this.imageNames.DD_Exterior_E) },
-        { tilesetName: this.imageNames.DD_Exterior_Walls_Non_Auto, image: (this.imageNames.DD_Exterior_Walls_Non_Auto) },
-        { tilesetName: this.imageNames.DD_General_A2, image: (this.imageNames.DD_General_A2) },
-        { tilesetName: this.imageNames.DD_General_Non_Auto, image: (this.imageNames.DD_General_Non_Auto) },
-        { tilesetName: this.imageNames.DD_General_Walls_Non_Auto, image: (this.imageNames.DD_General_Walls_Non_Auto) },
-        { tilesetName: this.imageNames.DD_Interior_A4, image: (this.imageNames.DD_Interior_A4) },
-        { tilesetName: this.imageNames.DD_Interior_A5, image: (this.imageNames.DD_Interior_A5) },
-        { tilesetName: this.imageNames.DD_Interior_B, image: (this.imageNames.DD_Interior_B) },
-        { tilesetName: this.imageNames.DD_Interior_B2, image: (this.imageNames.DD_Interior_B2) },
-        { tilesetName: this.imageNames.DD_Interior_C, image: (this.imageNames.DD_Interior_C) },
-        { tilesetName: this.imageNames.DD_Interior_C2, image: (this.imageNames.DD_Interior_C2) },
-        { tilesetName: this.imageNames.DD_Interior_School_B, image: (this.imageNames.DD_Interior_School_B) },
-        { tilesetName: this.imageNames.DD_Interior_School_C, image: (this.imageNames.DD_Interior_School_C) }
-      ],
-      ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay_Edge', '5_Objects_Overlay', '6_Objects_Overlay_Overlay']
-    ).tilemap
-
-    return map
   }
 
   createNpcs (): void {

@@ -1,5 +1,6 @@
 import Phaser, { Tilemaps } from 'phaser'
 import { Door } from '../helpers/Doors'
+import { createMap } from '../helpers/Tilemaps'
 import { NpcsAndObjects, createCharacterSprite } from '../helpers/NpcsAndObjects'
 import globalGameState from '../components/GlobalGameState'
 import { GridEngine, Position, Direction } from 'grid-engine'
@@ -23,6 +24,16 @@ export default class GameScene extends Phaser.Scene {
     [index: string]: string
   }
 
+  imageMapDefaultPath: string
+  tilemapJSONPath!: string
+  layerNames: string[]
+  imageMapNames!: {
+    [index: string]: {
+      name: string
+      path?: string
+    }
+  }
+
   gridEngineSettings: {
     startPosition: {
       x: number
@@ -40,7 +51,8 @@ export default class GameScene extends Phaser.Scene {
 
     this.sceneName = name
     this.playerName = `${name}_player`
-    console.log(this.playerName)
+    this.imageMapDefaultPath = 'tilesets/'
+    this.layerNames = ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay_Edge', '5_Objects_Overlay', '6_Objects_Overlay_Overlay']
 
     this.gridEngineSettings = {
       startPosition: {
@@ -114,6 +126,40 @@ export default class GameScene extends Phaser.Scene {
         frameHeight: 25
       }
     )
+  }
+
+  loadMapImages (): void {
+    // Tilemap-Bilder laden
+    Object.keys(this.imageMapNames).forEach(key => {
+      // Use image-specific path, if defined; otherwise use default path
+      const path = (this.imageMapNames[key].path != null) ? this.imageMapNames[key].path : this.imageMapDefaultPath
+
+      this.load.image(
+        this.imageMapNames[key].name,
+        `${path ?? ''}${this.imageMapNames[key].name}.png`)
+    })
+
+    // Tilemap-JSON laden
+    this.load.tilemapTiledJSON(this.imageNames.Map, this.tilemapJSONPath)
+  }
+
+  createMap (): Tilemaps.Tilemap {
+    const tilesetInfo = Object.keys(this.imageMapNames).map(key => {
+      return {
+        tilesetName: this.imageMapNames[key].name,
+        image: (this.imageMapNames[key].name)
+      }
+    })
+
+    // Tilemap erstellen
+    const map = createMap(
+      this,
+      this.imageNames.Map,
+      tilesetInfo,
+      this.layerNames
+    ).tilemap
+
+    return map
   }
 
   initiateGridEngine (map: Tilemaps.Tilemap): void {

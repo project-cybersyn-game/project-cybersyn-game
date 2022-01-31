@@ -1,11 +1,9 @@
 /* eslint-disable no-new */
 import { Npcs, Objects } from '../helpers/NpcsAndObjects'
 import { updateDoors } from '../helpers/Doors'
-import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
 import globalGameState from '../components/GlobalGameState'
-import { Tilemaps } from 'phaser'
 
 export default class EntelBasementScene extends GameScene {
   constructor () {
@@ -14,20 +12,31 @@ export default class EntelBasementScene extends GameScene {
     this.imageNames = {
       Dude: 'entelbasement_dude',
       Map: 'entelbasement_Map',
-      Fade: 'fade',
-      HC_FactoryA5: 'HC_FactoryA5',
-      HC_FactoryB: 'HC_FactoryB',
-      HC_SewerFactoryA4: 'HC_Sewer&FactoryA4',
-      HC_SewerA1: 'HC_SewerA1',
-      HC_SewerA5: 'HC_SewerA5',
-      HC_SewerB: 'HC_SewerB',
-      HC_SewerC: 'HC_SewerC',
-      Telex: 'telex',
       NPCs: 'entelbasement_npcs',
       Box1: 'box1',
       Box2: 'box2',
       Box3: 'box3',
       Box4: 'box4'
+    }
+
+    this.tilemapJSONPath = 'tilemaps/entel-indoor.json'
+    this.imageMapDefaultPath = 'tilesets/Horror City/Horror City - Sewer Tileset/'
+    this.imageMapNames = {
+      HC_FactoryA5: { name: 'HC_FactoryA5' },
+      HC_FactoryB: { name: 'HC_FactoryB' },
+      HC_SewerFactoryA4: { name: 'HC_Sewer&FactoryA4' },
+      HC_SewerA1: { name: 'HC_SewerA1' },
+      HC_SewerA5: { name: 'HC_SewerA5' },
+      HC_SewerB: { name: 'HC_SewerB' },
+      HC_SewerC: { name: 'HC_SewerC' },
+      Fade: {
+        name: 'fade',
+        path: 'tilesets/'
+      },
+      Telex: {
+        name: 'telex',
+        path: 'tilesets/'
+      }
     }
 
     this.gridEngineSettings = {
@@ -46,25 +55,9 @@ export default class EntelBasementScene extends GameScene {
 
     super.loadAvatarSpritesheet()
 
-    this.loadMapImages()
+    super.loadMapImages()
 
     this.loadObjectImages()
-  }
-
-  loadMapImages (): void {
-    // Tilemap-Bilder laden
-    this.load.image(this.imageNames.Fade, 'tilesets/fade.png')
-    this.load.image(this.imageNames.HC_FactoryA5, 'tilesets/Horror City/Horror City - Sewer Tileset/HC_FactoryA5.png')
-    this.load.image(this.imageNames.HC_FactoryB, 'tilesets/Horror City/Horror City - Sewer Tileset/HC_FactoryB.png')
-    this.load.image(this.imageNames.HC_SewerFactoryA4, 'tilesets/Horror City/Horror City - Sewer Tileset/HC_Sewer&FactoryA4.png')
-    this.load.image(this.imageNames.HC_SewerA1, 'tilesets/Horror City/Horror City - Sewer Tileset/HC_SewerA1.png')
-    this.load.image(this.imageNames.HC_SewerA5, 'tilesets/Horror City/Horror City - Sewer Tileset/HC_SewerA5.png')
-    this.load.image(this.imageNames.HC_SewerB, 'tilesets/Horror City/Horror City - Sewer Tileset/HC_SewerB.png')
-    this.load.image(this.imageNames.HC_SewerC, 'tilesets/Horror City/Horror City - Sewer Tileset/HC_SewerC.png')
-    this.load.image(this.imageNames.Telex, 'tilesets/telex.png')
-
-    // Tilemap-JSON laden
-    this.load.tilemapTiledJSON(this.imageNames.Map, 'tilemaps/entel-basement.json')
   }
 
   loadObjectImages (): void {
@@ -88,7 +81,7 @@ export default class EntelBasementScene extends GameScene {
 
     createAnims(this, this.imageNames.Dude)
 
-    const map = this.createMap()
+    const map = super.createMap()
 
     super.initiateGridEngine(map)
 
@@ -98,28 +91,6 @@ export default class EntelBasementScene extends GameScene {
     // createDoor(this, 21, 8, 'outdoor')
 
     this.createNpcs()
-  }
-
-  createMap (): Tilemaps.Tilemap {
-    // Tilemap erstellen
-    const map = createMap(
-      this,
-      this.imageNames.Map,
-      [
-        { tilesetName: this.imageNames.Fade, image: (this.imageNames.Fade) },
-        { tilesetName: this.imageNames.HC_FactoryA5, image: (this.imageNames.HC_FactoryA5) },
-        { tilesetName: this.imageNames.HC_FactoryB, image: (this.imageNames.HC_FactoryB) },
-        { tilesetName: this.imageNames.HC_SewerFactoryA4, image: (this.imageNames.HC_SewerFactoryA4) },
-        { tilesetName: this.imageNames.HC_SewerA1, image: (this.imageNames.HC_SewerA1) },
-        { tilesetName: this.imageNames.HC_SewerA5, image: (this.imageNames.HC_SewerA5) },
-        { tilesetName: this.imageNames.HC_SewerB, image: (this.imageNames.HC_SewerB) },
-        { tilesetName: this.imageNames.HC_SewerC, image: (this.imageNames.HC_SewerC) },
-        { tilesetName: this.imageNames.Telex, image: (this.imageNames.Telex) }
-      ],
-      ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay_Edge', '5_Objects_Overlay', '6_Objects_Overlay_Overlay']
-    ).tilemap
-
-    return map
   }
 
   createNpcs (): void {
