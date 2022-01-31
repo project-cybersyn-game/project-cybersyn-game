@@ -10,7 +10,7 @@ export default class IntroScene extends Phaser.Scene {
   }
 
   create (): void {
-    const text = this.add.text(+this.game.config.width / 2 - 300, 200,
+    const text = this.add.text(+this.game.config.width / 2 - 300, +this.game.config.height / 2 - 200,
       'You are Alba García, assistant to Fernando Flores. Sr. Flores is the head of CORFO, the State Development Corporation of Chile. You are on your way to work. The year is 1971. Welcome to Santiago de Chile!',
       {
         fontFamily: 'Nova Mono',

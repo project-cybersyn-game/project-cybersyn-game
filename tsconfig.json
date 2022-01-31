@@ -13,15 +13,20 @@
 		"sourceMap": true,
 		"baseUrl": "./src",
 		"paths": {
-		  "~/*": ["./*"]
+			"~/*": [
+				"./*"
+			]
 		},
 		"typeRoots": [
 			"node_modules/@types",
 			"node_module/phaser/types"
 		],
 		"types": [
-			"Phaser"
+			"Phaser",
+			"node"
 		]
-	  },
-	  "include": ["src/**/*.ts"]
+	},
+	"include": [
+		"src/**/*.ts"
+	]
 }

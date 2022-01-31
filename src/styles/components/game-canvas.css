@@ -1,5 +1,5 @@
-.game-canvas {
+.game-canvas canvas {
+	display: block;
 	margin: 0 auto;
 	position: relative;
-	width: 900px;
 }

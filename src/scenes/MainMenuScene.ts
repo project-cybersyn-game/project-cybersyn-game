@@ -28,14 +28,17 @@ export default class MainMenuScene extends Phaser.Scene {
   }
 
   create (): void {
+    const halfCanvasWidth = this.game.canvas.width / 2
+    const halfCanvasHeight = this.game.canvas.height / 2
     this.cursors = this.input.keyboard.createCursorKeys()
     this.selectKey = this.input.keyboard.addKey('ENTER')
     this.backKey = this.input.keyboard.addKey('ESC')
 
-    this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, ImageNames.OpsRoom)
+    console.log(this.game.canvas)
+    this.add.image(halfCanvasWidth, halfCanvasHeight, ImageNames.OpsRoom)
 
     // display header
-    this.add.text(335, 40,
+    this.add.text(halfCanvasWidth - 115, halfCanvasHeight - 287,
       [
         'CYBERSYN',
         'Main Menu'
@@ -43,17 +46,17 @@ export default class MainMenuScene extends Phaser.Scene {
       {
         fontFamily: 'Nova Mono',
         fontSize: '20px',
-        color: '#000'
+        color: '#fff'
       })
 
     // display game-info
-    this.add.text(140, 545, 'GRAPHICS',
+    this.add.text(halfCanvasWidth - 305, halfCanvasHeight + 220, 'GRAPHICS',
       {
         fontFamily: 'Nova Mono',
         fontSize: '20px',
-        color: '#000'
+        color: '#fff'
       })
-    this.add.text(120, 580,
+    this.add.text(halfCanvasWidth - 335, halfCanvasHeight + 255,
       [
         'By Darby Machin',
         'freely available',
@@ -66,13 +69,13 @@ export default class MainMenuScene extends Phaser.Scene {
       })
 
     // display game-info
-    this.add.text(665, 545, 'GAME INFO',
+    this.add.text(halfCanvasWidth + 210, halfCanvasHeight + 220, 'GAME INFO',
       {
         fontFamily: 'Nova Mono',
         fontSize: '20px',
-        color: '#000'
+        color: '#fff'
       })
-    this.add.text(630, 580,
+    this.add.text(halfCanvasWidth + 180, halfCanvasHeight + 255,
       [
         'Version: ' + this.game.config.gameVersion,
         'Engine: Phaser 3.55.2'
@@ -84,13 +87,13 @@ export default class MainMenuScene extends Phaser.Scene {
       })
 
     // display creator-info
-    this.add.text(395, 545, 'DEVELOPERS',
+    this.add.text(halfCanvasWidth - 55, halfCanvasHeight + 220, 'DEVELOPERS',
       {
         fontFamily: 'Nova Mono',
         fontSize: '20px',
-        color: '#000'
+        color: '#fff'
       })
-    this.add.text(355, 580,
+    this.add.text(halfCanvasWidth - 92, halfCanvasHeight + 255,
       [
         'Jana Deppe, Lucas Hardt,',
         'Sofía Rodriguez,',
@@ -108,7 +111,12 @@ export default class MainMenuScene extends Phaser.Scene {
       this.cursors,
       this.selectKey,
       this.backKey,
-      { leftX: 330, rightX: 570, upperY: 120, lowerY: 400 },
+      {
+        leftX: halfCanvasWidth - 120,
+        rightX: halfCanvasWidth - 120 + 240, // menu width = 240
+        upperY: halfCanvasHeight - 200,
+        lowerY: halfCanvasHeight - 200 + 300 // menu height = 300
+      },
       [
         { text: 'Start game', scene: 'intro' },
         { text: 'Options', scene: 'hello-world' },
