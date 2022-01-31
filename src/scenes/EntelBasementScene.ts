@@ -1,10 +1,11 @@
 /* eslint-disable no-new */
-import { createCharacterSprite, Npcs, Objects } from '../helpers/NpcsAndObjects'
+import { Npcs, Objects } from '../helpers/NpcsAndObjects'
 import { updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
 import globalGameState from '../components/GlobalGameState'
+import { Tilemaps } from 'phaser'
 
 export default class EntelBasementScene extends GameScene {
   constructor () {
@@ -28,20 +29,29 @@ export default class EntelBasementScene extends GameScene {
       Box3: 'box3',
       Box4: 'box4'
     }
+
+    this.gridEngineSettings = {
+      startPosition: {
+        x: 21,
+        y: 9
+      },
+      scale: 1,
+      characterCollisionStrategy: 'BLOCK_ONE_TILE_AHEAD',
+      layerOverlay: false
+    }
   }
 
   preload (): void {
     super.preload()
 
-    this.load.spritesheet(
-      this.imageNames.Dude,
-      'character_sprites/char.png',
-      {
-        frameWidth: 25,
-        frameHeight: 25
-      }
-    )
+    super.loadAvatarSpritesheet()
 
+    this.loadMapImages()
+
+    this.loadObjectImages()
+  }
+
+  loadMapImages (): void {
     // Tilemap-Bilder laden
     this.load.image(this.imageNames.Fade, 'tilesets/fade.png')
     this.load.image(this.imageNames.HC_FactoryA5, 'tilesets/Horror City/Horror City - Sewer Tileset/HC_FactoryA5.png')
@@ -55,8 +65,9 @@ export default class EntelBasementScene extends GameScene {
 
     // Tilemap-JSON laden
     this.load.tilemapTiledJSON(this.imageNames.Map, 'tilemaps/entel-basement.json')
+  }
 
-    // sonstige Bilder laden
+  loadObjectImages (): void {
     this.load.spritesheet(
       this.imageNames.NPCs,
       'character_sprites/characters.png',
@@ -77,6 +88,19 @@ export default class EntelBasementScene extends GameScene {
 
     createAnims(this, this.imageNames.Dude)
 
+    const map = this.createMap()
+
+    super.initiateGridEngine(map)
+
+    super.createCamera(map.widthInPixels, map.heightInPixels)
+
+    // creating all doors / doorpositions
+    // createDoor(this, 21, 8, 'outdoor')
+
+    this.createNpcs()
+  }
+
+  createMap (): Tilemaps.Tilemap {
     // Tilemap erstellen
     const map = createMap(
       this,
@@ -95,27 +119,10 @@ export default class EntelBasementScene extends GameScene {
       ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay_Edge', '5_Objects_Overlay', '6_Objects_Overlay_Overlay']
     ).tilemap
 
-    // GridEngine
-    this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, 1)
-    const gridEngineConfig = {
-      characters: [
-        {
-          id: this.playerName,
-          sprite: this.playerSprite,
-          startPosition: { x: 21, y: 9 }
-        }
-      ],
-      characterCollisionStrategy: 'BLOCK_ONE_TILE_AHEAD'
-    }
-    this.gridEngine.create(map, gridEngineConfig)
+    return map
+  }
 
-    // add camera that follows the character
-    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
-    this.cameras.main.startFollow(this.playerSprite, true)
-
-    // creating all doors / doorpositions
-    // createDoor(this, 21, 8, 'outdoor')
-
+  createNpcs (): void {
     // adding NPCs and pushable objects
     // new Npcs(this, 19, 10, this.imageNames.NPCs, 0.8, () => {
     //   this.scene.run('ui-dialogue', { startDialogueId: '1' })

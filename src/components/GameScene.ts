@@ -1,6 +1,6 @@
-import Phaser from 'phaser'
+import Phaser, { Tilemaps } from 'phaser'
 import { Door } from '../helpers/Doors'
-import { NpcsAndObjects } from '../helpers/NpcsAndObjects'
+import { NpcsAndObjects, createCharacterSprite } from '../helpers/NpcsAndObjects'
 import globalGameState from '../components/GlobalGameState'
 import { GridEngine, Position, Direction } from 'grid-engine'
 
@@ -23,6 +23,16 @@ export default class GameScene extends Phaser.Scene {
     [index: string]: string
   }
 
+  gridEngineSettings: {
+    startPosition: {
+      x: number
+      y: number
+    }
+    scale: number
+    characterCollisionStrategy: 'BLOCK_TWO_TILES' | 'BLOCK_ONE_TILE_AHEAD'
+    layerOverlay: boolean
+  }
+
   constructor (
     name: string
   ) {
@@ -30,6 +40,17 @@ export default class GameScene extends Phaser.Scene {
 
     this.sceneName = name
     this.playerName = `${name}_player`
+    console.log(this.playerName)
+
+    this.gridEngineSettings = {
+      startPosition: {
+        x: 1,
+        y: 1
+      },
+      scale: 1,
+      characterCollisionStrategy: 'BLOCK_TWO_TILES',
+      layerOverlay: false
+    }
   }
 
   preload (): void {
@@ -82,5 +103,39 @@ export default class GameScene extends Phaser.Scene {
       this.gridEngine.setPosition(this.playerName, oldPosition)
       this.gridEngine.turnTowards(this.playerName, oldDirection)
     }
+  }
+
+  loadAvatarSpritesheet (): void {
+    this.load.spritesheet(
+      this.imageNames.Dude,
+      'character_sprites/char.png',
+      {
+        frameWidth: 25,
+        frameHeight: 25
+      }
+    )
+  }
+
+  initiateGridEngine (map: Tilemaps.Tilemap): void {
+    // GridEngine
+    this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, this.gridEngineSettings.scale)
+    const gridEngineConfig = {
+      characters: [
+        {
+          id: this.playerName,
+          sprite: this.playerSprite,
+          startPosition: this.gridEngineSettings.startPosition
+        }
+      ],
+      layerOverlay: this.gridEngineSettings.layerOverlay,
+      characterCollisionStrategy: this.gridEngineSettings.characterCollisionStrategy
+    }
+    this.gridEngine.create(map, gridEngineConfig)
+  }
+
+  createCamera (boundLimitX: number, boundLimitY: number): void {
+    // add camera that follows the character
+    this.cameras.main.setBounds(0, 0, boundLimitX, boundLimitY)
+    this.cameras.main.startFollow(this.playerSprite, true)
   }
 }

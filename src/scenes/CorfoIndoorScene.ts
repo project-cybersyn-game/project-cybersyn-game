@@ -1,11 +1,12 @@
 /* eslint-disable no-new */
 // import { addNpc } from '../helpers/Characters'
-import { createCharacterSprite, Npcs } from '../helpers/NpcsAndObjects'
+import { Npcs } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
 import GlobalGameState from '../components/GlobalGameState'
+import { Tilemaps } from 'phaser'
 
 export default class CorfoIndoorScene extends GameScene {
   constructor () {
@@ -34,20 +35,29 @@ export default class CorfoIndoorScene extends GameScene {
       DD_Interior_School_C: 'DD_Interior-School_C',
       NPCs: 'corfoindoor_npcs'
     }
+
+    this.gridEngineSettings = {
+      startPosition: {
+        x: 19,
+        y: 11
+      },
+      scale: 1.5,
+      characterCollisionStrategy: 'BLOCK_TWO_TILES',
+      layerOverlay: false
+    }
   }
 
   preload (): void {
     super.preload()
 
-    this.load.spritesheet(
-      this.imageNames.Dude,
-      'character_sprites/char.png',
-      {
-        frameWidth: 25,
-        frameHeight: 25
-      }
-    )
+    super.loadAvatarSpritesheet()
 
+    this.loadMapImages()
+
+    this.loadObjectImages()
+  }
+
+  loadMapImages (): void {
     // Tilemap-Bilder laden
     this.load.image(this.imageNames.DD_Exterior_A4, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_A4.png')
     this.load.image(this.imageNames.DD_Exterior_A5, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_A5.png')
@@ -70,8 +80,9 @@ export default class CorfoIndoorScene extends GameScene {
 
     // Tilemap-JSON laden
     this.load.tilemapTiledJSON(this.imageNames.Map, 'tilemaps/corfo-indoor.json')
+  }
 
-    // sonstige Bilder laden
+  loadObjectImages (): void {
     this.load.spritesheet(
       this.imageNames.NPCs,
       'character_sprites/characters.png',
@@ -88,6 +99,20 @@ export default class CorfoIndoorScene extends GameScene {
 
     createAnims(this, this.imageNames.Dude)
 
+    const map = this.createMap()
+
+    super.initiateGridEngine(map)
+
+    super.createCamera(map.widthInPixels, map.heightInPixels)
+
+    // creating all doors / doorpositions
+    createDoor(this, 19, 10, 'outdoor')
+    createDoor(this, 20, 10, 'outdoor')
+
+    this.createNpcs()
+  }
+
+  createMap (): Tilemaps.Tilemap {
     // Tilemap erstellen
     const map = createMap(
       this,
@@ -115,27 +140,10 @@ export default class CorfoIndoorScene extends GameScene {
       ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay_Edge', '5_Objects_Overlay', '6_Objects_Overlay_Overlay']
     ).tilemap
 
-    // GridEngine
-    this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, 1.5)
-    const gridEngineConfig = {
-      characters: [
-        {
-          id: this.playerName,
-          sprite: this.playerSprite,
-          startPosition: { x: 19, y: 11 }
-        }
-      ]
-    }
-    this.gridEngine.create(map, gridEngineConfig)
+    return map
+  }
 
-    // add camera that follows the character
-    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
-    this.cameras.main.startFollow(this.playerSprite, true)
-
-    // creating all doors / doorpositions
-    createDoor(this, 19, 10, 'outdoor')
-    createDoor(this, 20, 10, 'outdoor')
-
+  createNpcs (): void {
     // Add Fernando Flores NPC
     new Npcs(this, 20, 15, this.imageNames.NPCs, 1.2,
       (

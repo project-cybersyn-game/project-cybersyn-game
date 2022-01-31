@@ -1,9 +1,10 @@
 /* eslint-disable no-new */
-import { createCharacterSprite, Npcs } from '../helpers/NpcsAndObjects'
+import { Npcs } from '../helpers/NpcsAndObjects'
 import { createDoor, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import GameScene from '../components/GameScene'
 import { basicMovement, createAnims } from '../helpers/Characters'
+import { Tilemaps } from 'phaser'
 
 export default class OutdoorScene extends GameScene {
   constructor () {
@@ -32,20 +33,33 @@ export default class OutdoorScene extends GameScene {
       DD_Interior_School_C: 'DD_Interior-School_C',
       NPCs: 'outdoor_npcs'
     }
+
+    this.gridEngineSettings = {
+      startPosition: {
+        x: 52,
+        y: 30
+      },
+      scale: 1.5,
+      characterCollisionStrategy: 'BLOCK_TWO_TILES',
+      layerOverlay: true
+    }
   }
 
   preload (): void {
     super.preload()
 
-    this.load.spritesheet(
-      this.imageNames.Dude,
-      'character_sprites/char.png',
-      {
-        frameWidth: 25,
-        frameHeight: 25
-      }
-    )
+    super.loadAvatarSpritesheet()
 
+    this.loadMapImages()
+
+    this.loadObjectImages()
+
+    // Sonstige Assets laden
+    this.load.audio('easter_egg', ['sounds/easter_egg.mp3'])
+    this.load.image('eg', 'images/easter_egg.png')
+  }
+
+  loadMapImages (): void {
     // Tilemap-Bilder laden
     this.load.image(this.imageNames.DD_Exterior_A4, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_A4.png')
     this.load.image(this.imageNames.DD_Exterior_A5, 'tilesets/Downtown Dungeon/Tiles 24x24/DD_Exterior_A5.png')
@@ -68,8 +82,9 @@ export default class OutdoorScene extends GameScene {
 
     // Tilemap-JSON laden
     this.load.tilemapTiledJSON(this.imageNames.Map, 'tilemaps/outdoor.json')
+  }
 
-    // sonstige Bilder laden
+  loadObjectImages (): void {
     this.load.spritesheet(
       this.imageNames.NPCs,
       'character_sprites/characters.png',
@@ -78,9 +93,6 @@ export default class OutdoorScene extends GameScene {
         frameHeight: 36
       }
     )
-    this.load.audio('easter_egg', ['sounds/easter_egg.mp3'])
-    this.load.image('eg', 'images/easter_egg.png')
-    console.log(this.scene.key)
   }
 
   create (): void {
@@ -89,6 +101,32 @@ export default class OutdoorScene extends GameScene {
 
     createAnims(this, this.imageNames.Dude)
 
+    const map = this.createMap()
+
+    super.initiateGridEngine(map)
+
+    // adding texts on buildings
+    this.add.text(20.5 * 24, 4 * 24, 'ENTEL').setDepth(9998)
+    this.add.text(46.8 * 24, 26.2 * 24, 'CORFO', {
+      fontSize: '20px'
+    }).setDepth(9998)
+    this.add.text(36.2 * 24, 4.2 * 24, 'EMCO', {
+      color: '#000'
+    }).setDepth(9998)
+
+    super.createCamera(map.widthInPixels, map.heightInPixels)
+
+    // creating all doors / doorpositions
+    createDoor(this, 21, 6, 'entel-indoor')
+    // createDoor(this, 36, 6, 'entel-basement')
+    // createDoor(this, 37, 6, 'entel-basement')
+    createDoor(this, 47, 28, 'corfo-indoor')
+    createDoor(this, 48, 28, 'corfo-indoor')
+
+    this.createNpcs()
+  }
+
+  createMap (): Tilemaps.Tilemap {
     // Tilemap erstellen
     const map = createMap(
       this,
@@ -116,40 +154,10 @@ export default class OutdoorScene extends GameScene {
       ['1_Ground', '2_Ground_Overlay', '3_Objects', '4_Objects_Overlay_Edge', '5_Objects_Overlay', '6_Objects_Overlay_Overlay']
     ).tilemap
 
-    // GridEngine
-    this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, 1.5)
-    const gridEngineConfig = {
-      characters: [
-        {
-          id: 'outdoor_player',
-          sprite: this.playerSprite,
-          startPosition: { x: 52, y: 30 }
-        }
-      ],
-      layerOverlay: true
-    }
-    this.gridEngine.create(map, gridEngineConfig)
+    return map
+  }
 
-    // adding texts on buildings
-    this.add.text(20.5 * 24, 4 * 24, 'ENTEL').setDepth(9998)
-    this.add.text(46.8 * 24, 26.2 * 24, 'CORFO', {
-      fontSize: '20px'
-    }).setDepth(9998)
-    this.add.text(36.2 * 24, 4.2 * 24, 'EMCO', {
-      color: '#000'
-    }).setDepth(9998)
-
-    // add camera that follows the character
-    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
-    this.cameras.main.startFollow(this.playerSprite, true)
-
-    // creating all doors / doorpositions
-    createDoor(this, 21, 6, 'entel-indoor')
-    // createDoor(this, 36, 6, 'entel-basement')
-    // createDoor(this, 37, 6, 'entel-basement')
-    createDoor(this, 47, 28, 'corfo-indoor')
-    createDoor(this, 48, 28, 'corfo-indoor')
-
+  createNpcs (): void {
     // Add Easteregg NPC
     new Npcs(this, 40, 22, this.imageNames.NPCs, 1.2,
       (
