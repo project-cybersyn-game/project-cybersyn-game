@@ -10,10 +10,20 @@ import EntelBasementScene from './scenes/EntelBasementScene'
 import OutroScene from './scenes/OutroScene'
 import IntroScene from './scenes/IntroScene'
 
+const windowWidth = window.innerWidth
+const widthWithoutMargins = windowWidth - 2 * 50
+
+// Canvas is between 900 and 1400 pixel wide
+let canvasWidth = widthWithoutMargins < 900 ? widthWithoutMargins : 900
+canvasWidth = widthWithoutMargins > 1400 ? 1400 : widthWithoutMargins
+
+// 4:3 aspect ratio
+const canvasHeight = canvasWidth / 16 * 9
+
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
-  width: 900,
-  height: 650,
+  width: canvasWidth,
+  height: canvasHeight,
   physics: {
     default: 'arcade',
     arcade: {
@@ -42,5 +52,16 @@ const config: Phaser.Types.Core.GameConfig = {
   version: '0.1',
   url: 'https://project-cybersyn-game.github.io/project-cybersyn-game/'
 }
+
+// Disable hot module replacement and do a hard reload instead
+/* eslint-disable */
+const hot = (module as any)?.hot
+if (hot) {
+  hot.dispose(() => {
+    window.location.reload()
+    throw 'hotReload'
+  })
+}
+/* eslint-enable */
 
 export default new Phaser.Game(config)

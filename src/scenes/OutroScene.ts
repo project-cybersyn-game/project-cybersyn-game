@@ -11,7 +11,7 @@ export default class OutroScene extends Phaser.Scene {
 
   create (): void {
     // display header
-    this.add.text(+this.game.config.width / 2 - 200, 200,
+    this.add.text(+this.game.config.width / 2 - 200, +this.game.config.height / 2 - 200,
       'The End',
       {
         fontFamily: 'Nova Mono',
@@ -20,7 +20,7 @@ export default class OutroScene extends Phaser.Scene {
         align: 'center'
       })
 
-    this.add.text(+this.game.config.width / 2 - 300, 350,
+    this.add.text(+this.game.config.width / 2 - 300, +this.game.config.height / 2 - 350,
       `Thank you for playing prototype version ${this.game.config.gameVersion} of Cybersyn - The Game`,
       {
         fontFamily: 'Nova Mono',
