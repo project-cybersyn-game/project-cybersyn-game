@@ -16,10 +16,11 @@ export default class EntelBasementScene extends GameScene {
       Box1: 'box1',
       Box2: 'box2',
       Box3: 'box3',
-      Box4: 'box4'
+      Box4: 'box4',
+      Telex: 'telex'
     }
 
-    this.tilemapJSONPath = 'tilemaps/entel-indoor.json'
+    this.tilemapJSONPath = 'tilemaps/entel-basement.json'
     this.imageMapDefaultPath = 'tilesets/Horror City/Horror City - Sewer Tileset/'
     this.imageMapNames = {
       HC_FactoryA5: { name: 'HC_FactoryA5' },

@@ -3,7 +3,8 @@ import { Door } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import { NpcsAndObjects, createCharacterSprite } from '../helpers/NpcsAndObjects'
 import globalGameState from '../components/GlobalGameState'
-import { GridEngine, Position, Direction } from 'grid-engine'
+// @ts-expect-error
+import { GridEngine, Position, Direction, CollisionStrategy } from 'grid-engine'
 
 export default class GameScene extends Phaser.Scene {
   // Klassenvariablen festlegen
@@ -40,7 +41,7 @@ export default class GameScene extends Phaser.Scene {
       y: number
     }
     scale: number
-    characterCollisionStrategy: 'BLOCK_TWO_TILES' | 'BLOCK_ONE_TILE_AHEAD'
+    characterCollisionStrategy: CollisionStrategy
     layerOverlay: boolean
   }
 
