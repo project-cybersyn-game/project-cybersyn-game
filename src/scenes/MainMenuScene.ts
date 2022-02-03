@@ -34,7 +34,6 @@ export default class MainMenuScene extends Phaser.Scene {
     this.selectKey = this.input.keyboard.addKey('ENTER')
     this.backKey = this.input.keyboard.addKey('ESC')
 
-    console.log(this.game.canvas)
     this.add.image(halfCanvasWidth, halfCanvasHeight, ImageNames.OpsRoom)
 
     // display header
