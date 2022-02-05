@@ -49,8 +49,9 @@ const config: Phaser.Types.Core.GameConfig = {
   parent: 'game-canvas',
   scene: [MainMenuScene, OutdoorScene, CorfoIndoorScene, EntelIndoorScene, EntelBasementScene, DialogueScene, OutroScene, IntroScene],
   title: 'Cybersyn: The Game',
-  version: '0.1',
-  url: 'https://project-cybersyn-game.github.io/project-cybersyn-game/'
+  version: '0.2',
+  url: 'https://project-cybersyn-game.github.io/project-cybersyn-game/',
+  transparent: true
 }
 
 // Disable hot module replacement and do a hard reload instead

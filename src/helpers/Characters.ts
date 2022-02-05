@@ -27,19 +27,17 @@ export function basicMovement (
 
   movementStopListener.subscribe((observer) => {
     if (observer.charId === scene.playerName) {
-      console.log('test')
       manualMovement(scene)
       movementListener.on()
     }
   })
 
   directionListener.subscribe((observer) => {
-    console.log('dir')
     movementAnimations(scene)
   })
 
-  globalGameState.on('inDialogue', () => {
-    if (globalGameState._gameProgress.inDialogue) {
+  globalGameState.on('inDialogue', (value: boolean) => {
+    if (value) {
       movementListener.off()
     } else {
       movementListener.on()
@@ -53,10 +51,10 @@ function manualMovement (
 ): void {
   if (scene.cursors.up.isDown) {
     scene.gridEngine.move(scene.playerName, Direction.UP)
-  } else if (scene.cursors.down.isDown) {
-    scene.gridEngine.move(scene.playerName, Direction.DOWN)
   } else if (scene.cursors.left.isDown) {
     scene.gridEngine.move(scene.playerName, Direction.LEFT)
+  } else if (scene.cursors.down.isDown) {
+    scene.gridEngine.move(scene.playerName, Direction.DOWN)
   } else if (scene.cursors.right.isDown) {
     scene.gridEngine.move(scene.playerName, Direction.RIGHT)
   } else {
@@ -83,26 +81,24 @@ class MovementListener {
     scene: GameScene
   ) {
     this.scene = scene
-    this.on()
+    if (!globalGameState._gameProgress.inDialogue) {
+      this.on()
+    }
   }
 
   /** Enables listeners for all directions. */
   on (): void {
     this.scene.cursors.up.on('down', () => {
       this.scene.gridEngine.move(this.scene.playerName, Direction.UP)
-      console.log('up')
     })
     this.scene.cursors.left.on('down', () => {
       this.scene.gridEngine.move(this.scene.playerName, Direction.LEFT)
-      console.log('left')
     })
     this.scene.cursors.down.on('down', () => {
       this.scene.gridEngine.move(this.scene.playerName, Direction.DOWN)
-      console.log('down')
     })
     this.scene.cursors.right.on('down', () => {
       this.scene.gridEngine.move(this.scene.playerName, Direction.RIGHT)
-      console.log('right')
     })
   }
 

@@ -5,7 +5,7 @@ import { NpcsAndObjects, createCharacterSprite } from '../helpers/NpcsAndObjects
 import globalGameState from '../components/GlobalGameState'
 // @ts-expect-error
 import { GridEngine, Position, Direction, CollisionStrategy } from 'grid-engine'
-import { basicMovement, createAnims, movement } from '../helpers/Characters'
+import { basicMovement, createAnims } from '../helpers/Characters'
 
 export default abstract class GameScene extends Phaser.Scene {
   // Klassenvariablen festlegen
@@ -87,6 +87,7 @@ export default abstract class GameScene extends Phaser.Scene {
     this.createNpcs()
 
     basicMovement(this)
+    NpcsAndObjects.interaction(this)
   }
 
   update (): void {
@@ -95,7 +96,6 @@ export default abstract class GameScene extends Phaser.Scene {
     if (this.backKey.isDown && !globalGameState._gameProgress.inDialogue) {
       this.scene.switch('main-menu')
     }
-    NpcsAndObjects.interaction(this, this.playerName)
     updateDoors(this, this.playerName)
   }
 
