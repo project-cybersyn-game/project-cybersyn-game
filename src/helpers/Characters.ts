@@ -9,69 +9,124 @@ export function basicMovement (
   /** The scene the player is in. */
   scene: GameScene
 ): void {
-  /* const movementListener = scene.gridEngine.positionChangeStarted()
-  const stopListener = scene.gridEngine.positionChangeFinished()
-  movementListener.subscribe(value => console.log(value))
+  const movementStartListener = scene.gridEngine.positionChangeStarted()
+  const movementStopListener = scene.gridEngine.positionChangeFinished()
+  const directionListener = scene.gridEngine.directionChanged()
+
+  const movementListener = new MovementListener(scene)
+
+  movementStartListener.subscribe((observer) => {
+    if (observer.charId === scene.playerName) {
+      movementAnimations(scene)
+      movementListener.off()
+    } else if (observer.charId.toLowerCase().includes('object')) {
+      // objects can't move on it's own, so this will make the character follow a box when pushing it for example
+      manualMovement(scene)
+    }
+  })
+
+  movementStopListener.subscribe((observer) => {
+    if (observer.charId === scene.playerName) {
+      console.log('test')
+      manualMovement(scene)
+      movementListener.on()
+    }
+  })
+
+  directionListener.subscribe((observer) => {
+    console.log('dir')
+    movementAnimations(scene)
+  })
 
   globalGameState.on('inDialogue', () => {
     if (globalGameState._gameProgress.inDialogue) {
-      movementListener.unsubscribe()
-      stopListener.subscribe()
+      movementListener.off()
     } else {
-      movementListener.subscribe()
-      stopListener.unsubscribe()
+      movementListener.on()
     }
-  }) */
-
-  movement(scene)
+  })
 }
 
-function movement (
+/** manually checks if a key is down without events */
+function manualMovement (
   scene: GameScene
 ): void {
-  if (!globalGameState._gameProgress.inDialogue) {
-    // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
-    if (
-      !scene.gridEngine.isMoving(scene.playerName) &&
-      (
-        scene.gridEngine.getPosition(scene.playerName).y !== ((scene.gridEngine.getSprite(scene.playerName).getBottomCenter().y / 32) - 1) ||
-        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-        scene.gridEngine.getPosition(scene.playerName).x !== (((scene.gridEngine.getSprite(scene.playerName).getBottomCenter().x + 15.25) / 32) - 1)
-      )
-    ) {
-      // Position neu setzen
-      scene.gridEngine.setPosition(scene.playerName, scene.gridEngine.getPosition(scene.playerName))
-    }
-
-    // I know that it seems unnecessary to have multiple if-statements that do the same.
-    // It just works better like this. Don't change it please. :)
-
-    // actual movement
-    if (!scene.gridEngine.isMoving(scene.playerName)) {
-      // Movement itself
-      if (scene.cursors.up.isDown) {
-        scene.gridEngine.move(scene.playerName, Direction.UP)
-      } else if (scene.cursors.down.isDown) {
-        scene.gridEngine.move(scene.playerName, Direction.DOWN)
-      } else if (scene.cursors.left.isDown) {
-        scene.gridEngine.move(scene.playerName, Direction.LEFT)
-      } else if (scene.cursors.right.isDown) {
-        scene.gridEngine.move(scene.playerName, Direction.RIGHT)
-      }
-    }
-
-    // switch to main menu when pressing ESC key
-    // --- DEFINITELY CHANGE LATER ---
-    if (scene.backKey.isDown) {
-      scene.scene.switch('main-menu')
-    }
+  if (scene.cursors.up.isDown) {
+    scene.gridEngine.move(scene.playerName, Direction.UP)
+  } else if (scene.cursors.down.isDown) {
+    scene.gridEngine.move(scene.playerName, Direction.DOWN)
+  } else if (scene.cursors.left.isDown) {
+    scene.gridEngine.move(scene.playerName, Direction.LEFT)
+  } else if (scene.cursors.right.isDown) {
+    scene.gridEngine.move(scene.playerName, Direction.RIGHT)
+  } else {
+    movementAnimations(scene)
   }
+}
 
-  // movement animations according to movement and direction
+/** Plays player character animations according to the movement and direction. */
+function movementAnimations (
+  scene: GameScene
+): void {
   if (!scene.gridEngine.isMoving(scene.playerName)) {
     scene.playerSprite.anims.play('idle_' + String(scene.gridEngine.getFacingDirection(scene.playerName)), true)
   } else {
     scene.playerSprite.anims.play('walk_' + String(scene.gridEngine.getFacingDirection(scene.playerName)), true)
+  }
+}
+
+/** This class manages the movement Listeners of a scene. */
+class MovementListener {
+  scene!: GameScene
+
+  constructor (
+    scene: GameScene
+  ) {
+    this.scene = scene
+    this.on()
+  }
+
+  /** Enables listeners for all directions. */
+  on (): void {
+    this.scene.cursors.up.on('down', () => {
+      this.scene.gridEngine.move(this.scene.playerName, Direction.UP)
+      console.log('up')
+    })
+    this.scene.cursors.left.on('down', () => {
+      this.scene.gridEngine.move(this.scene.playerName, Direction.LEFT)
+      console.log('left')
+    })
+    this.scene.cursors.down.on('down', () => {
+      this.scene.gridEngine.move(this.scene.playerName, Direction.DOWN)
+      console.log('down')
+    })
+    this.scene.cursors.right.on('down', () => {
+      this.scene.gridEngine.move(this.scene.playerName, Direction.RIGHT)
+      console.log('right')
+    })
+  }
+
+  /** Diables all listeners. */
+  off (): void {
+    this.scene.cursors.up.off('down')
+    this.scene.cursors.left.off('down')
+    this.scene.cursors.down.off('down')
+    this.scene.cursors.right.off('down')
+  }
+
+  /** This method corrects if the GridEngine position fits the Phaser position. */
+  private correctPosition (): void {
+    if (
+      !this.scene.gridEngine.isMoving(this.scene.playerName) &&
+      (
+        this.scene.gridEngine.getPosition(this.scene.playerName).y !== ((this.scene.gridEngine.getSprite(this.scene.playerName).getBottomCenter().y / 32) - 1) ||
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+        this.scene.gridEngine.getPosition(this.scene.playerName).x !== (((this.scene.gridEngine.getSprite(this.scene.playerName).getBottomCenter().x + 15.25) / 32) - 1)
+      )
+    ) {
+      // Position neu setzen
+      this.scene.gridEngine.setPosition(this.scene.playerName, this.scene.gridEngine.getPosition(this.scene.playerName))
+    }
   }
 }
 

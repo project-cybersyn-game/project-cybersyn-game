@@ -42,7 +42,7 @@ export default class OutdoorScene extends GameScene {
         y: 30
       },
       scale: 1.5,
-      characterCollisionStrategy: 'BLOCK_TWO_TILES',
+      characterCollisionStrategy: 'BLOCK_ONE_TILE_AHEAD',
       layerOverlay: false
     }
   }

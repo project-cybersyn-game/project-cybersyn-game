@@ -44,7 +44,7 @@ export default class EntelIndoorScene extends GameScene {
         y: 11
       },
       scale: 1.5,
-      characterCollisionStrategy: 'BLOCK_TWO_TILES',
+      characterCollisionStrategy: 'BLOCK_ONE_TILE_AHEAD',
       layerOverlay: false
     }
   }
