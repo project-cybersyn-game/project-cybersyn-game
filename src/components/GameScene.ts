@@ -1,12 +1,13 @@
 import Phaser, { Tilemaps } from 'phaser'
-import { Door } from '../helpers/Doors'
+import { Door, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import { NpcsAndObjects, createCharacterSprite } from '../helpers/NpcsAndObjects'
 import globalGameState from '../components/GlobalGameState'
 // @ts-expect-error
 import { GridEngine, Position, Direction, CollisionStrategy } from 'grid-engine'
+import { basicMovement, createAnims } from '../helpers/Characters'
 
-export default class GameScene extends Phaser.Scene {
+export default abstract class GameScene extends Phaser.Scene {
   // Klassenvariablen festlegen
   cursors!: Phaser.Types.Input.Keyboard.CursorKeys
   interactionKey!: Phaser.Input.Keyboard.Key
@@ -74,6 +75,16 @@ export default class GameScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys()
     this.interactionKey = this.input.keyboard.addKey('E')
     this.backKey = this.input.keyboard.addKey('ESC')
+
+    createAnims(this, this.imageNames.Dude)
+
+    const map = this.createMap()
+
+    this.initiateGridEngine(map)
+
+    this.createCamera(map.widthInPixels, map.heightInPixels)
+
+    this.createNpcs()
   }
 
   update (): void {
@@ -83,7 +94,11 @@ export default class GameScene extends Phaser.Scene {
       this.scene.switch('main-menu')
     }
     NpcsAndObjects.interaction(this, this.playerName)
+    basicMovement(this)
+    updateDoors(this, this.playerName)
   }
+
+  abstract createNpcs (): void
 
   /** Not a standard method of Phaser.Scene.
    * Resets the scene completely.
