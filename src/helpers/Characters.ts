@@ -1,6 +1,5 @@
 import GameScene from '../components/GameScene'
 import { Direction } from 'grid-engine'
-import Phaser from 'phaser'
 import globalGameState from '../components/GlobalGameState'
 
 /** This function is used for grid-based movement of a character sprite in four directions.
@@ -8,39 +7,56 @@ import globalGameState from '../components/GlobalGameState'
  */
 export function basicMovement (
   /** The scene the player is in. */
-  scene: GameScene,
-  id: string,
-  gridEngine: any,
-  playerSprite: Phaser.Physics.Arcade.Sprite
+  scene: GameScene
+): void {
+  /* const movementListener = scene.gridEngine.positionChangeStarted()
+  const stopListener = scene.gridEngine.positionChangeFinished()
+  movementListener.subscribe(value => console.log(value))
+
+  globalGameState.on('inDialogue', () => {
+    if (globalGameState._gameProgress.inDialogue) {
+      movementListener.unsubscribe()
+      stopListener.subscribe()
+    } else {
+      movementListener.subscribe()
+      stopListener.unsubscribe()
+    }
+  }) */
+
+  movement(scene)
+}
+
+function movement (
+  scene: GameScene
 ): void {
   if (!globalGameState._gameProgress.inDialogue) {
-  // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
+    // testen, ob die Grid-Engine-Koordinaten noch im richtigen Verhältnis zu den echten stehen
     if (
-      gridEngine.isMoving(id) === false &&
-    (
-      gridEngine.getPosition(id).y !== ((gridEngine.getSprite(id).getBottomCenter().y / 32) - 1) ||
-      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-      gridEngine.getPosition(id).x !== (((gridEngine.getSprite(id).getBottomCenter().x + 15.25) / 32) - 1)
-    )
+      !scene.gridEngine.isMoving(scene.playerName) &&
+      (
+        scene.gridEngine.getPosition(scene.playerName).y !== ((scene.gridEngine.getSprite(scene.playerName).getBottomCenter().y / 32) - 1) ||
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+        scene.gridEngine.getPosition(scene.playerName).x !== (((scene.gridEngine.getSprite(scene.playerName).getBottomCenter().x + 15.25) / 32) - 1)
+      )
     ) {
       // Position neu setzen
-      gridEngine.setPosition(id, gridEngine.getPosition(id))
+      scene.gridEngine.setPosition(scene.playerName, scene.gridEngine.getPosition(scene.playerName))
     }
 
     // I know that it seems unnecessary to have multiple if-statements that do the same.
     // It just works better like this. Don't change it please. :)
 
     // actual movement
-    if (gridEngine.isMoving(id) === false) {
-    // Movement itself
+    if (!scene.gridEngine.isMoving(scene.playerName)) {
+      // Movement itself
       if (scene.cursors.up.isDown) {
-        gridEngine.move(id, Direction.UP)
+        scene.gridEngine.move(scene.playerName, Direction.UP)
       } else if (scene.cursors.down.isDown) {
-        gridEngine.move(id, Direction.DOWN)
+        scene.gridEngine.move(scene.playerName, Direction.DOWN)
       } else if (scene.cursors.left.isDown) {
-        gridEngine.move(id, Direction.LEFT)
+        scene.gridEngine.move(scene.playerName, Direction.LEFT)
       } else if (scene.cursors.right.isDown) {
-        gridEngine.move(id, Direction.RIGHT)
+        scene.gridEngine.move(scene.playerName, Direction.RIGHT)
       }
     }
 
@@ -52,10 +68,10 @@ export function basicMovement (
   }
 
   // movement animations according to movement and direction
-  if (gridEngine.isMoving(id) === false) {
-    playerSprite.anims.play('idle_' + String(gridEngine.getFacingDirection(id)), true)
+  if (!scene.gridEngine.isMoving(scene.playerName)) {
+    scene.playerSprite.anims.play('idle_' + String(scene.gridEngine.getFacingDirection(scene.playerName)), true)
   } else {
-    playerSprite.anims.play('walk_' + String(gridEngine.getFacingDirection(id)), true)
+    scene.playerSprite.anims.play('walk_' + String(scene.gridEngine.getFacingDirection(scene.playerName)), true)
   }
 }
 

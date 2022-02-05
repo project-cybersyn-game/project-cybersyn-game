@@ -1,8 +1,6 @@
 /* eslint-disable no-new */
 import { Npcs, Objects } from '../helpers/NpcsAndObjects'
-import { updateDoors } from '../helpers/Doors'
 import GameScene from '../components/GameScene'
-import { basicMovement, createAnims } from '../helpers/Characters'
 import globalGameState from '../components/GlobalGameState'
 
 export default class EntelBasementScene extends GameScene {
@@ -80,18 +78,8 @@ export default class EntelBasementScene extends GameScene {
     // Spielfiguranimationen und CursorKeys erstellen
     super.create()
 
-    createAnims(this, this.imageNames.Dude)
-
-    const map = super.createMap()
-
-    super.initiateGridEngine(map)
-
-    super.createCamera(map.widthInPixels, map.heightInPixels)
-
     // creating all doors / doorpositions
     // createDoor(this, 21, 8, 'outdoor')
-
-    this.createNpcs()
   }
 
   createNpcs (): void {
@@ -147,7 +135,5 @@ export default class EntelBasementScene extends GameScene {
 
   update (): void {
     super.update()
-    basicMovement(this, this.playerName, this.gridEngine, this.playerSprite)
-    updateDoors(this, this.playerName)
   }
 }

@@ -1,9 +1,8 @@
 /* eslint-disable no-new */
 // import { addNpc } from '../helpers/Characters'
 import { Npcs } from '../helpers/NpcsAndObjects'
-import { createDoor, updateDoors } from '../helpers/Doors'
+import { createDoor } from '../helpers/Doors'
 import GameScene from '../components/GameScene'
-import { basicMovement, createAnims } from '../helpers/Characters'
 import GlobalGameState from '../components/GlobalGameState'
 
 export default class CorfoIndoorScene extends GameScene {
@@ -75,19 +74,9 @@ export default class CorfoIndoorScene extends GameScene {
     // Spielfiguranimationen und CursorKeys erstellen
     super.create()
 
-    createAnims(this, this.imageNames.Dude)
-
-    const map = super.createMap()
-
-    super.initiateGridEngine(map)
-
-    super.createCamera(map.widthInPixels, map.heightInPixels)
-
     // creating all doors / doorpositions
     createDoor(this, 19, 10, 'outdoor')
     createDoor(this, 20, 10, 'outdoor')
-
-    this.createNpcs()
   }
 
   createNpcs (): void {
@@ -107,7 +96,5 @@ export default class CorfoIndoorScene extends GameScene {
 
   update (): void {
     super.update()
-    basicMovement(this, this.playerName, this.gridEngine, this.playerSprite)
-    updateDoors(this, this.playerName)
   }
 }
