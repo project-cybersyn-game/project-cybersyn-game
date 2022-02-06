@@ -11,7 +11,7 @@ import OutroScene from './scenes/OutroScene'
 import IntroScene from './scenes/IntroScene'
 
 const windowWidth = window.innerWidth
-const widthWithoutMargins = windowWidth - 2 * 50
+const widthWithoutMargins = windowWidth - 2 * 100
 
 // Canvas is between 900 and 1400 pixel wide
 let canvasWidth = widthWithoutMargins < 900 ? widthWithoutMargins : 900
@@ -24,6 +24,7 @@ const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   width: canvasWidth,
   height: canvasHeight,
+  pixelArt: true,
   physics: {
     default: 'arcade',
     arcade: {
@@ -47,7 +48,15 @@ const config: Phaser.Types.Core.GameConfig = {
     ]
   },
   parent: 'game-canvas',
-  scene: [MainMenuScene, OutdoorScene, CorfoIndoorScene, EntelIndoorScene, EntelBasementScene, DialogueScene, OutroScene, IntroScene],
+  scene: [
+    MainMenuScene,
+    OutdoorScene,
+    CorfoIndoorScene,
+    EntelIndoorScene,
+    EntelBasementScene,
+    DialogueScene,
+    OutroScene,
+    IntroScene],
   title: 'Cybersyn: The Game',
   version: '0.2',
   url: 'https://project-cybersyn-game.github.io/project-cybersyn-game/',
