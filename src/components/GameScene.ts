@@ -184,5 +184,6 @@ export default class GameScene extends Phaser.Scene {
     // add camera that follows the character
     this.cameras.main.setBounds(0, 0, boundLimitX, boundLimitY)
     this.cameras.main.startFollow(this.playerSprite, true)
+    this.cameras.main.setZoom(1.7)
   }
 }
