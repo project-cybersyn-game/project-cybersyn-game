@@ -1,12 +1,13 @@
 import Phaser, { Tilemaps } from 'phaser'
-import { Door } from '../helpers/Doors'
+import { Door, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import { NpcsAndObjects, createCharacterSprite } from '../helpers/NpcsAndObjects'
 import globalGameState from '../components/GlobalGameState'
 // @ts-expect-error
 import { GridEngine, Position, Direction, CollisionStrategy } from 'grid-engine'
+import { basicMovement, createAnims } from '../helpers/Characters'
 
-export default class GameScene extends Phaser.Scene {
+export default abstract class GameScene extends Phaser.Scene {
   // Klassenvariablen festlegen
   cursors!: Phaser.Types.Input.Keyboard.CursorKeys
   interactionKey!: Phaser.Input.Keyboard.Key
@@ -61,7 +62,7 @@ export default class GameScene extends Phaser.Scene {
         y: 1
       },
       scale: 1,
-      characterCollisionStrategy: 'BLOCK_TWO_TILES',
+      characterCollisionStrategy: 'BLOCK_ONE_TILE_AHEAD',
       layerOverlay: false
     }
   }
@@ -74,6 +75,19 @@ export default class GameScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys()
     this.interactionKey = this.input.keyboard.addKey('E')
     this.backKey = this.input.keyboard.addKey('ESC')
+
+    createAnims(this, this.imageNames.Dude)
+
+    const map = this.createMap()
+
+    this.initiateGridEngine(map)
+
+    this.createCamera(map.widthInPixels, map.heightInPixels)
+
+    this.createNpcs()
+
+    basicMovement(this)
+    NpcsAndObjects.interaction(this)
   }
 
   update (): void {
@@ -82,8 +96,15 @@ export default class GameScene extends Phaser.Scene {
     if (this.backKey.isDown && !globalGameState._gameProgress.inDialogue) {
       this.scene.switch('main-menu')
     }
-    NpcsAndObjects.interaction(this, this.playerName)
+    updateDoors(this, this.playerName)
   }
+
+  // ------------------------------ CUSTOM METHODS ------------------------------ //
+
+  /** This method is used to create the different NPCs.
+   * It has to be defined in the explicit scene.
+   */
+  abstract createNpcs (): void
 
   /** Not a standard method of Phaser.Scene.
    * Resets the scene completely.
@@ -118,6 +139,7 @@ export default class GameScene extends Phaser.Scene {
     }
   }
 
+  /** This method loads the spritesheet of the main character. */
   loadAvatarSpritesheet (): void {
     this.load.spritesheet(
       this.imageNames.Dude,
@@ -129,6 +151,7 @@ export default class GameScene extends Phaser.Scene {
     )
   }
 
+  /** This method loads all tilesets for the maps that are specified in imageMapNames. */
   loadMapImages (): void {
     // Tilemap-Bilder laden
     Object.keys(this.imageMapNames).forEach(key => {
@@ -144,6 +167,9 @@ export default class GameScene extends Phaser.Scene {
     this.load.tilemapTiledJSON(this.imageNames.Map, this.tilemapJSONPath)
   }
 
+  /** This method is used to create an array of tilesets used for a scene and a tilemap.
+   * It uses the tileset images stored in the imageMapNames object.
+   */
   createMap (): Tilemaps.Tilemap {
     const tilesetInfo = Object.keys(this.imageMapNames).map(key => {
       return {
@@ -163,6 +189,10 @@ export default class GameScene extends Phaser.Scene {
     return map
   }
 
+  // eslint-disable-next-line no-trailing-spaces
+  /** This method creates a gridEngineConfig and creates the map.  
+   * **GridEngine methods should only be used after this method was called!**
+   */
   initiateGridEngine (map: Tilemaps.Tilemap): void {
     // GridEngine
     this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, this.gridEngineSettings.scale)
@@ -180,6 +210,7 @@ export default class GameScene extends Phaser.Scene {
     this.gridEngine.create(map, gridEngineConfig)
   }
 
+  /** This method sets the camera bounds and makes it follow the player character. */
   createCamera (boundLimitX: number, boundLimitY: number): void {
     // add camera that follows the character
     this.cameras.main.setBounds(0, 0, boundLimitX, boundLimitY)

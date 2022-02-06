@@ -26,13 +26,14 @@ export class NpcsAndObjects {
   scene: GameScene
   startX: integer = 0
   startY: integer = 0
+  speed: integer = 4
   eKey!: Phaser.GameObjects.Image
   container!: Phaser.GameObjects.Container
   interactionCounter: integer = 0
   /** default action if no action-parameter is assigned when creating the object */
   protected action: Function = (): void => {
     // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-    console.log(this.name + ' has no action assigned.')
+    console.warn(this.name + ' has no action assigned.')
   }
 
   constructor (
@@ -56,6 +57,11 @@ export class NpcsAndObjects {
     this.startY = yPos
     this.texture = texture
 
+    // higher speed for problems with pushing boxes
+    if (this.type === 'object') {
+      this.speed = 2.6
+    }
+
     // adding object to the scene
     const npcSprite = createCharacterSprite(scene, 0, 0, texture, scale)
     this.eKey = scene.add.image(0, 10, 'eKey')
@@ -74,71 +80,82 @@ export class NpcsAndObjects {
 
   /** This function is used for interacting with NPCs and objects and then executing the action set in the associated NPC object. */
   static interaction (
-    scene: GameScene,
-    playerId: string
+    scene: GameScene
   ): void {
-    scene.npcsAndObjectsArray.forEach(object => {
-      if (
-        scene.gridEngine.getFacingPosition(playerId).x === scene.gridEngine.getPosition(object.name.toString()).x &&
-        scene.gridEngine.getFacingPosition(playerId).y === scene.gridEngine.getPosition(object.name.toString()).y &&
-        !globalGameState._gameProgress.inDialogue
-      ) {
-        let keyCheck: boolean = false
-        if (object.name.toUpperCase().startsWith('NPC')) {
-          keyCheck = scene.interactionKey.isDown
-        } else {
-          const direction: string = scene.gridEngine.getFacingDirection(scene.playerName)
-          keyCheck = (
-            (scene.cursors.up.isDown && direction === Direction.UP) ||
-            (scene.cursors.down.isDown && direction === Direction.DOWN) ||
-            (scene.cursors.right.isDown && direction === Direction.RIGHT) ||
-            (scene.cursors.left.isDown && direction === Direction.LEFT)
+    const movementStartListener = scene.gridEngine.movementStarted()
+    const movementStopListener = scene.gridEngine.movementStopped()
+    const directionListener = scene.gridEngine.directionChanged()
+
+    movementStopListener.subscribe((observer) => {
+      scene.gridEngine.setSpeed(scene.playerName, 4)
+      this.interactionChange(scene)
+    })
+
+    // Called everytime the character wants to move but doesn't.
+    // Doesn't even need to rotate / change the direction.
+    directionListener.subscribe((observer) => {
+      if (observer.charId === scene.playerName) {
+        this.interactionChange(scene)
+        // object movement
+        if (
+          !globalGameState._gameProgress.inDialogue &&
+          (
+            (scene.cursors.up.isDown && observer.direction === Direction.UP) ||
+            (scene.cursors.left.isDown && observer.direction === Direction.LEFT) ||
+            (scene.cursors.down.isDown && observer.direction === Direction.DOWN) ||
+            (scene.cursors.right.isDown && observer.direction === Direction.RIGHT)
           )
+        ) {
+          scene.npcsAndObjectsArray.forEach(object => {
+            if (
+              scene.gridEngine.getFacingPosition(scene.playerName).x === scene.gridEngine.getPosition(object.name.toString()).x &&
+              scene.gridEngine.getFacingPosition(scene.playerName).y === scene.gridEngine.getPosition(object.name.toString()).y &&
+              !object.name.toUpperCase().startsWith('NPC')
+            ) {
+              scene.gridEngine.setSpeed(scene.playerName, 2.5)
+              object.action(scene, object.name)
+            }
+          })
         }
-        if (keyCheck && object.interactionCounter <= 0) {
-          object.interactionCounter = 5
-          object.action(object.scene, object.name)
-        } else {
-          if (object.interactionCounter > 0) {
-            object.interactionCounter--
-          } else if (object.name.toUpperCase().startsWith('NPC')) {
-            object.eKey.setVisible(true)
-          }
-        }
-      } else {
-        object.eKey.setVisible(false)
       }
+    })
+
+    movementStartListener.subscribe((observer) => {
+      scene.npcsAndObjectsArray.forEach(object => {
+        object.eKey.setVisible(false)
+      })
+      scene.interactionKey.removeAllListeners('down')
+      scene.cursors.up.off('down')
+      scene.cursors.left.off('down')
+      scene.cursors.down.off('down')
+      scene.cursors.right.off('down')
     })
 
     globalGameState.on('inDialogue', (value: boolean) => {
-      if (value) {
-        scene.interactionKey.removeAllListeners()
-      } else {
-        NpcsAndObjects.interaction(scene, playerId)
-      }
+      this.interactionChange(scene)
     })
   }
 
-  /** This function is used for removing one NPC / Object. */
-  /* resetCharacter (): void {
-    console.log(`${this.name}: ${this.scene.gridEngine.getPosition(this.name)}`)
-    this.scene.gridEngine.setPosition(this.name, { x: this.startX, y: this.startY })
-    this.scene.gridEngine.stopMovement(this.name)
-    console.log(`${this.name}: ${this.scene.gridEngine.getPosition(this.name)}`)
-  } */
-
-  /** This function is used for removing all NPCs and Objects in a scene. */
-  /* static resetAllCharacters (
+  private static interactionChange (
     scene: GameScene
   ): void {
-    NpcsAndObjects.npcsAndObjectsArray.forEach((element, index) => {
-      if (element.scene === scene) {
-        // NpcsAndObjects.number--
-        // NpcsAndObjects.npcsAndObjectsArray.splice(index, 1)
-        element.resetCharacter()
-      }
-    })
-  } */
+    scene.interactionKey.removeAllListeners('down')
+    if (!globalGameState._gameProgress.inDialogue) {
+      scene.npcsAndObjectsArray.forEach(object => {
+        if (
+          scene.gridEngine.getFacingPosition(scene.playerName).x === scene.gridEngine.getPosition(object.name.toString()).x &&
+          scene.gridEngine.getFacingPosition(scene.playerName).y === scene.gridEngine.getPosition(object.name.toString()).y &&
+          object.name.toUpperCase().startsWith('NPC')
+        ) {
+          object.eKey.setVisible(true)
+          scene.interactionKey.once('down', () => {
+            object.eKey.setVisible(false)
+            object.action(scene, object.name)
+          })
+        }
+      })
+    }
+  }
 
   /** This function is used for adding a character to the GridEngine plugin. */
   addCharacter (
@@ -154,7 +171,8 @@ export class NpcsAndObjects {
         sprite: npcSprite,
         container,
         startPosition: { x: xPos, y: yPos },
-        facingDirection: Direction.DOWN
+        facingDirection: Direction.DOWN,
+        speed: this.speed
       }
     )
   }

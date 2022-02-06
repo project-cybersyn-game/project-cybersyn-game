@@ -1,8 +1,7 @@
 /* eslint-disable no-new */
 import { Npcs } from '../helpers/NpcsAndObjects'
-import { createDoor, updateDoors } from '../helpers/Doors'
+import { createDoor } from '../helpers/Doors'
 import GameScene from '../components/GameScene'
-import { basicMovement, createAnims } from '../helpers/Characters'
 
 export default class OutdoorScene extends GameScene {
   constructor () {
@@ -43,7 +42,7 @@ export default class OutdoorScene extends GameScene {
         y: 30
       },
       scale: 1.5,
-      characterCollisionStrategy: 'BLOCK_TWO_TILES',
+      characterCollisionStrategy: 'BLOCK_ONE_TILE_AHEAD',
       layerOverlay: false
     }
   }
@@ -77,12 +76,6 @@ export default class OutdoorScene extends GameScene {
     // Spielfiguranimationen und CursorKeys erstellen
     super.create()
 
-    createAnims(this, this.imageNames.Dude)
-
-    const map = super.createMap()
-
-    super.initiateGridEngine(map)
-
     // adding texts on buildings
     this.add.text(20.5 * 24, 4 * 24, 'ENTEL').setDepth(9998)
     this.add.text(46.8 * 24, 26.2 * 24, 'CORFO', {
@@ -91,8 +84,6 @@ export default class OutdoorScene extends GameScene {
     this.add.text(36.2 * 24, 4.2 * 24, 'EMCO', {
       color: '#000'
     }).setDepth(9998)
-
-    super.createCamera(map.widthInPixels, map.heightInPixels)
 
     // creating all doors / doorpositions
     createDoor(this, 21, 6, 'entel-indoor')
@@ -122,7 +113,5 @@ export default class OutdoorScene extends GameScene {
 
   update (): void {
     super.update()
-    basicMovement(this, 'outdoor_player', this.gridEngine, this.playerSprite)
-    updateDoors(this, 'outdoor_player')
   }
 }
