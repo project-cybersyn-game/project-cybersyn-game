@@ -1,7 +1,6 @@
 /* eslint-disable no-new */
 // import { addNpc } from '../helpers/Characters'
-import { Npcs } from '../helpers/NpcsAndObjects'
-import { createDoor } from '../helpers/Doors'
+import { Npcs, Doors } from '../helpers/NpcsAndObjects'
 import GameScene from '../components/GameScene'
 import globalGameState from '../components/GlobalGameState'
 
@@ -76,7 +75,7 @@ export default class EntelIndoorScene extends GameScene {
     super.create()
 
     // creating all doors / doorpositions
-    createDoor(this, 15, 10, 'outdoor')
+    new Doors(this, 15, 10, 'outdoor')
   }
 
   createNpcs (): void {

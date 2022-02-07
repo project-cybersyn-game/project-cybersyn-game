@@ -15,6 +15,9 @@ export function basicMovement (
 
   const movementListener = new MovementListener(scene)
 
+  // to initiate animations
+  movementAnimations(scene)
+
   movementStartListener.subscribe((observer) => {
     if (observer.charId === scene.playerName) {
       movementAnimations(scene)
@@ -26,6 +29,7 @@ export function basicMovement (
   })
 
   movementStopListener.subscribe((observer) => {
+    scene.characterMoved = true
     if (observer.charId === scene.playerName) {
       manualMovement(scene)
       movementListener.on()

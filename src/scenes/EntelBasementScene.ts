@@ -79,7 +79,7 @@ export default class EntelBasementScene extends GameScene {
     super.create()
 
     // creating all doors / doorpositions
-    // createDoor(this, 21, 8, 'outdoor')
+    // new Doors(this, 21, 8, 'outdoor')
   }
 
   createNpcs (): void {
@@ -114,23 +114,23 @@ export default class EntelBasementScene extends GameScene {
           this.reset(true, false)
         })
       }, 6)
-    new Objects(this, 22, 20, this.imageNames.Box1, 1, this.playerName)
-    new Objects(this, 23, 20, this.imageNames.Box1, 1, this.playerName)
-    new Objects(this, 27, 20, this.imageNames.Box2, 1, this.playerName)
-    new Objects(this, 30, 20, this.imageNames.Box4, 1, this.playerName)
-    new Objects(this, 24, 21, this.imageNames.Box3, 1, this.playerName)
-    new Objects(this, 29, 21, this.imageNames.Box2, 1, this.playerName)
-    new Objects(this, 21, 22, this.imageNames.Box2, 1, this.playerName)
-    new Objects(this, 27, 22, this.imageNames.Box3, 1, this.playerName)
-    new Objects(this, 27, 23, this.imageNames.Box2, 1, this.playerName)
-    new Objects(this, 26, 25, this.imageNames.Box3, 1, this.playerName)
-    new Objects(this, 27, 25, this.imageNames.Box1, 1, this.playerName)
-    new Objects(this, 21, 26, this.imageNames.Box1, 1, this.playerName)
-    new Objects(this, 26, 26, this.imageNames.Box4, 1, this.playerName)
-    new Objects(this, 30, 26, this.imageNames.Box2, 1, this.playerName)
-    new Objects(this, 22, 27, this.imageNames.Box2, 1, this.playerName)
-    new Objects(this, 23, 27, this.imageNames.Box1, 1, this.playerName)
-    new Objects(this, 29, 27, this.imageNames.Box1, 1, this.playerName)
+    new Objects(this, 22, 20, this.imageNames.Box1, 1)
+    new Objects(this, 23, 20, this.imageNames.Box1, 1)
+    new Objects(this, 27, 20, this.imageNames.Box2, 1)
+    new Objects(this, 30, 20, this.imageNames.Box4, 1)
+    new Objects(this, 24, 21, this.imageNames.Box3, 1)
+    new Objects(this, 29, 21, this.imageNames.Box2, 1)
+    new Objects(this, 21, 22, this.imageNames.Box2, 1)
+    new Objects(this, 27, 22, this.imageNames.Box3, 1)
+    new Objects(this, 27, 23, this.imageNames.Box2, 1)
+    new Objects(this, 26, 25, this.imageNames.Box3, 1)
+    new Objects(this, 27, 25, this.imageNames.Box1, 1)
+    new Objects(this, 21, 26, this.imageNames.Box1, 1)
+    new Objects(this, 26, 26, this.imageNames.Box4, 1)
+    new Objects(this, 30, 26, this.imageNames.Box2, 1)
+    new Objects(this, 22, 27, this.imageNames.Box2, 1)
+    new Objects(this, 23, 27, this.imageNames.Box1, 1)
+    new Objects(this, 29, 27, this.imageNames.Box1, 1)
   }
 
   update (): void {
