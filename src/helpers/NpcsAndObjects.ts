@@ -22,7 +22,7 @@ export class NpcsAndObjects {
   static npcsAndObjectsArray: NpcsAndObjects[] = []
   texture!: string
   name: string
-  type: 'object' | 'npc'
+  type: 'object' | 'npc' | 'door'
   scene: GameScene
   startX: integer = 0
   startY: integer = 0
@@ -38,7 +38,7 @@ export class NpcsAndObjects {
 
   constructor (
     scene: GameScene,
-    type: 'object' | 'npc',
+    type: 'object' | 'npc' | 'door',
     xPos: integer,
     yPos: integer,
     texture: string,
@@ -46,8 +46,7 @@ export class NpcsAndObjects {
     action?: Function,
     walkingAnimationMapping?: number | WalkingAnimationMapping
   ) {
-    // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-    this.name = type + NpcsAndObjects.number
+    this.name = `${type}${NpcsAndObjects.number}`
     NpcsAndObjects.number++
     NpcsAndObjects.npcsAndObjectsArray.push(this)
     this.type = type
@@ -86,6 +85,11 @@ export class NpcsAndObjects {
     const movementStopListener = scene.gridEngine.movementStopped()
     const directionListener = scene.gridEngine.directionChanged()
 
+    // prevents doors from being used repeatedly after switching the scene/room
+    scene.events.addListener('wake', () => {
+      scene.characterMoved = false
+    })
+
     movementStopListener.subscribe((observer) => {
       scene.gridEngine.setSpeed(scene.playerName, 4)
       this.interactionChange(scene)
@@ -112,7 +116,6 @@ export class NpcsAndObjects {
               scene.gridEngine.getFacingPosition(scene.playerName).y === scene.gridEngine.getPosition(object.name.toString()).y &&
               !object.name.toUpperCase().startsWith('NPC')
             ) {
-              scene.gridEngine.setSpeed(scene.playerName, 2.5)
               object.action(scene, object.name)
             }
           })
@@ -182,11 +185,12 @@ export class NpcsAndObjects {
  * Class for all pushable objects
  */
 export class Objects extends NpcsAndObjects {
-  playerId: string = 'player'
-
   protected action: Function = (): void => {
     if (!this.scene.gridEngine.isMoving(this.name)) {
-      this.scene.gridEngine.move(this.name, this.scene.gridEngine.getFacingDirection(this.playerId))
+      this.scene.gridEngine.move(this.name, this.scene.gridEngine.getFacingDirection(this.scene.playerName))
+      if (this.scene.gridEngine.isMoving(this.name)) {
+        this.scene.gridEngine.setSpeed(this.scene.playerName, 2.5)
+      }
     }
   }
 
@@ -203,11 +207,9 @@ export class Objects extends NpcsAndObjects {
      */
     texture: string,
     /** A simple scaling factor to resize the image. Default: 1 */
-    scale: number = 1,
-    playerId: string
+    scale: number = 1
   ) {
     super(scene, 'object', xPos, yPos, texture, scale, undefined)
-    this.playerId = playerId
   }
 }
 
@@ -258,5 +260,33 @@ export class Npcs extends NpcsAndObjects {
         facingDirection: Direction.DOWN
       }
     )
+  }
+}
+
+/**
+ * Class for all doors
+ */
+export class Doors extends NpcsAndObjects {
+  protected action: Function
+
+  constructor (
+    /** The scene the NPC should be added to. */
+    scene: GameScene,
+    /** X-coordinate of GridEngine the NPC should be spawned at. */
+    xPos: integer,
+    /** Y-coordinate of GridEngine the NPC should be spawned at. */
+    yPos: integer,
+    /** The name of the scene to switch to if interacted with the door. */
+    nextScene: string
+  ) {
+    super(scene, 'door', xPos, yPos, 'emptyDoorGraphic', 1, undefined)
+
+    // assigning the action here so that no nextScene variable has to be stored
+    this.action = (): void => {
+      if (this.scene.characterMoved) {
+        this.scene.characterMoved = false
+        this.scene.scene.switch(nextScene)
+      }
+    }
   }
 }

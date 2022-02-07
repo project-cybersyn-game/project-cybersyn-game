@@ -1,5 +1,4 @@
 import Phaser, { Tilemaps } from 'phaser'
-import { Door, updateDoors } from '../helpers/Doors'
 import { createMap } from '../helpers/Tilemaps'
 import { NpcsAndObjects, createCharacterSprite } from '../helpers/NpcsAndObjects'
 import globalGameState from '../components/GlobalGameState'
@@ -16,12 +15,13 @@ export default abstract class GameScene extends Phaser.Scene {
   playerSprite!: Phaser.Physics.Arcade.Sprite
   playerName!: string
   sceneName!: string
-  doors: Door[] = []
+  // doors: Door[] = []                       // TODO: remove because unused???
   npcsAndObjectsArray: NpcsAndObjects[] = []
-  inDialogue: boolean = false
+  // inDialogue: boolean = false              // TODO: remove because unused???
+  characterMoved: boolean = false
   // TODO: typing
-  fadingRectangle!: any
-  fadingTween!: Phaser.Tweens.Tween
+  // fadingRectangle!: any                    // TODO: remove because unused???
+  // fadingTween!: Phaser.Tweens.Tween        // TODO: remove because unused???
   imageNames!: {
     [index: string]: string
   }
@@ -68,10 +68,17 @@ export default abstract class GameScene extends Phaser.Scene {
   }
 
   preload (): void {
+    this.load.image('emptyDoorGraphic', 'images/emptyDoorGraphic.png')
     this.load.image('eKey', 'images/keys/eKey.png')
   }
 
   create (): void {
+    // reset npcs in case of recreating the scene
+    if (this.npcsAndObjectsArray.length > 0) {
+      this.npcsAndObjectsArray = []
+      this.gridEngine.removeAllCharacters() // not needed? but would be better?
+    }
+
     this.cursors = this.input.keyboard.createCursorKeys()
     this.interactionKey = this.input.keyboard.addKey('E')
     this.backKey = this.input.keyboard.addKey('ESC')
@@ -96,7 +103,7 @@ export default abstract class GameScene extends Phaser.Scene {
     if (this.backKey.isDown && !globalGameState._gameProgress.inDialogue) {
       this.scene.switch('main-menu')
     }
-    updateDoors(this, this.playerName)
+    // updateDoors(this, this.playerName)             // TODO: remove because unused???
   }
 
   // ------------------------------ CUSTOM METHODS ------------------------------ //
@@ -126,7 +133,7 @@ export default abstract class GameScene extends Phaser.Scene {
     }
 
     this.npcsAndObjectsArray = []
-    this.doors = []
+    // this.doors = []                    // TODO: remove because unused???
     this.gridEngine.removeAllCharacters()
     this.scene.restart()
     /* updates scene manager to restart immediately

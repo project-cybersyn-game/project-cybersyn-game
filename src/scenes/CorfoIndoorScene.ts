@@ -1,7 +1,6 @@
 /* eslint-disable no-new */
 // import { addNpc } from '../helpers/Characters'
-import { Npcs } from '../helpers/NpcsAndObjects'
-import { createDoor } from '../helpers/Doors'
+import { Npcs, Doors } from '../helpers/NpcsAndObjects'
 import GameScene from '../components/GameScene'
 import GlobalGameState from '../components/GlobalGameState'
 
@@ -75,8 +74,8 @@ export default class CorfoIndoorScene extends GameScene {
     super.create()
 
     // creating all doors / doorpositions
-    createDoor(this, 19, 10, 'outdoor')
-    createDoor(this, 20, 10, 'outdoor')
+    new Doors(this, 19, 10, 'outdoor')
+    new Doors(this, 20, 10, 'outdoor')
   }
 
   createNpcs (): void {

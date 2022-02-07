@@ -1,6 +1,5 @@
 /* eslint-disable no-new */
-import { Npcs } from '../helpers/NpcsAndObjects'
-import { createDoor } from '../helpers/Doors'
+import { Npcs, Doors } from '../helpers/NpcsAndObjects'
 import GameScene from '../components/GameScene'
 
 export default class OutdoorScene extends GameScene {
@@ -86,13 +85,11 @@ export default class OutdoorScene extends GameScene {
     }).setDepth(9998)
 
     // creating all doors / doorpositions
-    createDoor(this, 21, 6, 'entel-indoor')
-    // createDoor(this, 36, 6, 'entel-basement')
-    // createDoor(this, 37, 6, 'entel-basement')
-    createDoor(this, 47, 28, 'corfo-indoor')
-    createDoor(this, 48, 28, 'corfo-indoor')
-
-    this.createNpcs()
+    new Doors(this, 21, 6, 'entel-indoor')
+    // new Doors(this, 36, 6, 'entel-basement')
+    // new Doors(this, 37, 6, 'entel-basement')
+    new Doors(this, 47, 28, 'corfo-indoor')
+    new Doors(this, 48, 28, 'corfo-indoor')
   }
 
   createNpcs (): void {
