@@ -43,6 +43,7 @@ export default class HelloWorldScene extends Scene {
 
   preload (): void {
     this.load.json('dialogues', 'dialogues.json')
+    this.load.plugin('rexflashplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexflashplugin.min.js', true)
   }
 
   create (): void {

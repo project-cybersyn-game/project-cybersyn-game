@@ -105,7 +105,7 @@ export class DialogueWindow {
 
   // Calcuate the position of the text in the dialogue window
   _setText (text: string, lineOffset: integer = 0, characterName?: string | null, lastHeight: integer = 0): void {
-    if (characterName != null && characterName !== 'YouChoicePlaceholder') this._setText(`${characterName}:`)
+    if (characterName != null && characterName !== 'YouChoicePlaceholder') this._setText(characterName !== 'You' ? `${characterName}:` : '  >')
 
     // Reset the dialogue
     let x = this.padding + 10
@@ -125,14 +125,23 @@ export class DialogueWindow {
 
     const y = +this.scene.game.config.height - this.windowHeight - this.padding + 10 + lineOffset * 22 + lastHeight
 
-    this.texts.push(this.scene.make.text({
+    const textObject = this.scene.make.text({
       x,
       y,
       text,
       style: {
         wordWrap: { width: +this.scene.game.config.width - (this.padding * 2) - 25 - xIndentation }
       }
-    }))
+    })
+    this.texts.push(textObject)
+    if (text === '  >') {
+      // @ts-expect-error
+      const flash = this.scene.plugins.get('rexflashplugin').add(textObject, {
+        duration: 1000,
+        repeat: -1
+      })
+      flash.flash()
+    }
     this.texts[this.texts.length - 1].setDepth(10000)
   }
 
