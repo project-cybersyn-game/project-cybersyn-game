@@ -79,7 +79,7 @@ export default class HelloWorldScene extends Scene {
       return
     }
 
-    this.dialogueWindow?.setText(dialogue.text, dialogue.character, false)
+    this.dialogueWindow?.setText(dialogue.text, dialogue.character, true)
 
     // if an effect exists on the dialogue, the variable is set to true
     if (dialogue.effect != null) {

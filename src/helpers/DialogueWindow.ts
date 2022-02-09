@@ -111,7 +111,6 @@ export class DialogueWindow {
     let x = this.padding + 10
     let xIndentation = 0
 
-    // FIXME: animations with indentation
     if (characterName != null) {
       const textWidth = this.texts[this.texts.length - 1].width
       x = this.texts[this.texts.length - 1].x + textWidth + this.padding
@@ -144,7 +143,7 @@ export class DialogueWindow {
       this.timedEvent.remove()
       return
     }
-    this.texts[0].setText(this.texts[0].text + nextCharacter)
+    this.texts[1].setText(this.texts[1].text + nextCharacter)
     this.eventCounter++
   }
 
