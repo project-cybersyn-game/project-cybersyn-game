@@ -104,7 +104,11 @@ export default class OutdoorScene extends GameScene {
           loop: true,
           volume: 6.0
         })
-        this.add.image(+this.game.config.width, +this.game.config.height - 100, 'eg').setDepth(9999)
+        this.add.image(
+          +this.gridEngine.getFacingPosition(this.playerName).x * 32 - 120,
+          +this.gridEngine.getFacingPosition(this.playerName).y * 32 - 190,
+          'eg'
+        ).setDepth(9999)
       })
   }
 
