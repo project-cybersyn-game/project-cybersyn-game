@@ -130,6 +130,53 @@ export default class HelloWorldScene extends Scene {
               globalGameState.emit('selectedChoiceUp')
             }
           })
+          this.input.keyboard.on(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, (event: { code: any }) => {
+            let number = null
+            switch (event.code) {
+              case 'Numpad1':
+              case 'Digit1':
+                number = 0
+                break
+              case 'Numpad2':
+              case 'Digit2':
+                number = 1
+                break
+              case 'Numpad3':
+              case 'Digit3':
+                number = 2
+                break
+              case 'Numpad4':
+              case 'Digit4':
+                number = 3
+                break
+              case 'Numpad5':
+              case 'Digit5':
+                number = 4
+                break
+              case 'Numpad6':
+              case 'Digit6':
+                number = 5
+                break
+              case 'Numpad7':
+              case 'Digit7':
+                number = 6
+                break
+              case 'Numpad8':
+              case 'Digit8':
+                number = 7
+                break
+              case 'Numpad9':
+              case 'Digit9':
+                number = 8
+                break
+              default:
+                break
+            }
+            if (number !== null && number < choices.length) {
+              this.selectedChoice = number
+              this.enterKey.emit('down')
+            }
+          })
         } else {
           globalGameState.emit('inDialogue', false)
           this.scene.stop()
