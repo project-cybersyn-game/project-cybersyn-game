@@ -101,7 +101,7 @@ export default abstract class GameScene extends Phaser.Scene {
     // switch to main menu when pressing ESC key
     // --- TODO: DEFINITELY CHANGE LATER ---
     if (this.backKey.isDown && !globalGameState._gameProgress.inDialogue) {
-      this.scene.switch('main-menu')
+      this.switch('main-menu')
     }
     // updateDoors(this, this.playerName)             // TODO: remove because unused???
   }
@@ -223,5 +223,10 @@ export default abstract class GameScene extends Phaser.Scene {
     this.cameras.main.setBounds(0, 0, boundLimitX, boundLimitY)
     this.cameras.main.startFollow(this.playerSprite, true)
     this.cameras.main.setZoom(1.5)
+  }
+
+  switch (key: string | Phaser.Scene): void {
+    this.scene.switch(key)
+    this.scene.scene.sound.stopAll()
   }
 }

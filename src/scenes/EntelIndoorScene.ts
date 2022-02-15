@@ -56,6 +56,8 @@ export default class EntelIndoorScene extends GameScene {
     super.loadMapImages()
 
     this.loadObjectImages()
+
+    this.load.audio('office_ambience', 'sounds/office_ambience.mp3')
   }
 
   loadObjectImages (): void {
@@ -76,6 +78,11 @@ export default class EntelIndoorScene extends GameScene {
 
     // creating all doors / doorpositions
     new Doors(this, 15, 10, 'outdoor')
+
+    this.sound.play('office_ambience', {
+      volume: 0.5,
+      loop: true
+    })
   }
 
   createNpcs (): void {
@@ -97,7 +104,7 @@ export default class EntelIndoorScene extends GameScene {
         this.scene.run('ui-dialogue', { startDialogueId: '9' })
         globalGameState.on('goToBasement', () => {
           globalGameState.off('goToBasement')
-          this.scene.switch('entel-basement')
+          this.switch('entel-basement')
         })
       }, 6)
   }

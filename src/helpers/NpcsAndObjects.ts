@@ -285,7 +285,7 @@ export class Doors extends NpcsAndObjects {
     this.action = (): void => {
       if (this.scene.characterMoved) {
         this.scene.characterMoved = false
-        this.scene.scene.switch(nextScene)
+        this.scene.switch(nextScene)
       }
     }
   }

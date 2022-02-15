@@ -56,6 +56,7 @@ export default class CorfoIndoorScene extends GameScene {
     super.loadMapImages()
 
     this.loadObjectImages()
+    this.load.audio('office_ambience', 'sounds/office_ambience.mp3')
   }
 
   loadObjectImages (): void {
@@ -76,6 +77,11 @@ export default class CorfoIndoorScene extends GameScene {
     // creating all doors / doorpositions
     new Doors(this, 19, 10, 'outdoor')
     new Doors(this, 20, 10, 'outdoor')
+
+    this.sound.play('office_ambience', {
+      volume: 0.5,
+      loop: true
+    })
   }
 
   createNpcs (): void {

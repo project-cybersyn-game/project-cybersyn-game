@@ -58,7 +58,7 @@ export default class OutdoorScene extends GameScene {
     // Sonstige Assets laden
     this.load.audio('easter_egg', ['sounds/easter_egg.mp3'])
     this.load.image('eg', 'images/easter_egg.png')
-    this.load.audio('city_ambience', 'sounds/city_ambience.ogg')
+    this.load.audio('city_ambience', 'sounds/city_ambience.mp3')
   }
 
   loadObjectImages (): void {
@@ -93,7 +93,7 @@ export default class OutdoorScene extends GameScene {
     new Doors(this, 48, 28, 'corfo-indoor')
 
     this.sound.play('city_ambience', {
-      volume: 0.5,
+      volume: 0.3,
       loop: true
     })
   }
