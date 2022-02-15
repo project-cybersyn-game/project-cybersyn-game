@@ -44,6 +44,7 @@ export default class HelloWorldScene extends Scene {
   preload (): void {
     this.load.json('dialogues', 'dialogues.json')
     this.load.plugin('rexflashplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexflashplugin.min.js', true)
+    this.load.audio('dialogue_click', 'sounds/click.mp3')
   }
 
   create (): void {
@@ -89,6 +90,10 @@ export default class HelloWorldScene extends Scene {
 
     // Pressing Enter
     this.enterKey.on('down', () => {
+      const music = this.sound.add('dialogue_click')
+      music.play({
+        volume: 1.0
+      })
       globalGameState.removeListener('selectedChoiceDown')
       globalGameState.removeListener('selectedChoiceUp')
       this.cursors.up.removeListener('down')
