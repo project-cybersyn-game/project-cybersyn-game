@@ -93,7 +93,7 @@ export default class OutdoorScene extends GameScene {
     new Doors(this, 48, 28, 'corfo-indoor')
 
     this.sound.play('city_ambience', {
-      volume: 0.3,
+      volume: 0.5,
       loop: true
     })
   }

@@ -57,6 +57,7 @@ export default class EntelBasementScene extends GameScene {
     super.loadMapImages()
 
     this.loadObjectImages()
+    this.load.audio('basement_ambience', 'sounds/basement_ambience.mp3')
   }
 
   loadObjectImages (): void {
@@ -80,6 +81,10 @@ export default class EntelBasementScene extends GameScene {
 
     // creating all doors / doorpositions
     // new Doors(this, 21, 8, 'outdoor')
+    this.sound.play('basement_ambience', {
+      volume: 0.5,
+      loop: true
+    })
   }
 
   createNpcs (): void {

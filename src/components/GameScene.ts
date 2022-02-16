@@ -226,7 +226,7 @@ export default abstract class GameScene extends Phaser.Scene {
   }
 
   switch (key: string | Phaser.Scene): void {
-    this.scene.switch(key)
     this.scene.scene.sound.stopAll()
+    this.scene.switch(key)
   }
 }

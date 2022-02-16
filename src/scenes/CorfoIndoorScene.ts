@@ -79,7 +79,7 @@ export default class CorfoIndoorScene extends GameScene {
     new Doors(this, 20, 10, 'outdoor')
 
     this.sound.play('office_ambience', {
-      volume: 0.5,
+      volume: 1,
       loop: true
     })
   }
