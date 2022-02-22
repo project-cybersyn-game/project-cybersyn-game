@@ -63,7 +63,7 @@ export default abstract class GameScene extends Phaser.Scene {
       },
       scale: 1,
       characterCollisionStrategy: 'BLOCK_ONE_TILE_AHEAD',
-      layerOverlay: false
+      layerOverlay: true
     }
   }
 
