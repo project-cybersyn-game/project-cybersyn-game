@@ -43,7 +43,7 @@
 	},
 	"dependencies": {
 		"@parcel/config-default": "^2.0.0",
-		"grid-engine": "^2.10.0",
+		"grid-engine": "2.10.4",
 		"husky": "^7.0.2",
 		"lint-staged": "^11.1.2",
 		"parcel": "^2.3.2",

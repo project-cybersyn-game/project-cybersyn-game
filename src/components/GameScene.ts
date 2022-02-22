@@ -63,7 +63,7 @@ export default abstract class GameScene extends Phaser.Scene {
       },
       scale: 1,
       characterCollisionStrategy: 'BLOCK_ONE_TILE_AHEAD',
-      layerOverlay: true
+      layerOverlay: false
     }
   }
 
@@ -203,6 +203,7 @@ export default abstract class GameScene extends Phaser.Scene {
   initiateGridEngine (map: Tilemaps.Tilemap): void {
     // GridEngine
     this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, this.gridEngineSettings.scale)
+    this.playerSprite.setDepth(1)
     const gridEngineConfig = {
       characters: [
         {
