@@ -64,7 +64,6 @@ export class NpcsAndObjects {
     // adding object to the scene
     const npcSprite = createCharacterSprite(scene, 0, 0, texture, scale)
     this.eKey = scene.add.image(0, 10, 'eKey')
-    this.eKey.depth = 9999
     this.eKey.setVisible(false)
     this.container = scene.add.container(0, 0, [npcSprite, this.eKey])
     this.addCharacter(npcSprite, xPos, yPos, this.container, walkingAnimationMapping)

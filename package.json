@@ -37,7 +37,7 @@
 		"eslint-plugin-promise": "^5.1.0",
 		"minimist": ">=1.2.5",
 		"parcel-plugin-clean-easy": "^1.0.2",
-		"parcel-reporter-static-files-copy": "^1.3.0",
+		"parcel-reporter-static-files-copy": "^1.3.4",
 		"phaser3-webfont-loader": "^1.0.0",
 		"typescript": "^4.4.3"
 	},
@@ -46,10 +46,11 @@
 		"grid-engine": "^2.10.0",
 		"husky": "^7.0.2",
 		"lint-staged": "^11.1.2",
-		"parcel": "^2.2.1",
+		"parcel": "^2.3.2",
 		"phaser": "~3.55.2"
 	},
 	"parcelCleanPaths": [
-		"dist"
+		"dist",
+		".parcel-cache"
 	]
 }
