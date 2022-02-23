@@ -92,6 +92,7 @@ class MovementListener {
 
   /** Enables listeners for all directions. */
   on (): void {
+    this.correctPosition()
     this.scene.cursors.up.on('down', () => {
       this.scene.gridEngine.move(this.scene.playerName, Direction.UP)
     })
@@ -119,12 +120,12 @@ class MovementListener {
     if (
       !this.scene.gridEngine.isMoving(this.scene.playerName) &&
       (
-        this.scene.gridEngine.getPosition(this.scene.playerName).y !== ((this.scene.gridEngine.getSprite(this.scene.playerName).getBottomCenter().y / 32) - 1) ||
-        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-        this.scene.gridEngine.getPosition(this.scene.playerName).x !== (((this.scene.gridEngine.getSprite(this.scene.playerName).getBottomCenter().x + 15.25) / 32) - 1)
+        this.scene.gridEngine.getPosition(this.scene.playerName).y !== Math.floor(((this.scene.gridEngine.getSprite(this.scene.playerName).getBottomCenter().y - 1.5) / this.scene.map.tileHeight)) ||
+        this.scene.gridEngine.getPosition(this.scene.playerName).x !== Math.floor(((this.scene.gridEngine.getSprite(this.scene.playerName).getBottomCenter().x) / this.scene.map.tileWidth))
       )
     ) {
       // Position neu setzen
+      console.log('correctPosition!')
       this.scene.gridEngine.setPosition(this.scene.playerName, this.scene.gridEngine.getPosition(this.scene.playerName))
     }
   }
