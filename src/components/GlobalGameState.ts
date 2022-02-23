@@ -13,6 +13,7 @@ class GlobalGameState extends Phaser.Events.EventEmitter {
     // define all gameState objects
     this._gameProgress = {
       inDialogue: false,
+      inDialogueAnimation: false,
       hasTalkedToFlores: false,
       isTelexFound: false,
       isBataneroBusy: false

@@ -110,15 +110,15 @@ export default class HelloWorldScene extends Scene {
       // If it's an NPC talking, either choices need to be displayed after or the dialogue ends
       } else {
         // check for conditions
-        if (choices !== undefined && choices.length > 0) {
+        if (globalGameState._gameProgress.inDialogueAnimation) {
+          globalGameState.emit('inDialogueAnimation', false)
+        } else if (choices !== undefined && choices.length > 0) {
           choices.forEach((choice, index) => {
             if (choice.condition != null && !globalGameState._gameProgress[choice.condition]) {
               choices.splice(index, 1)
             }
           })
-        }
 
-        if (choices !== undefined && choices.length > 0) {
           this.isChoicesActive = true
           this.selectedChoice = 0
           this.dialogueWindow?.setChoices(choices, 'You')

@@ -67,6 +67,7 @@ export class DialogueWindow {
     this._setText(tempText, 0, characterName)
 
     if (animate) {
+      globalGameState.emit('inDialogueAnimation', true)
       this.timedEvent = this.scene.time.addEvent({
         delay: 150 - (this.dialogueSpeed * 30),
         callback: this._animateText,
@@ -150,10 +151,15 @@ export class DialogueWindow {
     const nextCharacter = this.dialogue[this.eventCounter]
     if (nextCharacter == null) {
       this.timedEvent.remove()
+      globalGameState.emit('inDialogueAnimation', false)
       return
     }
     this.texts[1].setText(this.texts[1].text + nextCharacter)
     this.eventCounter++
+    if (!globalGameState._gameProgress.inDialogueAnimation) {
+      this.timedEvent.remove()
+      this._animateText()
+    }
   }
 
   _create (): void {
