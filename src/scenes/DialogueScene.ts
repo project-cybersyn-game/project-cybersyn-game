@@ -52,7 +52,7 @@ export default class HelloWorldScene extends Scene {
     this._displayDialogueUnit(this.startDialogueId)
   }
 
-  _start (): void {
+  private _start (): void {
     globalGameState.emit('inDialogue', true)
 
     globalGameState.on('reloadGameScene', () => {
@@ -67,7 +67,7 @@ export default class HelloWorldScene extends Scene {
     this.startDialogueId = this.sys.getData().startDialogueId
   }
 
-  _displayDialogueUnit (dialogueId: string): void {
+  private _displayDialogueUnit (dialogueId: string): void {
     const dialogue = { ...this.dialogueData[dialogueId] }
     const choices: Array<{
       text: string

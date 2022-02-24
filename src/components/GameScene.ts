@@ -104,6 +104,8 @@ export default abstract class GameScene extends Phaser.Scene {
 
   // ------------------------------ CUSTOM METHODS ------------------------------ //
 
+  abstract loadObjectImages (): void
+
   /** This method is used to create the different NPCs.
    * It has to be defined in the explicit scene.
    */

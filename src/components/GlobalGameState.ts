@@ -5,8 +5,6 @@ class GlobalGameState extends Phaser.Events.EventEmitter {
     [index: string]: boolean
   }
 
-  test: integer = 0
-
   constructor () {
     super()
 
