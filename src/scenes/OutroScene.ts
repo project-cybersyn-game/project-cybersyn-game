@@ -32,6 +32,7 @@ export default class OutroScene extends Phaser.Scene {
 
     const music = this.sound.add('outro_music')
     music.play({
+      volume: 0.5,
       loop: true
     })
   }

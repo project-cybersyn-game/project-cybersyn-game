@@ -58,7 +58,7 @@ const config: Phaser.Types.Core.GameConfig = {
     OutroScene,
     IntroScene],
   title: 'Cybersyn: The Game',
-  version: '0.2',
+  version: '0.4',
   url: 'https://project-cybersyn-game.github.io/project-cybersyn-game/',
   transparent: true
 }
