@@ -15,13 +15,9 @@ export default abstract class GameScene extends Phaser.Scene {
   playerSprite!: Phaser.Physics.Arcade.Sprite
   playerName!: string
   sceneName!: string
-  // doors: Door[] = []                       // TODO: remove because unused???
+  map!: Tilemaps.Tilemap
   npcsAndObjectsArray: NpcsAndObjects[] = []
-  // inDialogue: boolean = false              // TODO: remove because unused???
   characterMoved: boolean = false
-  // TODO: typing
-  // fadingRectangle!: any                    // TODO: remove because unused???
-  // fadingTween!: Phaser.Tweens.Tween        // TODO: remove because unused???
   imageNames!: {
     [index: string]: string
   }
@@ -85,11 +81,11 @@ export default abstract class GameScene extends Phaser.Scene {
 
     createAnims(this, this.imageNames.Dude)
 
-    const map = this.createMap()
+    this.createMap()
 
-    this.initiateGridEngine(map)
+    this.initiateGridEngine()
 
-    this.createCamera(map.widthInPixels, map.heightInPixels)
+    this.createCamera(this.map.widthInPixels, this.map.heightInPixels)
 
     this.createNpcs()
 
@@ -107,6 +103,8 @@ export default abstract class GameScene extends Phaser.Scene {
   }
 
   // ------------------------------ CUSTOM METHODS ------------------------------ //
+
+  abstract loadObjectImages (): void
 
   /** This method is used to create the different NPCs.
    * It has to be defined in the explicit scene.
@@ -133,7 +131,6 @@ export default abstract class GameScene extends Phaser.Scene {
     }
 
     this.npcsAndObjectsArray = []
-    // this.doors = []                    // TODO: remove because unused???
     this.gridEngine.removeAllCharacters()
     this.scene.restart()
     /* updates scene manager to restart immediately
@@ -177,7 +174,7 @@ export default abstract class GameScene extends Phaser.Scene {
   /** This method is used to create an array of tilesets used for a scene and a tilemap.
    * It uses the tileset images stored in the imageMapNames object.
    */
-  createMap (): Tilemaps.Tilemap {
+  createMap (): void {
     const tilesetInfo = Object.keys(this.imageMapNames).map(key => {
       return {
         tilesetName: this.imageMapNames[key].name,
@@ -186,23 +183,22 @@ export default abstract class GameScene extends Phaser.Scene {
     })
 
     // Tilemap erstellen
-    const map = createMap(
+    this.map = createMap(
       this,
       this.imageNames.Map,
       tilesetInfo,
       this.layerNames
     ).tilemap
-
-    return map
   }
 
   // eslint-disable-next-line no-trailing-spaces
   /** This method creates a gridEngineConfig and creates the map.  
    * **GridEngine methods should only be used after this method was called!**
    */
-  initiateGridEngine (map: Tilemaps.Tilemap): void {
+  initiateGridEngine (): void {
     // GridEngine
     this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, this.gridEngineSettings.scale)
+    this.playerSprite.setDepth(1)
     const gridEngineConfig = {
       characters: [
         {
@@ -214,7 +210,7 @@ export default abstract class GameScene extends Phaser.Scene {
       layerOverlay: this.gridEngineSettings.layerOverlay,
       characterCollisionStrategy: this.gridEngineSettings.characterCollisionStrategy
     }
-    this.gridEngine.create(map, gridEngineConfig)
+    this.gridEngine.create(this.map, gridEngineConfig)
   }
 
   /** This method sets the camera bounds and makes it follow the player character. */

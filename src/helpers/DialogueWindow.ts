@@ -67,6 +67,7 @@ export class DialogueWindow {
     this._setText(tempText, 0, characterName)
 
     if (animate) {
+      globalGameState.emit('inDialogueAnimation', true)
       this.timedEvent = this.scene.time.addEvent({
         delay: 150 - (this.dialogueSpeed * 30),
         callback: this._animateText,
@@ -104,7 +105,7 @@ export class DialogueWindow {
   }
 
   // Calcuate the position of the text in the dialogue window
-  _setText (text: string, lineOffset: integer = 0, characterName?: string | null, lastHeight: integer = 0): void {
+  private _setText (text: string, lineOffset: integer = 0, characterName?: string | null, lastHeight: integer = 0): void {
     if (characterName != null && characterName !== 'YouChoicePlaceholder') this._setText(characterName !== 'You' ? `${characterName}:` : '  >')
 
     // Reset the dialogue
@@ -146,17 +147,22 @@ export class DialogueWindow {
   }
 
   // Slowly displays the text in the window to make it appear animated
-  _animateText (): void {
+  private _animateText (): void {
     const nextCharacter = this.dialogue[this.eventCounter]
     if (nextCharacter == null) {
       this.timedEvent.remove()
+      globalGameState.emit('inDialogueAnimation', false)
       return
     }
     this.texts[1].setText(this.texts[1].text + nextCharacter)
     this.eventCounter++
+    if (!globalGameState._gameProgress.inDialogueAnimation) {
+      this.timedEvent.remove()
+      this._animateText()
+    }
   }
 
-  _create (): void {
+  private _create (): void {
     const gameHeight = this.scene.game.config.height
     const gameWidth = this.scene.game.config.width
     const windowDimensions = this._calculateDimensions(+gameWidth, +gameHeight)
@@ -167,7 +173,7 @@ export class DialogueWindow {
     this._createInnerWindow(windowDimensions)
   }
 
-  _calculateDimensions (width: number, height: number): { x: number, y: number, width: number, height: number } {
+  private _calculateDimensions (width: number, height: number): { x: number, y: number, width: number, height: number } {
     const x = this.padding
     const y = height - this.windowHeight - this.padding
     const rectWidth = width - (this.padding * 2)
@@ -176,13 +182,13 @@ export class DialogueWindow {
   }
 
   // Creates the border rectangle of the dialogue window
-  _createOuterWindow (windowDimensions: { x: number, y: number, width: number, height: number }): void {
+  private _createOuterWindow (windowDimensions: { x: number, y: number, width: number, height: number }): void {
     this.graphics.lineStyle(this.borderThickness, this.borderColor, this.borderAlpha)
     this.graphics.strokeRect(windowDimensions.x, windowDimensions.y, windowDimensions.width, windowDimensions.height)
   }
 
   // Creates the inner dialogue window (where the text is displayed)
-  _createInnerWindow (windowDimensions: { x: number, y: number, width: number, height: number }): void {
+  private _createInnerWindow (windowDimensions: { x: number, y: number, width: number, height: number }): void {
     this.graphics.fillStyle(this.windowColor, this.windowAlpha)
     this.graphics.fillRect(windowDimensions.x + 1, windowDimensions.y + 1, windowDimensions.width - 1, windowDimensions.height - 1)
   }

@@ -5,14 +5,13 @@ class GlobalGameState extends Phaser.Events.EventEmitter {
     [index: string]: boolean
   }
 
-  test: integer = 0
-
   constructor () {
     super()
 
     // define all gameState objects
     this._gameProgress = {
       inDialogue: false,
+      inDialogueAnimation: false,
       hasTalkedToFlores: false,
       isTelexFound: false,
       isBataneroBusy: false
