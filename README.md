@@ -12,8 +12,7 @@ The current version of the game is available to play here:
 For local development, the current Node.js LTS needs to be installed. Then, the following sequence of commands needs to be run within the repository root folder: 
 
 1. `npm install`
-2. `npm install -g parcel`
-3. `npm start`
+2. `npm start`
 
 Now, a local development server should be available at `localhost:8000`.
 
