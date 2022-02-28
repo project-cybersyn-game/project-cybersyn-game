@@ -6,7 +6,7 @@ export default class IntroScene extends Phaser.Scene {
   }
 
   preload (): void {
-    this.load.audio('intro_music', ['sounds/intro.mp3'])
+    this.load.audio('intro_music', ['sounds/intro.mp3', 'sounds/intro.ogg'])
   }
 
   create (): void {

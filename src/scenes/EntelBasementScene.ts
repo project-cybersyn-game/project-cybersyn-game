@@ -57,7 +57,7 @@ export default class EntelBasementScene extends GameScene {
     super.loadMapImages()
 
     this.loadObjectImages()
-    this.load.audio('basement_ambience', 'sounds/basement_ambience.mp3')
+    this.load.audio('basement_ambience', ['sounds/basement_ambience.mp3', 'sounds/basement_ambience.ogg'])
   }
 
   loadObjectImages (): void {

@@ -57,7 +57,7 @@ export default class EntelIndoorScene extends GameScene {
 
     this.loadObjectImages()
 
-    this.load.audio('office_ambience', 'sounds/office_ambience.mp3')
+    this.load.audio('office_ambience', ['sounds/office_ambience.mp3', 'sounds/office_ambience.ogg'])
   }
 
   loadObjectImages (): void {

@@ -56,9 +56,9 @@ export default class OutdoorScene extends GameScene {
     this.loadObjectImages()
 
     // Sonstige Assets laden
-    this.load.audio('easter_egg', ['sounds/easter_egg.mp3'])
+    this.load.audio('easter_egg', ['sounds/easter_egg.mp3', 'sounds/easter_egg.ogg'])
     this.load.image('eg', 'images/easter_egg.png')
-    this.load.audio('city_ambience', 'sounds/city_ambience.mp3')
+    this.load.audio('city_ambience', ['sounds/city_ambience.mp3', 'sounds/city_ambience.ogg'])
   }
 
   loadObjectImages (): void {

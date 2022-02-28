@@ -6,7 +6,7 @@ export default class OutroScene extends Phaser.Scene {
   }
 
   preload (): void {
-    this.load.audio('outro_music', ['sounds/outro.mp3'])
+    this.load.audio('outro_music', ['sounds/outro.mp3', 'sounds/outro.ogg'])
   }
 
   create (): void {
