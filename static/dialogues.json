@@ -4,10 +4,14 @@
     "text": "Good morning, Alba! We are on the verge of implementing our new project for managing the public economy of Chile. But we have hit a wall. Maybe you can help!",
     "effect": "hasTalkedToFlores",
     "condition": "hasTalkedToFlores",
-    "conditionAlternative": "15",
+    "conditionAlternative": "16",
     "choices": [
       {
         "text": "Good Morning, Fernando! What can I do?",
+        "next": "2"
+      },
+      {
+        "text": "Hello there. How can I help with that?",
         "next": "2"
       }
     ]
@@ -41,7 +45,7 @@
     "conditionAlternative": "8",
     "choices": [
       {
-        "text": "Yes, do you have any telex machines available for a new project CORFOR is working on? How many are installed in the country?",
+        "text": "Yes, do you have any telex machines available for a new project CORFO is working on? How many are installed in the country?",
         "next": "6"
       },
       {
@@ -71,6 +75,10 @@
       {
         "text": "Hello Paulo! I am on an errand for work and thought I'd say hi. Unfortunately, Sr. Batanero cannot help me.",
         "next": "10"
+      },
+      {
+        "text": "Hey Paulo! I was looking for you because Sr. Batanero wasn't of much help. I am searching for some resources for a CORFO project.",
+        "next": "10"
       }
     ]
   },
@@ -80,6 +88,10 @@
     "choices": [
       {
         "text": "Well, CORFO is working on a new project and they need a lot of telex machines to install all over the country. But buying new machines are a lot more expensive.",
+        "next": "11"
+      },
+      {
+        "text": "I am looking for telex machines. We need a lot of them for a project. Do you know if you have any left here?",
         "next": "11"
       }
     ]
@@ -101,6 +113,10 @@
       {
         "text": "No, there seem to be some boxes in the way and I got stuck.",
         "next": "14"
+      },
+      {
+        "text": "No, not yet.",
+        "next": "15"
       }
     ]
   },
@@ -115,30 +131,34 @@
     "effect": "resetBoxPuzzle"
   },
   "15": {
+    "character": "Paulo",
+    "text": "Okay, tell me should you need any help."
+  },
+  "16": {
     "character": "Sr. Flores",
     "text": "Alba, have you had any success?",
     "choices": [
       {
         "text": "Yes, there are hundreds of telex machines in the basement of the ENTEL building. It's exactly what we need.",
-        "next": "16",
+        "next": "17",
         "condition": "isTelexFound"
       },
       {
         "text": "No, unfortunately I haven't found anything, yet.",
-        "next": "17"
+        "next": "18"
       }
     ]
   },
-  "16": {
+  "17": {
     "character": "Sr. Flores",
     "text": "Wonderful!  Now we can get started with the real work. Thank you Alba!",
     "effect": "winTheGame"
   },
-  "17": {
+  "18": {
     "character": "Sr. Flores",
     "text": "Try talking to the people at ENTEL. They might be able to help you!"
   },
-  "18": {
+  "19": {
     "character": "...",
     "text": "I think these telex machines could be a lot of help. I should tell Flores about it!",
     "effect": "isTelexFound"
