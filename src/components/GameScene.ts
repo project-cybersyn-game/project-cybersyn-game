@@ -4,7 +4,7 @@ import { NpcsAndObjects, createCharacterSprite } from '../helpers/NpcsAndObjects
 import globalGameState from '../components/GlobalGameState'
 // @ts-expect-error
 import { GridEngine, Position, Direction, CollisionStrategy } from 'grid-engine'
-import { basicMovement, createAnims } from '../helpers/Characters'
+import { basicMovement } from '../helpers/Characters'
 
 export default abstract class GameScene extends Phaser.Scene {
   // Klassenvariablen festlegen
@@ -14,6 +14,7 @@ export default abstract class GameScene extends Phaser.Scene {
   gridEngine!: GridEngine
   playerSprite!: Phaser.Physics.Arcade.Sprite
   playerName!: string
+  avatarScale: number = 0.7
   sceneName!: string
   map!: Tilemaps.Tilemap
   npcsAndObjectsArray: NpcsAndObjects[] = []
@@ -79,7 +80,7 @@ export default abstract class GameScene extends Phaser.Scene {
     this.interactionKey = this.input.keyboard.addKey('E')
     this.backKey = this.input.keyboard.addKey('ESC')
 
-    createAnims(this, this.imageNames.Dude)
+    // createAnims(this, this.imageNames.Dude)
 
     this.createMap()
 
@@ -147,10 +148,10 @@ export default abstract class GameScene extends Phaser.Scene {
   loadAvatarSpritesheet (): void {
     this.load.spritesheet(
       this.imageNames.Dude,
-      'character_sprites/char.png',
+      'character_sprites/HC_Humans3B.png',
       {
-        frameWidth: 25,
-        frameHeight: 25
+        frameWidth: 32,
+        frameHeight: 64
       }
     )
   }
@@ -197,14 +198,15 @@ export default abstract class GameScene extends Phaser.Scene {
    */
   initiateGridEngine (): void {
     // GridEngine
-    this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, this.gridEngineSettings.scale)
+    this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, this.avatarScale)
     this.playerSprite.setDepth(1)
     const gridEngineConfig = {
       characters: [
         {
           id: this.playerName,
           sprite: this.playerSprite,
-          startPosition: this.gridEngineSettings.startPosition
+          startPosition: this.gridEngineSettings.startPosition,
+          walkingAnimationMapping: 1
         }
       ],
       layerOverlay: this.gridEngineSettings.layerOverlay,

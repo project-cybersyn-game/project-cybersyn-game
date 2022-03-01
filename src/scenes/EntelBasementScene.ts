@@ -38,6 +38,8 @@ export default class EntelBasementScene extends GameScene {
       }
     }
 
+    this.avatarScale = 0.5
+
     this.gridEngineSettings = {
       startPosition: {
         x: 21,
@@ -63,10 +65,10 @@ export default class EntelBasementScene extends GameScene {
   loadObjectImages (): void {
     this.load.spritesheet(
       this.imageNames.NPCs,
-      'character_sprites/characters.png',
+      'character_sprites/HC_Humans3B.png',
       {
-        frameWidth: 26,
-        frameHeight: 36
+        frameWidth: 32,
+        frameHeight: 64
       }
     )
     this.load.image(this.imageNames.Box1, 'images/boxes_16x32/box1.png')
@@ -114,7 +116,7 @@ export default class EntelBasementScene extends GameScene {
       this.scene.run('ui-dialogue', { startDialogueId: '18' })
     })
     // Add Paulo NPC
-    new Npcs(this, 26, 12, this.imageNames.NPCs, 0.8,
+    new Npcs(this, 26, 12, this.imageNames.NPCs, 0.5,
       (
         scene: GameScene,
         name: String
@@ -130,7 +132,7 @@ export default class EntelBasementScene extends GameScene {
           globalGameState.off('resetBoxPuzzle')
           this.reset(true, false)
         })
-      }, 6)
+      }, 0)
     new Objects(this, 22, 20, this.imageNames.Box1, 1)
     new Objects(this, 23, 20, this.imageNames.Box1, 1)
     new Objects(this, 27, 20, this.imageNames.Box2, 1)
