@@ -16,11 +16,11 @@ export function basicMovement (
   const movementListener = new MovementListener(scene)
 
   // to initiate animations
-  movementAnimations(scene)
+  // movementAnimations(scene)
 
   movementStartListener.subscribe((observer) => {
     if (observer.charId === scene.playerName) {
-      movementAnimations(scene)
+      // movementAnimations(scene)
       movementListener.off()
     } else if (observer.charId.toLowerCase().includes('object')) {
       // objects can't move on it's own, so this will make the character follow a box when pushing it for example
@@ -37,7 +37,7 @@ export function basicMovement (
   })
 
   directionListener.subscribe((observer) => {
-    movementAnimations(scene)
+    // movementAnimations(scene)
   })
 
   globalGameState.on('inDialogue', (value: boolean) => {
@@ -62,7 +62,7 @@ function manualMovement (
   } else if (scene.cursors.right.isDown) {
     scene.gridEngine.move(scene.playerName, Direction.RIGHT)
   } else {
-    movementAnimations(scene)
+    // movementAnimations(scene)
   }
 }
 

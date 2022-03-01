@@ -11,7 +11,8 @@ export default class EntelIndoorScene extends GameScene {
     this.imageNames = {
       Dude: 'entelindoor_dude',
       Map: 'entelindoor_Map',
-      NPCs: 'entelindoor_npcs'
+      NPCs1: 'entelindoor_npcs_1',
+      NPCs2: 'entelindoor_npcs_2'
     }
 
     this.tilemapJSONPath = 'tilemaps/entel-indoor.json'
@@ -63,11 +64,19 @@ export default class EntelIndoorScene extends GameScene {
   loadObjectImages (): void {
     // sonstige Bilder laden
     this.load.spritesheet(
-      this.imageNames.NPCs,
-      'character_sprites/characters.png',
+      this.imageNames.NPCs1,
+      'character_sprites/HC_Humans3A.png',
       {
-        frameWidth: 26,
-        frameHeight: 36
+        frameWidth: 32,
+        frameHeight: 64
+      }
+    )
+    this.load.spritesheet(
+      this.imageNames.NPCs2,
+      'character_sprites/HC_Humans3B.png',
+      {
+        frameWidth: 32,
+        frameHeight: 64
       }
     )
   }
@@ -99,16 +108,16 @@ export default class EntelIndoorScene extends GameScene {
 
   createNpcs (): void {
     // Add Batanero NPC
-    new Npcs(this, 14, 15, this.imageNames.NPCs, 1.2,
+    new Npcs(this, 14, 15, this.imageNames.NPCs1, 0.7,
       (
         scene: GameScene,
         name: String
       ) => {
         this.scene.run('ui-dialogue', { startDialogueId: '5' })
-      }, 5)
+      }, 0)
 
     // Add Paulo NPC
-    new Npcs(this, 26, 12, this.imageNames.NPCs, 1.2,
+    new Npcs(this, 26, 12, this.imageNames.NPCs2, 0.7,
       (
         scene: GameScene,
         name: String
@@ -118,7 +127,7 @@ export default class EntelIndoorScene extends GameScene {
           globalGameState.off('goToBasement')
           this.switch('entel-basement')
         })
-      }, 6)
+      }, 0)
   }
 
   update (): void {
