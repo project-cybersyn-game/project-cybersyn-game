@@ -125,16 +125,14 @@ export default class EntelBasementScene extends GameScene {
     new Objects(this, 30, 20, this.imageNames.Box4, 1)
     new Objects(this, 24, 21, this.imageNames.Box3, 1)
     new Objects(this, 29, 21, this.imageNames.Box2, 1)
-    new Objects(this, 21, 22, this.imageNames.Box2, 1)
     new Objects(this, 27, 22, this.imageNames.Box3, 1)
     new Objects(this, 27, 23, this.imageNames.Box2, 1)
     new Objects(this, 26, 25, this.imageNames.Box3, 1)
     new Objects(this, 27, 25, this.imageNames.Box1, 1)
-    new Objects(this, 21, 26, this.imageNames.Box1, 1)
+    new Objects(this, 21, 25, this.imageNames.Box1, 1)
     new Objects(this, 26, 26, this.imageNames.Box4, 1)
     new Objects(this, 30, 26, this.imageNames.Box2, 1)
-    new Objects(this, 22, 27, this.imageNames.Box2, 1)
-    new Objects(this, 23, 27, this.imageNames.Box1, 1)
+    new Objects(this, 23, 28, this.imageNames.Box1, 1)
     new Objects(this, 29, 27, this.imageNames.Box1, 1)
   }
 
