@@ -96,6 +96,18 @@ export default class OutdoorScene extends GameScene {
       volume: 0.5,
       loop: true
     })
+    this.scene.scene.events.on('wake', () => {
+      this.sound.play('city_ambience', {
+        volume: 0.5,
+        loop: true
+      })
+    })
+    this.scene.scene.events.on('start', () => {
+      this.sound.play('city_ambience', {
+        volume: 0.5,
+        loop: true
+      })
+    })
   }
 
   createNpcs (): void {

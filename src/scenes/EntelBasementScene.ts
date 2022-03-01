@@ -85,6 +85,18 @@ export default class EntelBasementScene extends GameScene {
       volume: 0.5,
       loop: true
     })
+    this.scene.scene.events.on('wake', () => {
+      this.sound.play('basement_ambience', {
+        volume: 0.5,
+        loop: true
+      })
+    })
+    this.scene.scene.events.on('start', () => {
+      this.sound.play('basement_ambience', {
+        volume: 0.5,
+        loop: true
+      })
+    })
   }
 
   createNpcs (): void {
