@@ -82,6 +82,18 @@ export default class CorfoIndoorScene extends GameScene {
       volume: 1,
       loop: true
     })
+    this.scene.scene.events.on('wake', () => {
+      this.sound.play('office_ambience', {
+        volume: 1,
+        loop: true
+      })
+    })
+    this.scene.scene.events.on('start', () => {
+      this.sound.play('office_ambience', {
+        volume: 1,
+        loop: true
+      })
+    })
   }
 
   createNpcs (): void {

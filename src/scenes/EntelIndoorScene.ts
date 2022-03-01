@@ -83,6 +83,18 @@ export default class EntelIndoorScene extends GameScene {
       volume: 0.5,
       loop: true
     })
+    this.scene.scene.events.on('wake', () => {
+      this.sound.play('office_ambience', {
+        volume: 0.5,
+        loop: true
+      })
+    })
+    this.scene.scene.events.on('start', () => {
+      this.sound.play('office_ambience', {
+        volume: 0.5,
+        loop: true
+      })
+    })
   }
 
   createNpcs (): void {
