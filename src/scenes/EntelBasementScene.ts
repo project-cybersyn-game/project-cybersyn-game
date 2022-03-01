@@ -151,4 +151,12 @@ export default class EntelBasementScene extends GameScene {
   update (): void {
     super.update()
   }
+
+  // overwritten for different zoom
+  createCamera (boundLimitX: number, boundLimitY: number): void {
+    // add camera that follows the character
+    this.cameras.main.setBounds(0, 0, boundLimitX, boundLimitY)
+    this.cameras.main.startFollow(this.playerSprite, true)
+    this.cameras.main.setZoom(2)
+  }
 }
