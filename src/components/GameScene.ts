@@ -4,7 +4,7 @@ import { NpcsAndObjects, createCharacterSprite } from '../helpers/NpcsAndObjects
 import globalGameState from '../components/GlobalGameState'
 // @ts-expect-error
 import { GridEngine, Position, Direction, CollisionStrategy } from 'grid-engine'
-import { basicMovement, createAnims } from '../helpers/Characters'
+import { basicMovement } from '../helpers/Characters'
 
 export default abstract class GameScene extends Phaser.Scene {
   // Klassenvariablen festlegen
@@ -14,6 +14,7 @@ export default abstract class GameScene extends Phaser.Scene {
   gridEngine!: GridEngine
   playerSprite!: Phaser.Physics.Arcade.Sprite
   playerName!: string
+  avatarScale: number = 0.7
   sceneName!: string
   map!: Tilemaps.Tilemap
   npcsAndObjectsArray: NpcsAndObjects[] = []
@@ -197,7 +198,7 @@ export default abstract class GameScene extends Phaser.Scene {
    */
   initiateGridEngine (): void {
     // GridEngine
-    this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, 0.7)
+    this.playerSprite = createCharacterSprite(this, 0, 0, this.imageNames.Dude, this.avatarScale)
     this.playerSprite.setDepth(1)
     const gridEngineConfig = {
       characters: [

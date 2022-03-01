@@ -38,6 +38,8 @@ export default class EntelBasementScene extends GameScene {
       }
     }
 
+    this.avatarScale = 0.5
+
     this.gridEngineSettings = {
       startPosition: {
         x: 21,

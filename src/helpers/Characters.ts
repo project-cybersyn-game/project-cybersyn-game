@@ -3,7 +3,7 @@ import { Direction } from 'grid-engine'
 import globalGameState from '../components/GlobalGameState'
 
 /** This function is used for grid-based movement of a character sprite in four directions.
- *  It also prevents positioning errors that come with the GridEngine plugin and plays movement animations.
+ *  It also prevents positioning errors that come with the GridEngine plugin.
  */
 export function basicMovement (
   /** The scene the player is in. */
@@ -11,16 +11,11 @@ export function basicMovement (
 ): void {
   const movementStartListener = scene.gridEngine.positionChangeStarted()
   const movementStopListener = scene.gridEngine.positionChangeFinished()
-  const directionListener = scene.gridEngine.directionChanged()
 
   const movementListener = new MovementListener(scene)
 
-  // to initiate animations
-  // movementAnimations(scene)
-
   movementStartListener.subscribe((observer) => {
     if (observer.charId === scene.playerName) {
-      // movementAnimations(scene)
       movementListener.off()
     } else if (observer.charId.toLowerCase().includes('object')) {
       // objects can't move on it's own, so this will make the character follow a box when pushing it for example
@@ -34,10 +29,6 @@ export function basicMovement (
       manualMovement(scene)
       movementListener.on()
     }
-  })
-
-  directionListener.subscribe((observer) => {
-    // movementAnimations(scene)
   })
 
   globalGameState.on('inDialogue', (value: boolean) => {
@@ -61,19 +52,6 @@ function manualMovement (
     scene.gridEngine.move(scene.playerName, Direction.DOWN)
   } else if (scene.cursors.right.isDown) {
     scene.gridEngine.move(scene.playerName, Direction.RIGHT)
-  } else {
-    // movementAnimations(scene)
-  }
-}
-
-/** Plays player character animations according to the movement and direction. */
-function movementAnimations (
-  scene: GameScene
-): void {
-  if (!scene.gridEngine.isMoving(scene.playerName)) {
-    scene.playerSprite.anims.play('idle_' + String(scene.gridEngine.getFacingDirection(scene.playerName)), true)
-  } else {
-    scene.playerSprite.anims.play('walk_' + String(scene.gridEngine.getFacingDirection(scene.playerName)), true)
   }
 }
 
@@ -129,88 +107,4 @@ class MovementListener {
       this.scene.gridEngine.setPosition(this.scene.playerName, this.scene.gridEngine.getPosition(this.scene.playerName))
     }
   }
-}
-
-/** This functions creates movement animations. */
-export function createAnims (
-  /** The scene the player is in. */
-  scene: GameScene,
-  /** The name that got assigned to the spritesheet when it was loaded. */
-  imageName: string
-): void {
-  // Animationen für Spielfigur
-  // walk animations
-  scene.anims.create({
-    key: 'walk_left',
-    frames: scene.anims.generateFrameNumbers(imageName, {
-      start: 40,
-      end: 47
-    }),
-    frameRate: 10,
-    repeat: -1
-  })
-  scene.anims.create({
-    key: 'walk_right',
-    frames: scene.anims.generateFrameNumbers(imageName, {
-      start: 32,
-      end: 39
-    }),
-    frameRate: 10,
-    repeat: -1
-  })
-  scene.anims.create({
-    key: 'walk_up',
-    frames: scene.anims.generateFrameNumbers(imageName, {
-      start: 24,
-      end: 31
-    }),
-    frameRate: 10,
-    repeat: -1
-  })
-  scene.anims.create({
-    key: 'walk_down',
-    frames: scene.anims.generateFrameNumbers(imageName, {
-      start: 16,
-      end: 23
-    }),
-    frameRate: 10,
-    repeat: -1
-  })
-  // idle animations
-  scene.anims.create({
-    key: 'idle_left',
-    frames: scene.anims.generateFrameNumbers(imageName, {
-      start: 14,
-      end: 12
-    }),
-    frameRate: 5,
-    repeat: -1
-  })
-  scene.anims.create({
-    key: 'idle_right',
-    frames: scene.anims.generateFrameNumbers(imageName, {
-      start: 8,
-      end: 11
-    }),
-    frameRate: 5,
-    repeat: -1
-  })
-  scene.anims.create({
-    key: 'idle_up',
-    frames: scene.anims.generateFrameNumbers(imageName, {
-      start: 4,
-      end: 7
-    }),
-    frameRate: 5,
-    repeat: -1
-  })
-  scene.anims.create({
-    key: 'idle_down',
-    frames: scene.anims.generateFrameNumbers(imageName, {
-      start: 0,
-      end: 3
-    }),
-    frameRate: 5,
-    repeat: -1
-  })
 }
