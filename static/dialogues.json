@@ -57,11 +57,11 @@
   "6": {
     "character": "Sr. Batanero",
     "text": "Telex machines? No! There are just a handful installed. And we don't have this stuff lying around, of course. Please excuse me, I have work to do!",
-    "effect": "isBantaneroBusy"
+    "effect": "isBataneroBusy"
   },
   "7": {
     "character": "Sr. Batanero",
-    "text": "Sure, he should be at his desk over there. *points to the far side of the room* Do you see him, in the red shirt? Please run along. I have work to do!",
+    "text": "Sure, he should be at his desk over there. *points to the far side of the room* Do you see him? Please run along. I have work to do!",
     "effect": "isBataneroBusy"
   },
   "8": {

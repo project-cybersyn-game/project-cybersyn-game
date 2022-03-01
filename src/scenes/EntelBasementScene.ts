@@ -107,13 +107,13 @@ export default class EntelBasementScene extends GameScene {
     //   this.scene.run('ui-dialogue', { startDialogueId: '1' })
     // })
     new Npcs(this, 23, 34, this.imageNames.Telex, 1, () => {
-      this.scene.run('ui-dialogue', { startDialogueId: '18' })
+      this.scene.run('ui-dialogue', { startDialogueId: '19' })
     })
     new Npcs(this, 18, 34, this.imageNames.Telex, 1, () => {
-      this.scene.run('ui-dialogue', { startDialogueId: '18' })
+      this.scene.run('ui-dialogue', { startDialogueId: '19' })
     })
     new Npcs(this, 38, 37, this.imageNames.Telex, 1, () => {
-      this.scene.run('ui-dialogue', { startDialogueId: '18' })
+      this.scene.run('ui-dialogue', { startDialogueId: '19' })
     })
     // Add Paulo NPC
     new Npcs(this, 26, 12, this.imageNames.NPCs, 0.5,
