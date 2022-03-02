@@ -35,7 +35,7 @@ export default class IntroScene extends Phaser.Scene {
         duration: 10000,
         volume: 0
       })
-      this.scene.switch('outdoor')
+      this.scene.run('outdoor')
     }, [], this)
 
     this.enterKey = this.input.keyboard.addKey('ENTER')
