@@ -177,9 +177,9 @@ export class Menu {
       this.pressed = 20
 
       this.cursorLine.setVisible(true)
-
-      this.scene.scene.switch(this.options[this.selectedOption].scene)
       this.scene.sound.stopAll()
+      this.scene.sound.play('click')
+      this.scene.scene.switch(this.options[this.selectedOption].scene)
     } else if (this.pressed > 0) {
       this.pressed--
     }

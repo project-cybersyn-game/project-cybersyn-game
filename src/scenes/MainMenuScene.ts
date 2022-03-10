@@ -22,6 +22,7 @@ export default class MainMenuScene extends Phaser.Scene {
     this.load.image(ImageNames.OpsRoomLight, 'images/main-menu-ops-room-lighteffect.png')
 
     this.load.audio('title_music', ['sounds/title_music.mp3', 'sounds/title_music.ogg'])
+    this.load.audio('click', ['sounds/click.mp3', 'sounds/click.ogg'])
 
     // preload the menu dependencies
     Menu.preload(this)
