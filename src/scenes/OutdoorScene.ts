@@ -76,6 +76,10 @@ export default class OutdoorScene extends GameScene {
     // Spielfiguranimationen und CursorKeys erstellen
     super.create()
 
+    this.time.delayedCall(10000, () => {
+      this.scene.sleep('intro')
+    })
+
     // adding texts on buildings
     this.add.text(20.5 * 24, 4 * 24, 'ENTEL').setDepth(9998)
     this.add.text(46.8 * 24, 26.2 * 24, 'CORFO', {

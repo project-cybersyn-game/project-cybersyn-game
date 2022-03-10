@@ -62,10 +62,10 @@ export default class CorfoIndoorScene extends GameScene {
   loadObjectImages (): void {
     this.load.spritesheet(
       this.imageNames.NPCs,
-      'character_sprites/characters.png',
+      'character_sprites/HC_Humans4A.png',
       {
-        frameWidth: 26,
-        frameHeight: 36
+        frameWidth: 32,
+        frameHeight: 64
       }
     )
   }
@@ -98,7 +98,7 @@ export default class CorfoIndoorScene extends GameScene {
 
   createNpcs (): void {
     // Add Fernando Flores NPC
-    new Npcs(this, 20, 15, this.imageNames.NPCs, 1.2,
+    new Npcs(this, 20, 15, this.imageNames.NPCs, 0.7,
       (
         scene: GameScene,
         name: String
@@ -108,7 +108,7 @@ export default class CorfoIndoorScene extends GameScene {
           GlobalGameState.off('winTheGame')
           this.scene.switch('outro')
         })
-      }, 0)
+      }, 3)
   }
 
   update (): void {

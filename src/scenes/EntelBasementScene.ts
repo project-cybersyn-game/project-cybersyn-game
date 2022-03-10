@@ -38,6 +38,8 @@ export default class EntelBasementScene extends GameScene {
       }
     }
 
+    this.avatarScale = 0.5
+
     this.gridEngineSettings = {
       startPosition: {
         x: 21,
@@ -63,10 +65,10 @@ export default class EntelBasementScene extends GameScene {
   loadObjectImages (): void {
     this.load.spritesheet(
       this.imageNames.NPCs,
-      'character_sprites/characters.png',
+      'character_sprites/HC_Humans3B.png',
       {
-        frameWidth: 26,
-        frameHeight: 36
+        frameWidth: 32,
+        frameHeight: 64
       }
     )
     this.load.image(this.imageNames.Box1, 'images/boxes_16x32/box1.png')
@@ -105,16 +107,16 @@ export default class EntelBasementScene extends GameScene {
     //   this.scene.run('ui-dialogue', { startDialogueId: '1' })
     // })
     new Npcs(this, 23, 34, this.imageNames.Telex, 1, () => {
-      this.scene.run('ui-dialogue', { startDialogueId: '18' })
+      this.scene.run('ui-dialogue', { startDialogueId: '19' })
     })
     new Npcs(this, 18, 34, this.imageNames.Telex, 1, () => {
-      this.scene.run('ui-dialogue', { startDialogueId: '18' })
+      this.scene.run('ui-dialogue', { startDialogueId: '19' })
     })
     new Npcs(this, 38, 37, this.imageNames.Telex, 1, () => {
-      this.scene.run('ui-dialogue', { startDialogueId: '18' })
+      this.scene.run('ui-dialogue', { startDialogueId: '19' })
     })
     // Add Paulo NPC
-    new Npcs(this, 26, 12, this.imageNames.NPCs, 0.8,
+    new Npcs(this, 26, 12, this.imageNames.NPCs, 0.5,
       (
         scene: GameScene,
         name: String
@@ -130,27 +132,33 @@ export default class EntelBasementScene extends GameScene {
           globalGameState.off('resetBoxPuzzle')
           this.reset(true, false)
         })
-      }, 6)
+      }, 0)
     new Objects(this, 22, 20, this.imageNames.Box1, 1)
     new Objects(this, 23, 20, this.imageNames.Box1, 1)
     new Objects(this, 27, 20, this.imageNames.Box2, 1)
     new Objects(this, 30, 20, this.imageNames.Box4, 1)
     new Objects(this, 24, 21, this.imageNames.Box3, 1)
     new Objects(this, 29, 21, this.imageNames.Box2, 1)
-    new Objects(this, 21, 22, this.imageNames.Box2, 1)
     new Objects(this, 27, 22, this.imageNames.Box3, 1)
     new Objects(this, 27, 23, this.imageNames.Box2, 1)
     new Objects(this, 26, 25, this.imageNames.Box3, 1)
     new Objects(this, 27, 25, this.imageNames.Box1, 1)
-    new Objects(this, 21, 26, this.imageNames.Box1, 1)
+    new Objects(this, 21, 25, this.imageNames.Box1, 1)
     new Objects(this, 26, 26, this.imageNames.Box4, 1)
     new Objects(this, 30, 26, this.imageNames.Box2, 1)
-    new Objects(this, 22, 27, this.imageNames.Box2, 1)
-    new Objects(this, 23, 27, this.imageNames.Box1, 1)
+    new Objects(this, 23, 28, this.imageNames.Box1, 1)
     new Objects(this, 29, 27, this.imageNames.Box1, 1)
   }
 
   update (): void {
     super.update()
+  }
+
+  // overwritten for different zoom
+  createCamera (boundLimitX: number, boundLimitY: number): void {
+    // add camera that follows the character
+    this.cameras.main.setBounds(0, 0, boundLimitX, boundLimitY)
+    this.cameras.main.startFollow(this.playerSprite, true)
+    this.cameras.main.setZoom(2)
   }
 }

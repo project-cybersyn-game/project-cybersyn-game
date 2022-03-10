@@ -1,6 +1,8 @@
 import Phaser from 'phaser'
 
 export default class IntroScene extends Phaser.Scene {
+  enterKey!: any
+
   constructor () {
     super('intro')
   }
@@ -36,9 +38,14 @@ export default class IntroScene extends Phaser.Scene {
       this.scene.run('outdoor')
     }, [], this)
 
-    this.input.keyboard.addKey('ENTER').once('down', () => {
+    this.enterKey = this.input.keyboard.addKey('ENTER')
+    this.enterKey.once('down', () => {
       timer.callback()
       timer.destroy()
+    })
+
+    this.scene.scene.events.once('sleep', () => {
+      this.enterKey.off('down')
     })
   }
 }
